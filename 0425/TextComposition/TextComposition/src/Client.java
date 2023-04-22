@@ -6,10 +6,20 @@ public class Client {
     protected ArrayList<Component> components= new ArrayList<Component>(0);
 
     public void newComponent(String[] input) {
+        Component c;
+
+        int ID = Integer.parseInt(input[1]);
+        int size = Integer.parseInt(input[2]);
+        int shrinkAbility = Integer.parseInt(input[3]);
+        int stretchAbility = Integer.parseInt(input[4]);
+        String content = input[5];
+
         if (input[0].equals("Text")) {
-            // TODO: create TextComponent
+            c = new Text(ID, size, shrinkAbility, stretchAbility, content);
+            components.add(c);
         }else if (input[0].equals("GraphicalElement")) {
-            // TODO: create GraphicalComponent
+            c = new GraphicalElement(ID, size, shrinkAbility, stretchAbility, content);
+            components.add(c);
         }
     }
     public String changeSize(String ComponentID, int NewSize) {
