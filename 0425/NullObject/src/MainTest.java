@@ -5,9 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.File;
 import java.io.FileReader;
+import java.io.File;
 
 class MainTest {
 
@@ -20,10 +19,39 @@ class MainTest {
     }
 
     @Test
-    void parseTwoFiles() throws IOException {
-        String file1 = "sampleOutput.out";
-        String file2 = "output.txt";
+    void testMain() throws IOException {
+        Main m = new Main();
+        m.main(new String[]{path + "\\sampleInput.in"});
+        String file1 = path + "\\sampleOutput.out";
+        String file2 = path + "\\outputFiles\\sampleOutput.in";
+        assertTrue(parseTwoFiles(file1, file2));
+    }
 
+    @Test
+    void testAll() throws IOException {
+        File folder = new File(path + "\\testCase");
+        File[] files = folder.listFiles();
+
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile() && file.getName().endsWith("_Input.txt")) {
+                    String prefix = file.getName().replace("_Input.txt", "");
+                    System.out.println("Test case: " + prefix);
+
+                    String inputPath = path + "\\testCase\\" + file.getName();
+                    Main m = new Main();
+                    m.main(new String[]{inputPath});
+
+                    String groundTruth = path + "\\testCase\\" + prefix + "_Output.txt";
+                    String functionOutput = path + "\\outputFiles\\" + prefix + "_Output.txt";
+                    assertTrue(parseTwoFiles(groundTruth, functionOutput));
+                }
+            }
+        }
+        assertTrue(true);
+    }
+
+    Boolean parseTwoFiles(String file1, String file2) throws IOException {
         try (BufferedReader reader1 = new BufferedReader(new FileReader(file1));
              BufferedReader reader2 = new BufferedReader(new FileReader(file2))) {
 
@@ -32,8 +60,7 @@ class MainTest {
 
             while (line1 != null && line2 != null) {
                 if (!line1.equals(line2)) {
-                    System.out.println("Files are different");
-                    return;
+                    return false;
                 }
 
                 line1 = reader1.readLine();
@@ -41,54 +68,13 @@ class MainTest {
             }
 
             if (line1 != null || line2 != null) {
-                System.out.println("Files are different");
+                return false;
             } else {
-                System.out.println("Files are the same");
+                return true;
             }
-//            assertEquals();
-//            assertEquals("Hello world!", m.main(args));
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-//        String inputFile = path + "\\sampleInput.in";
-//        String outputFile = path + "\\sampleOutput.out";
-//        System.out.println(inputFile);
-//
-//        try (BufferedReader inputReader = new BufferedReader(new FileReader(inputFile));
-//             BufferedReader outputReader = new BufferedReader(new FileReader(outputFile))) {
-//
-//            String inputLine = inputReader.readLine();
-//            String outputLine = outputReader.readLine();
-//            String outputStr = "";
-//
-//            while (inputLine != null) {
-//                inputLine = inputReader.readLine();
-//            }
-//
-//            while (outputLine != null) {
-//                outputStr += outputLine;
-//                outputLine = outputReader.readLine();
-//            }
-//
-//            Main m = new Main();
-//            System.out.println(outputStr);
-////            assertEquals("Hello world!", m.main(args));
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        return true;
     }
-//
-//    @Test
-//    void print2() {
-//        Main m = new Main();
-//        assertEquals("Hello Laura!", m.main(args));
-//    }
-//
-//    @Test
-//    void testInput() throws IOException {
-//        Main m = new Main();
-//        assertEquals("Hello Laura!", m.main(args));
-//    }
-
 }

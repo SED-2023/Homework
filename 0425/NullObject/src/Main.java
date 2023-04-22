@@ -46,7 +46,7 @@ public class Main {
             fileReader.close();
 
             OutputParser OutputParser = new OutputParser();
-            OutputParser.parse(outputString);
+            OutputParser.parse(outputString, args[0].replace("Input", "Output"));
         } catch (IOException ex) {
 //            System.out.println("Input Error");
         }
