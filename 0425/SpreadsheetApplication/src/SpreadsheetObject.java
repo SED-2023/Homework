@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class SpreadsheetObject {
+public class SpreadsheetObject implements ChartObject{
     private ApplicationDataObject data;
 
     public SpreadsheetObject() {

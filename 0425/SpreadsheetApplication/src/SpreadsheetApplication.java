@@ -14,15 +14,18 @@ public class SpreadsheetApplication {
         chartList = new ArrayList<ChartObject>();
     }
 
-    public void upsertData(String item, double value) {
+    public void upsertData(String[] input) {
         // Update the data
-        object = new ApplicationDataObject(item, value);
-        dataMap.put(item, object)
+        String item = input[1];
+        double value = Double.parseDouble(input[2]);
+        ApplicationDataObject object = new ApplicationDataObject(item, value);
+        dataMap.put(item, object);
     }
 
-    public void addChart(String chartType) {
+    public void addChart(String[] input) {
         // Add a new chart of the specified type
-        ChartObject chart;
+        String chartType = input[1];
+        ChartObject chart = null;
         switch (chartType) {
             case "Spreadsheet" -> {
                 chart = new SpreadsheetObject();
@@ -30,7 +33,7 @@ public class SpreadsheetApplication {
             case "PieChart" -> {
                 chart = new PieChartObject();
             }
-            case "BarChart": {
+            case "BarChart" -> {
                 chart = new BarChartObject();
             }
         }
@@ -38,19 +41,13 @@ public class SpreadsheetApplication {
 
     }
 
-    public void displayCharts(String charType) {
+    public ArrayList<ArrayList<String>> displayCharts() {
         // Display the charts in addChart order
-        switch (charType) {
-            case "Spreadsheet" -> {
-                spreadsheet.display();
-            }
-            case "BarChart" -> {
-                barCharts.display();
-            }
-            case  "PieChart" -> {
-                pieCharts.display();
-            }
+        ArrayList<ArrayList<String>> outlines = new ArrayList<>();
+        for(ChartObject chart: chartList){
+            outlines.add(chart.display());
         }
+        return outlines;
     }
 
 
