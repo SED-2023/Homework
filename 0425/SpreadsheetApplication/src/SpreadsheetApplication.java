@@ -38,19 +38,13 @@ public class SpreadsheetApplication {
 
     }
 
-    public void displayCharts(String charType) {
+    public ArrayList<ArrayList<String>> displayCharts() {
         // Display the charts in addChart order
-        switch (charType) {
-            case "Spreadsheet" -> {
-                spreadsheet.display();
-            }
-            case "BarChart" -> {
-                barCharts.display();
-            }
-            case  "PieChart" -> {
-                pieCharts.display();
-            }
+        ArrayList<ArrayList<String>> outlines = new ArrayList<>();
+        for(ChartObject chart: chartList){
+            outlines.add(chart.display());
         }
+        return outlines;
     }
 
 
