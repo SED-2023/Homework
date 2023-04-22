@@ -13,7 +13,7 @@ public class TexComposition implements LinebreakingStrategy{
                 // if component.getComponent() is same as "ParagraphEnd", append oneLine into result
 
                 result.add(oneLine);
-                oneLine.clear();
+                oneLine = new ArrayList<Component>(0);
             }
         }
         if (oneLine.size() != 0) {
