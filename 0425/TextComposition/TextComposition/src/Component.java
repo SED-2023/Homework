@@ -34,6 +34,6 @@ public abstract class Component {
         }
     }
     public String display(){
-        return String.format("[%d]%s ", componentID, content);
+        return String.format("[%d]%s ", size, content);
     }
 }
