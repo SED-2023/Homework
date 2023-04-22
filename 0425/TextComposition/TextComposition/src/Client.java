@@ -22,8 +22,12 @@ public class Client {
             components.add(c);
         }
     }
-    public String changeSize(int ComponentID, int NewSize) {
+    public String changeSize(String[] input) {
+        int ComponentID = Integer.parseInt(input[1]);
+        int NewSize = Integer.parseInt(input[2]);
+
         String res = "";
+
         for (Component c: components) {
             if (c.getComponentID() == ComponentID) {
                 res = c.changeSize(NewSize);
@@ -32,7 +36,8 @@ public class Client {
         return res;
     }
 
-    public String[] require(String strategy) {
+    public String[] require(String[] input) {
+        String strategy = input[1];
         ArrayList<ArrayList<Component>> result;
         if (strategy.equals("TexComposition")) {
             result = new SimpleComposition().linebreak(components);
