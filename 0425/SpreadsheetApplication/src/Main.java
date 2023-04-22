@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -25,9 +26,11 @@ public class Main {
                     }
                     case "change":{
                         app.upsertData(tokens);
-                        String[] list = app.displayCharts();
-                        for(String str: list){
-                            System.out.println(str);
+                        ArrayList<ArrayList<String>> list = app.displayCharts();
+                        for(ArrayList<String> chart: list){
+                            for(String dataLine: chart) {
+                                System.out.println(dataLine);
+                            }
                         }
                         break;
                     }
