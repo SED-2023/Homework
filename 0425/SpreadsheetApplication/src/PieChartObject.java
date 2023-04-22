@@ -14,7 +14,7 @@ public class PieChartObject implements ChartObject{
         for (Map.Entry<String, ApplicationDataObject> entry : dataList.entrySet()) {
             ApplicationDataObject object = entry.getValue();
             double percentage = 100 * object.getValue() / all;
-            double roundOff = Math.round(percentage * 10) / 10;
+            double roundOff = Double.valueOf(Math.round(percentage * 10)) / 10;
             outline.add(object.getItem() + " " + roundOff + "%");
         }
 

@@ -4,14 +4,14 @@ import java.util.Set;
 
 public class ApplicationDataObject {
     private String item;
-    private Double value;
+    private double value;
 
     public ApplicationDataObject(String item, Double value) {
         // Initialize the data object
         this.item = item;
         this.value = value;
     }
-    public Double getValue() {
+    public double getValue() {
         return value;
     }
     public String getItem() {

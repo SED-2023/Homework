@@ -26,6 +26,8 @@ public class Main {
                         break;
                     }
                     case "change":{
+                        String log = String.format("%s %s %s %s",tokens[1], tokens[0], tokens[2], tokens[3]);
+                        System.out.println(log);
                         String[] tokensFixed = {tokens[0], tokens[2], tokens[3]};
                         app.upsertData(tokensFixed);
                         ArrayList<ArrayList<String>> list = app.displayCharts();
