@@ -2,13 +2,15 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static AbstractObject createPerson(String name, String job, String weightStr, String heightStr){
+    public static AbstractObject createPerson(String name, String job, String weightStr, String heightStr) {
         AbstractObject person;
-        try{
+        try {
             int weight = Integer.parseInt(weightStr);
             int height = Integer.parseInt(heightStr);
+            weight = weight < 0 ? 0 : weight;
+            height = height < 0 ? 0 : height;
             person = new RealPerson(name, job, weight, height);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             person = new NullPerson(name);
         }
         return person;
@@ -28,59 +30,39 @@ public class Main {
                 String command = tokens[0];
                 switch (command) {
                     case "Person":
-//                        String name = tokens[1];
-//                        String job = tokens[2];
-//                        int weight = Integer.parseInt(tokens[3]);
-//                        int height = Integer.parseInt(tokens[4]);
-//                        AbstractObject person = new RealPerson(name, job, weight, height);
                         AbstractObject person = createPerson(tokens[1], tokens[2], tokens[3], tokens[4]);
                         people.put(tokens[1], person);
                         break;
-//                    case "Job":
-//                        name = tokens[1];
-//                        person = people.getOrDefault(name, new NullPerson());
-//                        System.out.println(person.getJob());
-//                        break;
-//                    case "WeightAverage":
-//                        String name1 = tokens[1];
-//                        String name2 = tokens[2];
-//                        double average = calculateWeightAverage(people, name1, name2);
-//                        if (Double.isNaN(average)) {
-//                            System.out.println("Unknown");
-//                        } else {
-//                            System.out.println((int) average);
-//                        }
-//                        break;
-//                    case "WeightSum":
-//                        name1 = tokens[1];
-//                        name2 = tokens[2];
-//                        int sum = calculateWeightSum(people, name1, name2);
-//                        if (sum == -1) {
-//                            System.out.println("Unknown");
-//                        } else {
-//                            System.out.println(sum);
-//                        }
-//                        break;
-//                    case "HeightAverage":
-//                        name1 = tokens[1];
-//                        name2 = tokens[2];
-//                        average = calculateHeightAverage(people, name1, name2);
-//                        if (Double.isNaN(average)) {
-//                            System.out.println("Unknown");
-//                        } else {
-//                            System.out.println((int) average);
-//                        }
-//                        break;
-//                    case "HeightSum":
-//                        name1 = tokens[1];
-//                        name2 = tokens[2];
-//                        sum = calculateHeightSum(people, name1, name2);
-//                        if (sum == -1) {
-//                            System.out.println("Unknown");
-//                        } else {
-//                            System.out.println(sum);
-//                        }
-//                        break;
+
+                    case "Job":
+                        String name = tokens[1];
+                        person = people.getOrDefault(name, new NullPerson(name));
+                        System.out.println(person.getJob());
+                        break;
+
+                    case "WeightAverage":
+                        String[] nameList = Arrays.copyOfRange(tokens, 1, tokens.length);
+                        double average = calculateWeightAverage(people, nameList);
+                        System.out.println(Math.round(average));
+                        break;
+
+                    case "WeightSum":
+                        String[] nameListForWeightSum = Arrays.copyOfRange(tokens, 1, tokens.length);
+                        int sum = calculateWeightSum(people, nameListForWeightSum);
+                        System.out.println(sum);
+                        break;
+
+                    case "HeightAverage":
+                        String[] nameListForHeightAverage = Arrays.copyOfRange(tokens, 1, tokens.length);
+                        average = calculateHeightAverage(people, nameListForHeightAverage);
+                        System.out.println(Math.round(average));
+                        break;
+
+                    case "HeightSum":
+                        String[] nameListForHeightSum = Arrays.copyOfRange(tokens, 1, tokens.length);
+                        sum = calculateHeightSum(people, nameListForHeightSum);
+                        System.out.println(sum);
+                        break;
                     default:
                         break;
                 }
@@ -88,85 +70,49 @@ public class Main {
             }
             fileReader.close();
         } catch (IOException ex) {
-            System.out.println("Input Error");
+//            System.out.println("Input Error");
         }
         //print
-        people.forEach((k, v) -> System.out.println("Key : " + k + " Value : " + v));
+//        people.forEach((k, v) -> System.out.println("Key : " + k + " Value : " + v));
     }
 
-//    public static double calculateWeightAverage(Map<String, Person> people, String name1, String name2) {
-//        int count = 0;
-//        int sum = 0;
-//        for (Person person : people.values()) {
-//            if (person.getName().equals(name1) || person.getName().equals(name2)) {
-//                if (person.getWeight() < 0) {
-//                    return Double.NaN;
-//                }
-//                sum += person.getWeight();
-//                count++;
-//            }
-//        }
-//        return count == 0 ? Double.NaN : sum / (double) count;
-//    }
-//
-//    public static int calculateWeightSum(Map<String, Person> people, String name1, String name2) {
-//        int sum = 0;
-//        boolean found1 = false;
-//        boolean found2 = false;
-//        for (Person person : people.values()) {
-//            if (person.getName().equals(name1)) {
-//                if (person.getWeight() < 0) {
-//                    return -1;
-//                }
-//                sum += person.getWeight();
-//                found1 = true;
-//            }
-//            if (person.getName().equals(name2)) {
-//                if (person.getWeight() < 0) {
-//                    return -1;
-//                }
-//                sum += person.getWeight();
-//                found2 = true;
-//            }
-//        }
-//        return found1 && found2 ? sum : -1;
-//    }
-//
-//    public static double calculateHeightAverage(Map<String, Person> people, String name1, String name2) {
-//        int count = 0;
-//        int sum = 0;
-//        for (Person person : people.values()) {
-//            if (person.getName().equals(name1) || person.getName().equals(name2)) {
-//                if (person.getHeight() < 0) {
-//                    return Double.NaN;
-//                }
-//                sum += person.getHeight();
-//                count++;
-//            }
-//        }
-//        return count == 0 ? Double.NaN : sum / (double) count;
-//    }
-//
-//    public static int calculateHeightSum(Map<String, Person> people, String name1, String name2) {
-//        int sum = 0;
-//        boolean found1 = false;
-//        boolean found2 = false;
-//        for (Person person : people.values()) {
-//            if (person.getName().equals(name1)) {
-//                if (person.getHeight() < 0) {
-//                    return -1;
-//                }
-//                sum += person.getHeight();
-//                found1 = true;
-//            }
-//            if (person.getName().equals(name2)) {
-//                if (person.getHeight() < 0) {
-//                    return -1;
-//                }
-//                sum += person.getHeight();
-//                found2 = true;
-//            }
-//        }
-//        return found1 && found2 ? sum : -1;
-//    }
+    public static double calculateWeightAverage(Map<String, AbstractObject> people, String[] nameList) {
+        int count = 0;
+        int sum = 0;
+        for (String name : nameList) {
+            AbstractObject person = people.getOrDefault(name, new NullPerson(name));
+            sum += person.getWeight();
+            count++;
+        }
+        return count == 0 ? 0 : (double) sum / count;
+    }
+
+    public static int calculateWeightSum(Map<String, AbstractObject> people, String[] nameList) {
+        int sum = 0;
+        for (String name : nameList) {
+            AbstractObject person = people.getOrDefault(name, new NullPerson(name));
+            sum += person.getWeight();
+        }
+        return sum;
+    }
+
+    public static double calculateHeightAverage(Map<String, AbstractObject> people, String[] nameList) {
+        int count = 0;
+        int sum = 0;
+        for (String name : nameList) {
+            AbstractObject person = people.getOrDefault(name, new NullPerson(name));
+            sum += person.getHeight();
+            count++;
+        }
+        return count == 0 ? 0 : (double) sum / count;
+    }
+
+    public static int calculateHeightSum(Map<String, AbstractObject> people, String[] nameList) {
+        int sum = 0;
+        for (String name : nameList) {
+            AbstractObject person = people.getOrDefault(name, new NullPerson(name));
+            sum += person.getHeight();
+        }
+        return sum;
+    }
 }
