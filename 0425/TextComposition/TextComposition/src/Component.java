@@ -1,6 +1,6 @@
 public abstract class Component {
     protected int componentID;
-    protected int naturalSize;
+    protected int size;
     protected int shrinkAbility;
     protected int stretchAbility;
     protected String content;
@@ -9,8 +9,8 @@ public abstract class Component {
         return componentID;
     }
 
-    public int getNaturalSize() {
-        return naturalSize;
+    public int getSize() {
+        return size;
     }
 
     public int getShrinkAbility() {
@@ -23,5 +23,14 @@ public abstract class Component {
 
     public String getContent() {
         return content;
+    }
+
+    public String changeSize(int newSize){
+        if (newSize < shrinkAbility || newSize > stretchAbility){
+            return String.format("component %d failed to change size", componentID);
+        }else{
+            size = newSize;
+            return String.format("component %d size changed to %d", componentID, newSize);
+        }
     }
 }
