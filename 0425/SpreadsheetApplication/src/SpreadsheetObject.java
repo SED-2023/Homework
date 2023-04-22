@@ -7,7 +7,7 @@ public class SpreadsheetObject implements ChartObject{
 
         for (Map.Entry<String, ApplicationDataObject> entry : dataList.entrySet()) {
             ApplicationDataObject object = entry.getValue();
-            outline.add(object.getItem() + object.getValue().toString());
+            outline.add(object.getItem() + " " + object.getValue().toString());
         }
 
         return outline;
