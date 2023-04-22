@@ -11,33 +11,40 @@ public class Main {
             InputParser input = new InputParser();
             BufferedReader fileReader = input.parse(args);
             String line = fileReader.readLine();
+
             String outputLine = "";
+            ArrayList<String> outputString = new ArrayList<>();
+
             while (line != null) {
                 String[] tokens = line.split(" ");
                 String command = tokens[0];
                 switch (command) {
                     case "Text":
-                    case "GraphicalElement":{
+                    case "GraphicalElement": {
                         client.newComponent(tokens);
                         break;
                     }
-                    case "ChangeSize":{
+                    case "ChangeSize": {
                         outputLine = client.changeSize(tokens);
-                        System.out.println(outputLine);
+                        outputString.add(outputLine);
                         break;
                     }
-                    case "Require":{
-                        String[] list =client.require(tokens);
-                        for(String str: list){
-                            System.out.println(str);
+                    case "Require": {
+                        String[] list = client.require(tokens);
+                        for (String str : list) {
+                            outputString.add(str);
                         }
                         break;
                     }
                 }
                 line = fileReader.readLine();
             }
+            fileReader.close();
+
+            OutputParser OutputParser = new OutputParser();
+            OutputParser.parse(outputString, args[0].replace("Input", "Output"));
         } catch (IOException ex) {
-            System.out.println("Input Error");
+//            System.out.println("Input Error");
         }
 
     }

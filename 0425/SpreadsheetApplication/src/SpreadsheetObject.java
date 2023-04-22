@@ -1,22 +1,15 @@
 import java.util.*;
 
 public class SpreadsheetObject implements ChartObject{
-    private ApplicationDataObject data;
+    @Override
+    public ArrayList<String> display(LinkedHashMap<String, ApplicationDataObject> dataList) {
+        ArrayList<String> outline = new ArrayList<>();
 
-    public SpreadsheetObject() {
-        // Initialize the spreadsheet chart object
-        data = new ApplicationDataObject();
-    }
+        for (Map.Entry<String, ApplicationDataObject> entry : dataList.entrySet()) {
+            ApplicationDataObject object = entry.getValue();
+            outline.add(object.getItem() + " " + object.getValue().toString());
+        }
 
-    public void setData(ApplicationDataObject newData) {
-        // Update the data in the spreadsheet chart
-        this.data = newData;
-        System.out.println("Success");
-    }
-
-    public void display() {
-        // Display the spreadsheet chart
-        System.out.println("Bar Chart:");
-        System.out.println();
+        return outline;
     }
 }

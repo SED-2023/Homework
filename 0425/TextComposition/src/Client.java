@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Client {
 
-    protected ArrayList<Component> components= new ArrayList<Component>(0);
+    protected ArrayList<Component> components = new ArrayList<Component>(0);
 
     public void newComponent(String[] input) {
         Component c;
@@ -17,17 +17,18 @@ public class Client {
         if (input[0].equals("Text")) {
             c = new Text(ID, size, shrinkAbility, stretchAbility, content);
             components.add(c);
-        }else if (input[0].equals("GraphicalElement")) {
+        } else if (input[0].equals("GraphicalElement")) {
             c = new GraphicalElement(ID, size, shrinkAbility, stretchAbility, content);
             components.add(c);
         }
     }
+
     public String changeSize(String[] input) {
         int ComponentID = Integer.parseInt(input[1]);
         int NewSize = Integer.parseInt(input[2]);
 
         String res = "";
-        for (Component c: components) {
+        for (Component c : components) {
 
             if (c.getComponentID() == ComponentID) {
                 res = c.changeSize(NewSize);
@@ -45,9 +46,9 @@ public class Client {
         ArrayList<ArrayList<Component>> result;
         if (strategy.equals("TexComposition")) {
             result = new TexComposition().linebreak(components);
-        }else if (strategy.equals("ArrayComposition")){
+        } else if (strategy.equals("ArrayComposition")) {
             result = new ArrayComposition().linebreak(components);
-        }else {
+        } else {
             result = new SimpleComposition().linebreak(components);
         }
         return displayLayout(result);
@@ -61,13 +62,16 @@ public class Client {
         for (int i = 0; i < numOfLines; i++) {
             componentList = result.get(i);
             line = "";
-            for (Component c: componentList) {
+            int componentCount = 0;
+            for (Component c : componentList) {
+                if (componentCount > 0)
+                    line += " ";
                 line += c.display();
+                componentCount++;
             }
             layout[i] = line;
         }
         return layout;
-
     }
 
 }
