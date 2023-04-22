@@ -16,7 +16,7 @@ public class Main {
                 String[] tokens = line.split(" ");
                 switch (tokens[0]) {
                     case "data":{
-                        app.addData(tokens);
+                        app.upsertData(tokens);
                         break;
                     }
                     case "addChart":{

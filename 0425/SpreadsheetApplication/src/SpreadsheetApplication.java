@@ -14,36 +14,28 @@ public class SpreadsheetApplication {
         chartList = new ArrayList<ChartObject>();
     }
 
-    public void updateData(String item, double value) {
+    public void upsertData(String item, double value) {
         // Update the data
-        spreadsheet.setData(data);
-        barCharts.setData(data);
-        pieCharts.setData(data);
+        object = new ApplicationDataObject(item, value);
+        dataMap.put(item, object)
     }
 
     public void addChart(String chartType) {
         // Add a new chart of the specified type
+        ChartObject chart;
         switch (chartType) {
             case "Spreadsheet" -> {
-                ChartObject chart = new SpreadsheetObject();
-                break;
+                chart = new SpreadsheetObject();
             }
             case "PieChart" -> {
-                ChartObject chart = new PieChartObject();
-                break;
+                chart = new PieChartObject();
             }
-            case "BarChart" -> {
-                ChartObject chart = new BarChartObject();
-                break;
+            case "BarChart": {
+                chart = new BarChartObject();
             }
         }
         chartList.add(chart);
 
-    }
-
-    public void changeValue(String chartType, String item, double value) {
-        // Change the value of an item in DataObject
-        data.updateData(item, value);
     }
 
     public void displayCharts(String charType) {
