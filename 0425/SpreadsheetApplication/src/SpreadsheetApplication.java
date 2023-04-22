@@ -5,10 +5,13 @@ import java.util.List;
 
 public class SpreadsheetApplication {
 
+    private LinkedHashMap<String, ApplicationDataObject> dataMap;
+    private ArrayList<ChartObject> chartList;
+
     public SpreadsheetApplication() {
         // Initialize the spreadsheet, bar charts, pie charts, and data objects
-        LinkedHashMap<String, ApplicationDataObject> dataMap = new LinkedHashMap<>();
-        ArrayList<ChartObject> chartList = new ArrayList<ChartObject>();
+        dataMap = new LinkedHashMap<>();
+        chartList = new ArrayList<ChartObject>();
     }
 
     public void addData(String item, double value) {
@@ -20,15 +23,20 @@ public class SpreadsheetApplication {
         // Add a new chart of the specified type
         switch (chartType) {
             case "Spreadsheet" -> {
-                SpreadsheetObject spreadsheet = new SpreadsheetObject();
+                ChartObject chart = new SpreadsheetObject();
+                break;
             }
             case "PieChart" -> {
-                PieChartObject pieChart = new PieChartObject();
+                ChartObject chart = new PieChartObject();
+                break;
             }
             case "BarChart" -> {
-                BarChartObject barChart = new BarChartObject();
+                ChartObject chart = new BarChartObject();
+                break;
             }
         }
+        chartList.add(chart);
+
     }
 
     public void changeValue(String chartType, String item, double value) {
