@@ -1,21 +1,23 @@
 import java.util.*;
 
 public class PieChartObject implements ChartObject{
-    private ApplicationDataObject data;
 
-    public PieChartObject() {
-        // Initialize the pie chart object
-        data = new ApplicationDataObject();
-    }
+    @Override
+    public ArrayList<String> display(LinkedHashMap<String, ApplicationDataObject> dataList) {
+        ArrayList<String> outline = new ArrayList<>();
+        double all = 0;
+        for (Map.Entry<String, ApplicationDataObject> entry : dataList.entrySet()) {
+            ApplicationDataObject object = entry.getValue();
+            all += object.getValue();
+        }
 
-    public void setData(ApplicationDataObject newData) {
-        // Update the data in the pie chart
-        this.data = newData;
-    }
+        for (Map.Entry<String, ApplicationDataObject> entry : dataList.entrySet()) {
+            ApplicationDataObject object = entry.getValue();
+            double percentage = 100 * object.getValue() / all;
+            double roundOff = Math.round(percentage * 10) / 10;
+            outline.add(object.getItem() + " " + roundOff + "%");
+        }
 
-    public void display() {
-        // Display the pie chart
-        System.out.println("Pie Chart:");
-        System.out.println();
+        return outline;
     }
 }
