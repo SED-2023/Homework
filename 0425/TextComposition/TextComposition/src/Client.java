@@ -22,8 +22,14 @@ public class Client {
             components.add(c);
         }
     }
-    public String changeSize(String ComponentID, int NewSize) {
-        // TODO: change size in component
+    public String changeSize(int ComponentID, int NewSize) {
+        String res = "";
+        for (Component c: components) {
+            if (c.getComponentID() == ComponentID) {
+                res = c.changeSize(NewSize);
+            }
+        }
+        return res;
     }
 
     public String[] require(String strategy) {
@@ -48,7 +54,7 @@ public class Client {
             line = "";
 
             for (Component c: componentList) {
-                line += "[" + c.getNaturalSize() + "]" + c.getContent() + " ";
+                line += String.format("[%d]%d ", c.getSize(), c.getContent());
             }
             layout[i] = line;
 
