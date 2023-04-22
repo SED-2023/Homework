@@ -26,7 +26,8 @@ public class Main {
                         break;
                     }
                     case "change":{
-                        app.upsertData(tokens);
+                        String[] tokensFixed = {tokens[0], tokens[2], tokens[3]};
+                        app.upsertData(tokensFixed);
                         ArrayList<ArrayList<String>> list = app.displayCharts();
                         for(ArrayList<String> chart: list){
                             for(String dataLine: chart) {

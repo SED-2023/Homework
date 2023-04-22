@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SpreadsheetApplication.iml" filepath="$PROJECT_DIR$/.idea/SpreadsheetApplication.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/SpreadsheetApplication1.iml" filepath="$PROJECT_DIR$/src/SpreadsheetApplication1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpreadsheetApplication2.iml" filepath="$PROJECT_DIR$/SpreadsheetApplication2.iml" />
     </modules>
   </component>
 </project>
