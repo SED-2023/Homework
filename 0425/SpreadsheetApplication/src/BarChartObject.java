@@ -6,9 +6,9 @@ public class BarChartObject implements ChartObject{
         ArrayList<String> outline = new ArrayList<>();
         for (Map.Entry<String, ApplicationDataObject> entry : dataList.entrySet()) {
             ApplicationDataObject object = entry.getValue();
-            String text = new String();
+            StringBuilder text = new StringBuilder();
             for( int i = 0; i < object.getValue() ; i++ ){
-                text += "=";
+                text.append("=");
             }
             outline.add(text + " " + object.getItem());
         }
