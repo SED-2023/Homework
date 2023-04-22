@@ -27,11 +27,15 @@ public class Client {
         int NewSize = Integer.parseInt(input[2]);
 
         String res = "";
-
         for (Component c: components) {
+
             if (c.getComponentID() == ComponentID) {
                 res = c.changeSize(NewSize);
+                break;
             }
+        }
+        if (res.equals("")) {
+            res = "ComponentID not exists.";
         }
         return res;
     }
@@ -40,9 +44,9 @@ public class Client {
         String strategy = input[1];
         ArrayList<ArrayList<Component>> result;
         if (strategy.equals("TexComposition")) {
-            result = new SimpleComposition().linebreak(components);
+            result = new TexComposition().linebreak(components);
         }else if (strategy.equals("ArrayComposition")){
-            result = new SimpleComposition().linebreak(components);
+            result = new ArrayComposition().linebreak(components);
         }else {
             result = new SimpleComposition().linebreak(components);
         }
@@ -57,12 +61,10 @@ public class Client {
         for (int i = 0; i < numOfLines; i++) {
             componentList = result.get(i);
             line = "";
-
             for (Component c: componentList) {
-                line += String.format("[%d]%d ", c.getSize(), c.getContent());
+                line += String.format("[%d]%s ", c.getSize(), c.getContent());
             }
             layout[i] = line;
-
         }
         return layout;
 

@@ -13,6 +13,7 @@ public class ArrayComposition implements LinebreakingStrategy {
 
             if (i % lineSize == 0) {
                 // if reach lineSize, append oneLine into result
+                oneLine.add(components.get(i));
                 result.add(oneLine);
                 oneLine.clear();
             }else {

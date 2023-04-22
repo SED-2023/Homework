@@ -11,6 +11,7 @@ public class Main {
             InputParser input = new InputParser();
             BufferedReader fileReader = input.parse(args);
             String line = fileReader.readLine();
+            String outputLine = "";
             while (line != null) {
                 String[] tokens = line.split(" ");
                 String command = tokens[0];
@@ -18,14 +19,21 @@ public class Main {
                     case "Text":
                     case "GraphicalElement":{
                         client.newComponent(tokens);
+                        break;
                     }
                     case "ChangeSize":{
-                        client.changeSize(tokens);
+                        outputLine = client.changeSize(tokens);
+                        System.out.println(outputLine);
+                        break;
                     }
                     case "Require":{
-                        client.require(tokens);
+                        String[] list =client.require(tokens);
+                        for(String str: list){
+                            System.out.println(str);
+                        }
                     }
                 }
+                line = fileReader.readLine();
             }
         } catch (IOException ex) {
             System.out.println("Input Error");
