@@ -62,7 +62,7 @@ public class Client {
             componentList = result.get(i);
             line = "";
             for (Component c: componentList) {
-                line += String.format("[%d]%s ", c.getSize(), c.getContent());
+                line += c.display();
             }
             layout[i] = line;
         }

@@ -33,4 +33,7 @@ public abstract class Component {
             return String.format("component %d size changed to %d", componentID, newSize);
         }
     }
+    public String display(){
+        return String.format("[%d]%s ", componentID, content);
+    }
 }
