@@ -13,18 +13,18 @@ public class Main {
                     String job = tokens[2];
                     int weight = Integer.parseInt(tokens[3]);
                     int height = Integer.parseInt(tokens[4]);
-                    Person person = new RealPerson(name, job, weight, height);
+                    Person person = new Person(name, job, weight, height);
                     people.put(name, person);
                     break;
                 case "Job":
                     name = tokens[1];
                     person = people.getOrDefault(name, new NullPerson());
-                    System.out.println(person.getjob());
+                    System.out.println(person.getJob());
                     break;
                 case "WeightAverage":
                     String name1 = tokens[1];
                     String name2 = tokens[2];
-                    double average = calculateWeightAverage(people, name1, name2);
+                    double average = WeightAverage(people, name1, name2);
                     if (Double.isNaN(average)) {
                         System.out.println("Unknown");
                     } else {
@@ -34,7 +34,7 @@ public class Main {
                 case "WeightSum":
                     name1 = tokens[1];
                     name2 = tokens[2];
-                    int sum = calculateWeightSum(people, name1, name2);
+                    int sum = WeightSum(people, name1, name2);
                     if (sum == -1) {
                         System.out.println("Unknown");
                     } else {
@@ -44,7 +44,7 @@ public class Main {
                 case "HeightAverage":
                     name1 = tokens[1];
                     name2 = tokens[2];
-                    average = calculateHeightAverage(people, name1, name2);
+                    average = HeightAverage(people, name1, name2);
                     if (Double.isNaN(average)) {
                         System.out.println("Unknown");
                     } else {
@@ -54,7 +54,7 @@ public class Main {
                 case "HeightSum":
                     name1 = tokens[1];
                     name2 = tokens[2];
-                    sum = calculateHeightSum(people, name1, name2);
+                    sum = HeightSum(people, name1, name2);
                     if (sum == -1) {
                         System.out.println("Unknown");
                     } else {
@@ -71,7 +71,7 @@ public class Main {
             }
         }}
 
-    public static double calculateWeightAverage(Map<String, Person> people, String name1, String name2) {
+    public static double WeightAverage(Map<String, Person> people, String name1, String name2) {
         int count = 0;
         int sum = 0;
         for (Person person : people.values()) {
@@ -86,7 +86,7 @@ public class Main {
         return count == 0 ? Double.NaN : sum / (double) count;
     }
 
-    public static int calculateWeightSum(Map<String, Person> people, String name1, String name2) {
+    public static int WeightSum(Map<String, Person> people, String name1, String name2) {
         int sum = 0;
         boolean found1 = false;
         boolean found2 = false;
@@ -109,7 +109,7 @@ public class Main {
         return found1 && found2 ? sum : -1;
     }
 
-    public static double calculateHeightAverage(Map<String, Person> people, String name1, String name2) {
+    public static double HeightAverage(Map<String, Person> people, String name1, String name2) {
         int count = 0;
         int sum = 0;
         for (Person person : people.values()) {
@@ -124,7 +124,7 @@ public class Main {
         return count == 0 ? Double.NaN : sum / (double) count;
     }
 
-    public static int calculateHeightSum(Map<String, Person> people, String name1, String name2) {
+    public static int HeightSum(Map<String, Person> people, String name1, String name2) {
         int sum = 0;
         boolean found1 = false;
         boolean found2 = false;
