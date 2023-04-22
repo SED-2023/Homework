@@ -1,19 +1,14 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class SpreadsheetApplication {
-    private final SpreadsheetObject spreadsheet;
-    private final BarChartObject barCharts;
-    private final PieChartObject pieCharts;
-    private final ApplicationDataObject data;
 
     public SpreadsheetApplication() {
         // Initialize the spreadsheet, bar charts, pie charts, and data objects
-        spreadsheet = new SpreadsheetObject();
-        barCharts = new BarChartObject();
-        pieCharts = new PieChartObject();
-        data = new ApplicationDataObject();
+        LinkedHashMap<String, ApplicationDataObject> dataMap = new LinkedHashMap<>();
+        ArrayList<ChartObject> chartList = new ArrayList<ChartObject>();
     }
 
     public void updateData(String item, double value) {
