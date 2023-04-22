@@ -14,9 +14,10 @@ public class SpreadsheetApplication {
         chartList = new ArrayList<ChartObject>();
     }
 
-    public void addData(String item, double value) {
+    public void upsertData(String item, double value) {
         // Update the data
         object = new ApplicationDataObject(item, value);
+        dataMap.put(item, object)
     }
 
     public void addChart(String chartType) {
