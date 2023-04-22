@@ -45,7 +45,7 @@ public class SpreadsheetApplication {
         // Display the charts in addChart order
         ArrayList<ArrayList<String>> outlines = new ArrayList<>();
         for(ChartObject chart: chartList){
-            outlines.add(chart.display());
+            outlines.add(chart.display(dataMap));
         }
         return outlines;
     }
