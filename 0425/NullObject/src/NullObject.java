@@ -1,11 +1,11 @@
 public final class NullObject implements AbstractObject{
     @Override
-    public String getperson() {
+    public String getName() {
         return "Unknown";
     }
 
     @Override
-    public String getjob() {
+    public String getJob() {
         return "Unknown";
     }
 

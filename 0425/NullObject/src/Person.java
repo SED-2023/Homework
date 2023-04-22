@@ -12,7 +12,7 @@ public class Person implements AbstractObject{
     }
 
     @Override
-    public String getperson() {
+    public String getName() {
         return name;
     }
 
@@ -22,12 +22,12 @@ public class Person implements AbstractObject{
     }
 
     @Override
-    public int getweight() {
+    public int getWeight() {
         return weight;
     }
 
     @Override
-    public int getheight() {
+    public int getHeight() {
         return height;
     }
 

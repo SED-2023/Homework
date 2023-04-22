@@ -1,8 +1,8 @@
 public interface AbstractObject {
-    String getperson();
-    String getjob();
-    int getweight();
-    int getheight();
+    String getName();
+    String getJob();
+    int getWeight();
+    int getHeight();
     int WeightAverage();
     int WeightSum();
     int HeightAverage();
