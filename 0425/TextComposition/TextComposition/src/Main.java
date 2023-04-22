@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+
         Client client = new Client();
 
         try {
@@ -29,5 +30,6 @@ public class Main {
         } catch (IOException ex) {
             System.out.println("Input Error");
         }
+
     }
 }
