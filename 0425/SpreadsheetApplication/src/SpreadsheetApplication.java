@@ -11,11 +11,9 @@ public class SpreadsheetApplication {
         ArrayList<ChartObject> chartList = new ArrayList<ChartObject>();
     }
 
-    public void updateData(String item, double value) {
+    public void addData(String item, double value) {
         // Update the data
-        spreadsheet.setData(data);
-        barCharts.setData(data);
-        pieCharts.setData(data);
+        object = new ApplicationDataObject(item, value);
     }
 
     public void addChart(String chartType) {
