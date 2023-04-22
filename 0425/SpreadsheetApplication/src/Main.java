@@ -6,6 +6,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         // Create a new instance of the spreadsheet application
         SpreadsheetApplication app = new SpreadsheetApplication();
+        ArrayList<String> outputString = new ArrayList<>();
 
         // Read input file and update data object
         try {
@@ -38,6 +39,8 @@ public class Main {
                 line = fileReader.readLine();
             }
             fileReader.close();
+            OutputParser OutputParser = new OutputParser();
+            OutputParser.parse(outputString, args[0].replace("Input", "Output"));
         } catch (IOException e) {
             System.err.println("Error reading input file: " + e.getMessage());
         }

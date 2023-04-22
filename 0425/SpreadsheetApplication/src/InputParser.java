@@ -5,9 +5,7 @@ import java.io.IOException;
 
 public class InputParser {
     public BufferedReader parse(String[] args) throws IOException {
-        String filename = "C:\\Users\\robert\\Desktop\\JavaProjects\\hw2\\sampleInput";
-
-        // input file start
+        String filename = args[0];
         File fakeDataFile = new File(filename);
         BufferedReader fileReader = new BufferedReader(new FileReader(fakeDataFile));
         return fileReader;

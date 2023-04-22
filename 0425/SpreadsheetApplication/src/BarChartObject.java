@@ -1,21 +1,17 @@
 import java.util.*;
 
 public class BarChartObject implements ChartObject{
-    private ApplicationDataObject data;
+    @Override
+    public ArrayList<String> display(LinkedHashMap<String, ApplicationDataObject> dataList) {
+        ArrayList<String> outline = new ArrayList<>();
+        for (Map.Entry<String, ApplicationDataObject> entry : dataList.entrySet()) {
+            ApplicationDataObject object = entry.getValue();
+            for( i = 0; i < object.getValue() ; i++ ){
+                outline.add("=");
+            }
+            outline.add(" " + object.getItem());
+        }
 
-    public BarChartObject() {
-        // Initialize the bar chart object
-        data = new ApplicationDataObject();
-    }
-
-    public void setData(ApplicationDataObject newData) {
-        // Update the data in the bar chart
-        this.data = newData;
-    }
-
-    public void display() {
-        // Display the bar chart
-        System.out.println("Bar Chart:");
-        System.out.println();
+        return outline;
     }
 }
