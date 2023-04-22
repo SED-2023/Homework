@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class BarChartObject {
+public class BarChartObject implements ChartObject{
     private ApplicationDataObject data;
 
     public BarChartObject() {

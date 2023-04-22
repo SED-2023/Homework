@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PieChartObject {
+public class PieChartObject implements ChartObject{
     private ApplicationDataObject data;
 
     public PieChartObject() {
