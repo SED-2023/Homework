@@ -15,14 +15,21 @@ public class Main {
             while (line != null) {
                 String[] tokens = line.split(" ");
                 switch (tokens[0]) {
-                    case "data" -> {
-
+                    case "data":{
+                        app.addData(tokens);
+                        break;
                     }
-                    case "addChart" -> {
-
+                    case "addChart":{
+                        app.addChart(tokens);
+                        break;
                     }
-                    case "change" -> {
-
+                    case "change":{
+                        app.upsertData(tokens);
+                        String[] list = app.displayCharts();
+                        for(String str: list){
+                            System.out.println(str);
+                        }
+                        break;
                     }
                 }
                 line = fileReader.readLine();

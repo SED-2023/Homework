@@ -31,6 +31,7 @@ public class Main {
                         for(String str: list){
                             System.out.println(str);
                         }
+                        break;
                     }
                 }
                 line = fileReader.readLine();
