@@ -2,38 +2,44 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+    public static AbstractObject createPerson(String name, String job, String weightStr, String heightStr){
+        AbstractObject person;
+        try{
+            int weight = Integer.parseInt(weightStr);
+            int height = Integer.parseInt(heightStr);
+            person = new RealPerson(name, job, weight, height);
+        }catch (NumberFormatException e){
+            person = new NullPerson(name);
+        }
+        return person;
+    }
+
+
     public static void main(String[] args) throws IOException {
+        Map<String, AbstractObject> people = new HashMap<>();
         try {
             InputParser input = new InputParser();
             BufferedReader fileReader = input.parse(args);
             String line = fileReader.readLine();
-//            String filename = args[0];
-//
-//            // input file start
-//            File fakeDataFile = new File(filename);
-//            BufferedReader fileReader = new BufferedReader(new FileReader(fakeDataFile));
-//
-//            String line = fileReader.readLine();
-//            line = fileReader.readLine();
 
-//        Map<String, Person> people = new HashMap<>();
             while (line != null) {
-                System.out.println(line);
-//                String[] tokens = line.split(" ");
-//                String command = tokens[0];
-//                switch (command) {
-//                    case "Person":
+//                System.out.println(line);
+                String[] tokens = line.split(" ");
+                String command = tokens[0];
+                switch (command) {
+                    case "Person":
 //                        String name = tokens[1];
 //                        String job = tokens[2];
 //                        int weight = Integer.parseInt(tokens[3]);
 //                        int height = Integer.parseInt(tokens[4]);
-//                        Person person = new RealPerson(name, job, weight, height);
-//                        people.put(name, person);
-//                        break;
+//                        AbstractObject person = new RealPerson(name, job, weight, height);
+                        AbstractObject person = createPerson(tokens[1], tokens[2], tokens[3], tokens[4]);
+                        people.put(tokens[1], person);
+                        break;
 //                    case "Job":
 //                        name = tokens[1];
 //                        person = people.getOrDefault(name, new NullPerson());
-//                        System.out.println(person.getjob());
+//                        System.out.println(person.getJob());
 //                        break;
 //                    case "WeightAverage":
 //                        String name1 = tokens[1];
@@ -75,15 +81,17 @@ public class Main {
 //                            System.out.println(sum);
 //                        }
 //                        break;
-//                    default:
-//                        break;
-//                }
+                    default:
+                        break;
+                }
                 line = fileReader.readLine();
             }
             fileReader.close();
         } catch (IOException ex) {
             System.out.println("Input Error");
         }
+        //print
+        people.forEach((k, v) -> System.out.println("Key : " + k + " Value : " + v));
     }
 
 //    public static double calculateWeightAverage(Map<String, Person> people, String name1, String name2) {
