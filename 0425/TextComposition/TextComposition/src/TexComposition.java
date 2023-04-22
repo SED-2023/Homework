@@ -9,10 +9,10 @@ public class TexComposition implements LinebreakingStrategy{
 
         for (int i = 0; i < components.size(); i++) {
 
-            if (components.get(i).getComponent().equals("ParagraphEnd")) {
+            if (components.get(i).getContent().equals("ParagraphEnd")) {
                 // if component.getComponent() is same as "ParagraphEnd", append oneLine into result
                 result.add(oneLine);
-                oneLine = new ArrayList<Component>(0);
+                oneLine.clear();
             }else {
                 // else, add component to oneLine
                 oneLine.add(components.get(i));
@@ -21,6 +21,6 @@ public class TexComposition implements LinebreakingStrategy{
         if (oneLine.size() != 0) {
             result.add(oneLine);
         }
-        return result;;
+        return result;
     }
 }
