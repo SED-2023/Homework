@@ -20,11 +20,13 @@ class MainTest {
 
     @Test
     void testMain() throws IOException {
+        System.out.println("\nTest case: sample");
+        System.out.println("Result: ");
         Main m = new Main();
         m.main(new String[]{path + "\\sampleInput.in"});
-        String file1 = path + "\\sampleOutput.out";
-        String file2 = path + "\\outputFiles\\sampleOutput.in";
-        assertTrue(parseTwoFiles(file1, file2));
+        String expectedFile = path + "\\sampleOutput.out";
+        String actualFile = path + "\\outputFiles\\sampleOutput.in";
+        assertTrue(parseTwoFiles(expectedFile, actualFile));
     }
 
     @Test
@@ -36,7 +38,8 @@ class MainTest {
             for (File file : files) {
                 if (file.isFile() && file.getName().endsWith("_Input.txt")) {
                     String prefix = file.getName().replace("_Input.txt", "");
-                    System.out.println("Test case: " + prefix);
+                    System.out.println("\nTest case: " + prefix);
+                    System.out.println("Result: ");
 
                     String inputPath = path + "\\testCase\\" + file.getName();
                     Main m = new Main();
@@ -51,23 +54,29 @@ class MainTest {
         assertTrue(true);
     }
 
-    Boolean parseTwoFiles(String file1, String file2) throws IOException {
-        try (BufferedReader reader1 = new BufferedReader(new FileReader(file1));
-             BufferedReader reader2 = new BufferedReader(new FileReader(file2))) {
+    Boolean parseTwoFiles(String expectedFile, String actualFile) throws IOException {
+        try (BufferedReader expectedReader = new BufferedReader(new FileReader(expectedFile));
+             BufferedReader actualReader = new BufferedReader(new FileReader(actualFile))) {
 
-            String line1 = reader1.readLine();
-            String line2 = reader2.readLine();
+            String expectedLine = expectedReader.readLine();
+            String actualLine = actualReader.readLine();
 
-            while (line1 != null && line2 != null) {
-                if (!line1.equals(line2)) {
+            while (expectedLine != null && actualLine != null) {
+                if (!expectedLine.equals(actualLine)) {
+                    System.out.println("\nExpected: " + expectedLine);
+                    System.out.println("Actual  : " + actualLine);
                     return false;
                 }
 
-                line1 = reader1.readLine();
-                line2 = reader2.readLine();
+                expectedLine = expectedReader.readLine();
+                actualLine = actualReader.readLine();
             }
 
-            if (line1 != null || line2 != null) {
+            if (expectedLine != null || actualLine != null) {
+                if(expectedLine != null )
+                    System.out.println("\nExpected: " + expectedLine + "\nActual  : <none>");
+                if(actualLine != null )
+                    System.out.println("\nExpected: <none> \nActual  : "+ actualLine);
                 return false;
             } else {
                 return true;

@@ -1,9 +1,13 @@
-Person Alice Accountant 60 175
-Person Bob Backend hi 173
-Person Cindy Frontend 75 182
-Job Cindy
-WeightAverage Alice Bob
-WeightSum Bob Cindy Alice
-HeightAverage Alice Cindy
-Job Bob
-HeightSum Bob
+Text 0 12 5 72 Hi
+Text 1 1 1 1 <ParagraphEnd>
+Text 2 12 5 72 nice
+GraphicalElement 3 10 10 100 happy.jpg
+ChangeSize 3 5
+Text 4 12 5 72 meet
+Text 5 12 5 72 you
+GraphicalElement 6 20 10 100 scared.jpg
+Text 7 1 1 1 <ParagraphEnd>
+ChangeSize 0 10
+Require SimpleComposition
+Require TexComposition
+Require ArrayComposition
