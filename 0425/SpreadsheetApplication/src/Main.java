@@ -17,23 +17,23 @@ public class Main {
             while (line != null) {
                 String[] tokens = line.split(" ");
                 switch (tokens[0]) {
-                    case "data":{
+                    case "data": {
                         app.upsertData(tokens);
                         break;
                     }
-                    case "addChart":{
+                    case "addChart": {
                         app.addChart(tokens);
                         break;
                     }
-                    case "change":{
-                        String log = String.format("%s %s %s %s",tokens[1], tokens[0], tokens[2], tokens[3]);
-                        System.out.println(log);
+                    case "change": {
+                        String log = String.format("%s %s %s %s.", tokens[1], tokens[0], tokens[2], tokens[3]);
+                        outputString.add(log);
                         String[] tokensFixed = {tokens[0], tokens[2], tokens[3]};
                         app.upsertData(tokensFixed);
                         ArrayList<ArrayList<String>> list = app.displayCharts();
-                        for(ArrayList<String> chart: list){
-                            for(String dataLine: chart) {
-                                System.out.println(dataLine);
+                        for (ArrayList<String> chart : list) {
+                            for (String dataLine : chart) {
+                                outputString.add(dataLine);
                             }
                         }
                         break;

@@ -1,12 +1,14 @@
 Text 0 12 5 72 Hi
 Text 1 1 1 1 <ParagraphEnd>
-Text 2 12 5 72 nice
-Text 3 12 5 72 to
-Text 4 12 5 72 meet
-Text 5 12 5 72 you
-GraphicalElement 6 20 10 100 scared.jpg
-Text 7 1 1 1 <ParagraphEnd>
-ChangeSize 0 10
+Text 2 1 1 1 <ParagraphEnd>
+Text 3 1 1 1 <ParagraphEnd>
+Text 4 12 5 72 nice
+Text 5 12 5 72 to
+Text 6 12 5 72 meet
+Text 7 12 5 72 you
+GraphicalElement 8 20 10 100 scared.jpg
 Require SimpleComposition
+ChangeSize 0 10
+ChangeSize 4 3
 Require TexComposition
 Require ArrayComposition

@@ -1,14 +1,18 @@
-component 0 size changed to 10
-[10]Hi
+[12]Hi
+[1]<ParagraphEnd>
+[1]<ParagraphEnd>
 [1]<ParagraphEnd>
 [12]nice
 [12]to
 [12]meet
 [12]you
 [20]scared.jpg
-[1]<ParagraphEnd>
+component 0 size changed to 10
+component 4 failed to change size
 [10]Hi [1]<ParagraphEnd>
-[12]nice [12]to [12]meet [12]you [20]scared.jpg [1]<ParagraphEnd>
-[10]Hi [1]<ParagraphEnd> [12]nice
-[12]to [12]meet [12]you
-[20]scared.jpg [1]<ParagraphEnd>
+[1]<ParagraphEnd>
+[1]<ParagraphEnd>
+[12]nice [12]to [12]meet [12]you [20]scared.jpg
+[10]Hi [1]<ParagraphEnd> [1]<ParagraphEnd>
+[1]<ParagraphEnd> [12]nice [12]to
+[12]meet [12]you [20]scared.jpg
