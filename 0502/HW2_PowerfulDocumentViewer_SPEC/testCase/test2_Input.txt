@@ -1,8 +1,9 @@
 Present
 Graphics
-Photo
+Draw
+Text
 Present
-Photo
 Code
-Graphics
+Text
+Draw
 Present

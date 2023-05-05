@@ -1,7 +1,6 @@
-GraphicsDocument
-PhotoDocument
-GraphicsDocument
-PhotoDocument
-PhotoDocument
-CodeDocument
-GraphicsDocument
+DrawingDocument
+TextDocument
+DrawingDocument
+TextDocument
+TextDocument
+DrawingDocument
