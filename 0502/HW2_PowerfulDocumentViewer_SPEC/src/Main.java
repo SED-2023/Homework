@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+        Application application = new Application();
         ArrayList<String> outputString = new ArrayList<>();
 
         try {
@@ -16,11 +17,11 @@ public class Main {
                 switch (command) {
                     case "Draw":
                     case "Text":
-                        Application.createDocument(tokens[0]);
+                        application.createDocument(tokens[0]);
                         break;
 
                     case "Present":
-                        ArrayList<String> outputTemp = Application.present();
+                        ArrayList<String> outputTemp = application.present();
                         for(String o :outputTemp){
                             outputString.add(o);
                         }
