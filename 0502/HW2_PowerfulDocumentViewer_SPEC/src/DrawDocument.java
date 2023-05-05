@@ -1,5 +1,5 @@
 public class DrawDocument implements Document{
-    private String type;
+    private static String type = "DrawDocument";
 
     @Override
     public String getType() {
