@@ -1,9 +1,8 @@
-Person Alice Accountant 60 175
-Person Bob Backend hi 173
-Person Cindy Frontend 75 182
-Job Cindy
-WeightAverage Alice Bob
-WeightSum Bob Cindy Alice
-HeightAverage Alice Cindy
-Job Bob
-HeightSum Bob
+Present
+Graphics
+Photo
+Present
+Photo
+Code
+Graphics
+Present

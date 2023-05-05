@@ -23,9 +23,9 @@ class MainTest {
         System.out.println("\nTest case: sample");
         System.out.println("Result: ");
         Main m = new Main();
-        m.main(new String[]{path + "\\sampleInput.in"});
-        String expectedFile = path + "\\sampleOutput.out";
-        String actualFile = path + "\\outputFiles\\sampleOutput.in";
+        m.main(new String[]{path + "\\sampleInput"});
+        String expectedFile = path + "\\sampleOutput";
+        String actualFile = path + "\\outputFiles\\sampleOutput";
         assertTrue(parseTwoFiles(expectedFile, actualFile));
     }
 
