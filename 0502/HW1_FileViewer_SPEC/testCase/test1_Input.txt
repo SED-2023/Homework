@@ -1,9 +1,8 @@
-Person Alice Accountant 60 175
-Person Bob Backend hi 173
-Person Cindy Frontend 75 182
-Job Cindy
-WeightAverage Alice Bob
-WeightSum Bob Cindy Alice
-HeightAverage Alice Cindy
-Job Bob
-HeightSum Bob
+TextView1 Hi Hi Hi Hi
+TextView2 Hello
+TextView2 add scrollBar
+TextView2 display
+TextView3 HelloWorld
+TextView3 add scrollBar thickBlackBorder
+TextView3 display
+TextView1 display

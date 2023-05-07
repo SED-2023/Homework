@@ -9,7 +9,7 @@ public class OutputParser {
     public void parse(ArrayList<String> lines, String filepath) {
         File file = new File(filepath);
         String path = System.getProperty("user.dir");
-        String filename = path + "\\outputFiles\\" + file.getName();
+        String filename = path + File.separator + "outputFiles" + File.separator + file.getName();
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             for (String line : lines) {

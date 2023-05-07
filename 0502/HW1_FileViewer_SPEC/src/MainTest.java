@@ -1,6 +1,5 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
@@ -9,29 +8,23 @@ import java.io.FileReader;
 import java.io.File;
 
 class MainTest {
-
-    static String[] args;
     static String path = System.getProperty("user.dir");
 
-    @BeforeEach
-    void setup() throws IOException {
-        this.args = new String[5];
-    }
 
     @Test
     void testMain() throws IOException {
         System.out.println("\nTest case: sample");
         System.out.println("Result: ");
         Main m = new Main();
-        m.main(new String[]{path + "\\sampleInput.in"});
-        String expectedFile = path + "\\sampleOutput.out";
-        String actualFile = path + "\\outputFiles\\sampleOutput.in";
+        m.main(new String[]{path + File.separator + "sampleInput"});
+        String expectedFile = path + File.separator + "sampleOutput";
+        String actualFile = path + File.separator + "outputFiles" + File.separator + "sampleOutput";
         assertTrue(parseTwoFiles(expectedFile, actualFile));
     }
 
     @Test
     void testAll() throws IOException {
-        File folder = new File(path + "\\testCase");
+        File folder = new File(path + File.separator + "testCase");
         File[] files = folder.listFiles();
 
         if (files != null) {
@@ -41,12 +34,12 @@ class MainTest {
                     System.out.println("\nTest case: " + prefix);
                     System.out.println("Result: ");
 
-                    String inputPath = path + "\\testCase\\" + file.getName();
+                    String inputPath = path + File.separator + "testCase" + File.separator + file.getName();
                     Main m = new Main();
                     m.main(new String[]{inputPath});
 
-                    String groundTruth = path + "\\testCase\\" + prefix + "_Output.txt";
-                    String functionOutput = path + "\\outputFiles\\" + prefix + "_Output.txt";
+                    String groundTruth = path + File.separator + "testCase" + File.separator + prefix + "_Output.txt";
+                    String functionOutput = path + File.separator + "outputFiles" + File.separator + prefix + "_Output.txt";
                     assertTrue(parseTwoFiles(groundTruth, functionOutput));
                 }
             }
@@ -73,10 +66,10 @@ class MainTest {
             }
 
             if (expectedLine != null || actualLine != null) {
-                if(expectedLine != null )
+                if (expectedLine != null)
                     System.out.println("\nExpected: " + expectedLine + "\nActual  : <none>");
-                if(actualLine != null )
-                    System.out.println("\nExpected: <none> \nActual  : "+ actualLine);
+                if (actualLine != null)
+                    System.out.println("\nExpected: <none> \nActual  : " + actualLine);
                 return false;
             } else {
                 return true;

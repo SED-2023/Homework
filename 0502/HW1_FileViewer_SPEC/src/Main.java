@@ -26,7 +26,7 @@ public class Main {
                         break;
 
                     default:
-                        app.addTextView(tokens[0], tokens[1]);
+                        app.addTextView(tokens[0], line.replace(tokens[0] + " ", ""));
                         break;
                 }
                 line = fileReader.readLine();
@@ -36,9 +36,8 @@ public class Main {
             OutputParser OutputParser = new OutputParser();
             OutputParser.parse(outputString, args[0].replace("Input", "Output"));
         } catch (IOException ex) {
-            System.out.println("Input Error");
+//            System.out.println("Input Error");
+            System.out.println(ex.getMessage());
         }
-        //print
-//        people.forEach((k, v) -> System.out.println("Key : " + k + " Value : " + v));
     }
 }
