@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Application {
     Map<String, VisualComponent> textViews = new HashMap<>();
 
     public void addTextView(String name, String text) {
-        textViews.put(name, new TextView(text));
+        textViews.put(name, new TextView(name, text));
     }
 
     public void addComponent(String textViewName, String elementName) {
@@ -17,9 +18,8 @@ public class Application {
         }
     }
 
-    public ArrayList<String> display(String name) {
-        ArrayList<String> outputString = new ArrayList<>();
-        textViews.forEach((k, v) -> outputString.add(v.display()));
-        return outputString;
+    public String display(String name) {
+        VisualComponent component = textViews.get(name);
+        return component.display();
     }
 }

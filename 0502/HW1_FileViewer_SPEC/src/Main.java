@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-//        Map<String, AbstractObject> people = new HashMap<>();
+        Application app = new Application();
         ArrayList<String> outputString = new ArrayList<>();
 
         try {
@@ -16,15 +16,17 @@ public class Main {
                 String command = tokens[1];
                 switch (command) {
                     case "add":
-//                        people = Client.commandPerson(people, tokens[1], tokens[2], tokens[3], tokens[4]);
+                        for (int i = 2; i < tokens.length; i++) {
+                            app.addComponent(tokens[0], tokens[i]);
+                        }
                         break;
-//
+
                     case "display":
-//                        outputString.add(Client.commandJob(people, tokens[1]));
+                        outputString.add(app.display(tokens[0]));
                         break;
 
                     default:
-//                        outputString.add(Client.commandHeightSum(people, tokens));
+                        app.addTextView(tokens[0], tokens[1]);
                         break;
                 }
                 line = fileReader.readLine();
