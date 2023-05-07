@@ -8,6 +8,6 @@ public class ScrollBar extends ElementDecorator{
 
     @Override
     public String display() {
-        return " " + this.type;
+        return this.component.display() + " " + this.type;
     }
 }
