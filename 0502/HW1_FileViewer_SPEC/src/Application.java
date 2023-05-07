@@ -11,9 +11,9 @@ public class Application {
 
     public void addComponent(String textViewName, String elementName) {
         VisualComponent component = textViews.get(textViewName);
-        if (elementName == "scrollBar") {
+        if (elementName.equals("scrollBar")) {
             textViews.put(textViewName, new ScrollBar(component));
-        } else if (elementName == "thickBlackBorder") {
+        } else if (elementName.equals("thickBlackBorder")) {
             textViews.put(textViewName,  new thickBlackBorder(component));
         }
     }
