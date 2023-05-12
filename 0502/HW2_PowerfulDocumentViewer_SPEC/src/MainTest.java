@@ -1,57 +1,52 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.FileReader;
 import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 class MainTest {
-
-    static String[] args;
     static String path = System.getProperty("user.dir");
-
-    @BeforeEach
-    void setup() throws IOException {
-        this.args = new String[5];
-    }
 
     @Test
     void testMain() throws IOException {
         System.out.println("\nTest case: sample");
         System.out.println("Result: ");
-        Main m = new Main();
-        m.main(new String[]{path + "\\sampleInput"});
-        String expectedFile = path + "\\sampleOutput";
-        String actualFile = path + "\\outputFiles\\sampleOutput";
+
+        Path projRootPath = Paths.get(path).getParent();
+        String expectedFile = projRootPath + File.separator + "sampleOutput";
+        String actualFile = projRootPath + File.separator + "outputFiles" + File.separator +  "sampleOutput";
+
         assertTrue(parseTwoFiles(expectedFile, actualFile));
     }
 
     @Test
-    void testAll() throws IOException {
-        File folder = new File(path + "\\testCase");
-        File[] files = folder.listFiles();
+    void testPrintAll() throws IOException {
+        Path projRootPath = Paths.get(path).getParent();
+        String testCasePath = projRootPath.resolve("testCase").toString();
 
+        File folder = new File(testCasePath);
+        File[] files = folder.listFiles();
+        System.out.println(testCasePath);
         if (files != null) {
             for (File file : files) {
-                if (file.isFile() && file.getName().endsWith("_Input.txt")) {
-                    String prefix = file.getName().replace("_Input.txt", "");
+                if (file.isFile() && file.getName().endsWith("_Output.txt")) {
+                    String prefix = file.getName().replace("_Output.txt", "");
                     System.out.println("\nTest case: " + prefix);
                     System.out.println("Result: ");
 
-                    String inputPath = path + "\\testCase\\" + file.getName();
-                    Main m = new Main();
-                    m.main(new String[]{inputPath});
-
-                    String groundTruth = path + "\\testCase\\" + prefix + "_Output.txt";
-                    String functionOutput = path + "\\outputFiles\\" + prefix + "_Output.txt";
-                    assertTrue(parseTwoFiles(groundTruth, functionOutput));
+                    String expectedFile = testCasePath + File.separator + prefix + "_Output.txt";
+                    String actualFile = projRootPath + File.separator + "outputFiles" + File.separator + prefix + "_Output.txt";
+                    assertTrue(parseTwoFiles(expectedFile, actualFile));
                 }
             }
+        } else {
+            assertTrue(false);
         }
-        assertTrue(true);
     }
 
     Boolean parseTwoFiles(String expectedFile, String actualFile) throws IOException {
@@ -73,10 +68,10 @@ class MainTest {
             }
 
             if (expectedLine != null || actualLine != null) {
-                if(expectedLine != null )
+                if (expectedLine != null)
                     System.out.println("\nExpected: " + expectedLine + "\nActual  : <none>");
-                if(actualLine != null )
-                    System.out.println("\nExpected: <none> \nActual  : "+ actualLine);
+                if (actualLine != null)
+                    System.out.println("\nExpected: <none> \nActual  : " + actualLine);
                 return false;
             } else {
                 return true;

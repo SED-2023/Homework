@@ -34,12 +34,12 @@ public class Main {
             }
             fileReader.close();
 
-            OutputParser OutputParser = new OutputParser();
-            OutputParser.parse(outputString, args[0].replace("Input", "Output"));
         } catch (IOException ex) {
 //            System.out.println("Input Error");
         }
         //print
-//        people.forEach((k, v) -> System.out.println("Key : " + k + " Value : " + v));
+        for (String line : outputString) {
+            System.out.println(line);
+        }
     }
 }
