@@ -19,7 +19,7 @@ class MainTest {
 
         Path projRootPath = Paths.get(path).getParent();
         String expectedFile = projRootPath + File.separator + "sampleOutput";
-        String actualFile = projRootPath + File.separator + "outputFiles" + File.separator +  "sampleOutput";
+        String actualFile = projRootPath + File.separator + "outputFiles" + File.separator +  "sampleResult";
 
         assertTrue(parseTwoFiles(expectedFile, actualFile));
     }
@@ -31,7 +31,6 @@ class MainTest {
 
         File folder = new File(testCasePath);
         File[] files = folder.listFiles();
-        System.out.println(testCasePath);
         if (files != null) {
             for (File file : files) {
                 if (file.isFile() && file.getName().endsWith("_Output.txt")) {
@@ -40,7 +39,7 @@ class MainTest {
                     System.out.println("Result: ");
 
                     String expectedFile = testCasePath + File.separator + prefix + "_Output.txt";
-                    String actualFile = projRootPath + File.separator + "outputFiles" + File.separator + prefix + "_Output.txt";
+                    String actualFile = projRootPath + File.separator + "outputFiles" + File.separator + prefix + "_Result.txt";
                     assertTrue(parseTwoFiles(expectedFile, actualFile));
                 }
             }
@@ -57,6 +56,7 @@ class MainTest {
             String actualLine = actualReader.readLine();
 
             while (expectedLine != null && actualLine != null) {
+				System.out.println(actualLine);
                 if (!expectedLine.equals(actualLine)) {
                     System.out.println("\nExpected: " + expectedLine);
                     System.out.println("Actual  : " + actualLine);
