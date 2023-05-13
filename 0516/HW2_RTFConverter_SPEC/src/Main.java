@@ -13,7 +13,6 @@ public class Main {
 
             while (line != null) {
 
-
                 switch (line) {
                     case "Tex":
                         application.setFormat("Tex");
