@@ -1,3 +1,3 @@
 public class PresentationManager implements Style{
-    style = "PM";
+    String style = "PM";
 }

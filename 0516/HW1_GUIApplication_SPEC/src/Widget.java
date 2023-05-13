@@ -1,6 +1,6 @@
 public interface Widget {
     public String type;
 //    public setType(input_type);
-    private String name;
-    public setName(input_name);
+    public String name;
+    public void setName(input_name);
 }
