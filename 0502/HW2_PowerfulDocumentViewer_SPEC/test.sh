@@ -3,7 +3,15 @@ javac -cp "lib/*" -d target ./src/*.java
 cd target
 java Main ../sampleInput > ../outputFiles/sampleResult
 
-for ((i=1; i<=2; i++))
+
+search_dir="./testCase"
+for entry in "$search_dir"/*l; do
+    if [[ $entry == input* ]]; then
+    do
+      echo "$entry"
+    done
+fi
+
 do
     java Main ../testCase/test"$i"_Input.txt > ../outputFiles/test"$i"_Result.txt
 done
