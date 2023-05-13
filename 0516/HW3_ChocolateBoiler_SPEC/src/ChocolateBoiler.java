@@ -1,6 +1,6 @@
 public class ChocolateBoiler {
     static ChocolateBoiler instance;
-    private BoilerState state;
+    private State state;
     private ChocolateBoiler(){};
     public static ChocolateBoiler getInstance(){
         if(instance == null){
