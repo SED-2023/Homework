@@ -27,3 +27,6 @@ replay_pid*
 submit/
 .DS_Store
 *.iml
+
+!junit-platform-console-standalone-1.9.1.jar
+!junit-jupiter-5.8.1.jar
