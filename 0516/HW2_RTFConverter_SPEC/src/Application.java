@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Application {
     private Format format;
     public Application() {
-        this.format = new Format();
+        this.format = null;
     }
 
     public Format getFormat() {
