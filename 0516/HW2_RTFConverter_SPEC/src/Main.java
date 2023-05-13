@@ -12,22 +12,20 @@ public class Main {
             String line = fileReader.readLine();
 
             while (line != null) {
-                String[] tokens = line.split(" ");
-                String command = tokens[0];
-                switch (command) {
-//                    case "Draw":
-//                    case "Text":
-//                        application.createDocument(tokens[0]);
-//                        break;
-//
-//                    case "Present":
-//                        ArrayList<String> outputTemp = application.present();
-//                        for(String o :outputTemp){
-//                            outputString.add(o);
-//                        }
-//                        break;
 
+
+                switch (line) {
+                    case "Tex":
+                        application.setFormat("Tex");
+                        break;
+                    case "TextWidget":
+                        application.setFormat("TextWidget");
+                        break;
                     default:
+                        if (application.getFormat() == null) {
+                            break;
+                        }
+                        outputString.add(application.convert(application.getFormat()));
                         break;
                 }
                 line = fileReader.readLine();

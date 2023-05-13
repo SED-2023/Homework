@@ -1,24 +1,23 @@
 import java.util.ArrayList;
 
 public class Application {
-
-    private ArrayList<Document> docs;
-    private DocFactory factory;
+    private Format format;
     public Application() {
-        this.docs = new ArrayList<Document>();
-        this.factory = new MyDocFactory();
+        this.format = new Format();
     }
 
-    public void createDocument(String type) {
-        docs.add(factory.createDocument(type));
+    public Format getFormat() {
+        return format;
     }
 
-    public ArrayList<String> present() {
-        ArrayList<String> result = new ArrayList<>();
+    public void setFormat(Format format) {
+        this.format = format;
+    }
 
-        for (Document d: docs) {
-            result.add(d.getType());
-        }
+    public String convert(String rtfToken) {
+        String result = new String();
+        result =  format.convert(rtfToken);
         return result;
     }
+
 }
