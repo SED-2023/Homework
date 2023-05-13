@@ -1,9 +1,9 @@
 Present
-Graphics
-Draw abc
-Text
+ScrollBar scrollBar1
+ScrollBar scrollBar1
+Window window1
+Window window2
+Button button1
 Present
-Code
-Text
-Draw
+Motif
 Present

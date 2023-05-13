@@ -1,6 +1,8 @@
-DrawingDocument
-TextDocument
-DrawingDocument
-TextDocument
-TextDocument
-DrawingDocument
+MotifWindow window1
+MotifWindow window2
+MotifScrollBar scrollBar1
+MotifButton button1
+MotifWindow window1
+MotifWindow window2
+MotifScrollBar scrollBar1
+MotifButton button1

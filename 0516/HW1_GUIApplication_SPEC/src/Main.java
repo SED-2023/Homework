@@ -15,17 +15,17 @@ public class Main {
                 String[] tokens = line.split(" ");
                 String command = tokens[0];
                 switch (command) {
-                    case "Draw":
-                    case "Text":
-                        application.createDocument(tokens[0]);
-                        break;
-
-                    case "Present":
-                        ArrayList<String> outputTemp = application.present();
-                        for(String o :outputTemp){
-                            outputString.add(o);
-                        }
-                        break;
+//                    case "Draw":
+//                    case "Text":
+//                        application.createDocument(tokens[0]);
+//                        break;
+//
+//                    case "Present":
+//                        ArrayList<String> outputTemp = application.present();
+//                        for(String o :outputTemp){
+//                            outputString.add(o);
+//                        }
+//                        break;
 
                     default:
                         break;
