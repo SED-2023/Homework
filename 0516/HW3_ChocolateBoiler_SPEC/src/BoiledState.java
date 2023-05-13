@@ -1,17 +1,18 @@
-public class BoiledState implements BoilerState{
+public class BoiledState implements State{
 
     @Override
-    public BoilerState fill() {
+    public State fill() {
         return this;
     }
 
     @Override
-    public BoilerState boil() {
+    public State boil() {
         return this;
     }
 
     @Override
-    public BoilerState drain() {
+    public State drain() {
+        System.out.println("Drain the boiled chocolate");
         return new EmptyState();
     }
 }
