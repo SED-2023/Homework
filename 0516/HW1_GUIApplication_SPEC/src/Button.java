@@ -1,4 +1,4 @@
 public class Button implements Widget{
-    type = "Button";
-    public setName(input_name){name = input_name;}
+    String type = "Button";
+    public void setName(String input_name){this.name = input_name;}
 }

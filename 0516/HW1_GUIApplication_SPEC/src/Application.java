@@ -5,25 +5,31 @@ public class Application {
     public  Style style_obj;
     public ArrayList<Widget> widget_objs;
 
-    private setStyle(String style){
-        if (style != "Motif"){ new PresentationManager(); }
-        else {new Motif();}
+    private void setStyle(String style){
+        Style styler;
+        if (style != "Motif"){
+            styler = new PresentationManager();
+        }
+        else {
+            styler = new Motif();
+        }
     }
-    private setWidget(String type, String name){
+    private void setWidget(String type, String name){
+        Widget tmp_widget;
         switch(type){
             case "Button" :
-                tmp_widget = Button();
+                tmp_widget = new Button();
                 break;
             case "ScrollBar" :
-                tmp_widget = ScrollBar();
+                tmp_widget = new ScrollBar();
                 break;
             case "Window" :
-                tmp_widget = Window();
+                tmp_widget = new Window();
                 break;
             default :
                 break;
         }
-        tmp_widget.setName(name);
+        if tmp_widget.setName(name);
         widget_objs.add(tmp_widget);
     }
 
@@ -33,25 +39,4 @@ public class Application {
         System.out.println(style_obj.type + widget_obj.type + " " + widget_obj.name);
     }
 
-
-
-//    private ArrayList<Document> docs;
-//    private DocFactory factory;
-//    public Application() {
-//        this.docs = new ArrayList<Document>();
-//        this.factory = new MyDocFactory();
-//    }
-//
-//    public void createDocument(String type) {
-//        docs.add(factory.createDocument(type));
-//    }
-//
-//    public ArrayList<String> present() {
-//        ArrayList<String> result = new ArrayList<>();
-//
-//        for (Document d: docs) {
-//            result.add(d.getType());
-//        }
-//        return result;
-//    }
 }

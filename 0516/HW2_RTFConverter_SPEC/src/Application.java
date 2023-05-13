@@ -10,8 +10,12 @@ public class Application {
         return format;
     }
 
-    public void setFormat(Format format) {
-        this.format = format;
+    public void setFormat(String f) {
+        if ( f.equals("TeX") ){
+            format = new Tex();
+        } else if ( f.equals("TextWidget")) {
+            format = new TextWidget();
+        }
     }
 
     public String convert(String rtfToken) {
