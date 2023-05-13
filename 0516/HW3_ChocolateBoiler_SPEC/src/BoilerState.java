@@ -1,2 +1,9 @@
-package PACKAGE_NAME;public interface BoilerState {
+public interface BoilerState {
+    public BoilerState fill();
+
+    public BoilerState boil();
+
+    public BoilerState drain();
+
+
 }
