@@ -26,7 +26,6 @@ replay_pid*
 .idea/
 submit/
 .DS_Store
-
 *.iml
 
 !junit-platform-console-standalone-1.9.1.jar

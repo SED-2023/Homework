@@ -3,8 +3,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Application application = new Application();
-        ArrayList<String> outputString = new ArrayList<>();
+        ChocolateBoiler chocolateBoilerInstance = ChocolateBoiler.getInstance();
+//        ArrayList<String> outputString = new ArrayList<>();
 
         try {
             InputParser input = new InputParser();
@@ -15,17 +15,16 @@ public class Main {
                 String[] tokens = line.split(" ");
                 String command = tokens[0];
                 switch (command) {
-//                    case "Draw":
-//                    case "Text":
-//                        application.createDocument(tokens[0]);
-//                        break;
+                    case "Fill":
+                        chocolateBoilerInstance.fill();
+                        break;
+                    case "Boil":
+                        chocolateBoilerInstance.boil();
+                        break;
 //
-//                    case "Present":
-//                        ArrayList<String> outputTemp = application.present();
-//                        for(String o :outputTemp){
-//                            outputString.add(o);
-//                        }
-//                        break;
+                    case "Drain":
+                        chocolateBoilerInstance.drain();
+                        break;
 
                     default:
                         break;
@@ -38,8 +37,8 @@ public class Main {
 //            System.out.println("Input Error");
         }
         //print
-        for (String line : outputString) {
-            System.out.println(line);
-        }
+//        for (String line : outputString) {
+//            System.out.println(line);
+//        }
     }
 }
