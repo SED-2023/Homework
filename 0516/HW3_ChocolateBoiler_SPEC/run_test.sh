@@ -3,7 +3,7 @@ javac -cp "lib/*" -d target ./src/*.java
 cd target
 java Main ../sampleInput > ../outputFiles/sampleResult
 
-for ((i=1; i<=2; i++))
+for ((i=1; i<=3; i++))
 do
     java Main ../testCase/test"$i"_Input.txt > ../outputFiles/test"$i"_Result.txt
 done
