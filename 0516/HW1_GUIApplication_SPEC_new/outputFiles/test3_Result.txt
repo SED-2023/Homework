@@ -1,10 +1,8 @@
 PMWindow window1
 PMWindow window2
 PMScrollBar scrollBar1
-PMScrollBar scrollBar1
 PMButton button1
 MotifWindow window1
 MotifWindow window2
-MotifScrollBar scrollBar1
 MotifScrollBar scrollBar1
 MotifButton button1

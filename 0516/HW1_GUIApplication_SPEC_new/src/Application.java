@@ -9,14 +9,29 @@ public class Application {
     private WidgetFactory factory = new MotifFactory();
 
     public void addWindow(String name) {
+        for (int i = 0; i < windows.size(); i++) {
+            String existName = windows.get(i).getName();
+            if (existName.equals(name))
+                return;
+        }
         windows.add(factory.createWindow(name));
     }
 
     public void addScrollBar(String name) {
+        for (int i = 0; i < scrollBars.size(); i++) {
+            String existName = scrollBars.get(i).getName();
+            if (existName.equals(name))
+                return;
+        }
         scrollBars.add(factory.createScrollBar(name));
     }
 
     public void addButton(String name) {
+        for (int i = 0; i < buttons.size(); i++) {
+            String existName = buttons.get(i).getName();
+            if (existName.equals(name))
+                return;
+        }
         buttons.add(factory.createButton(name));
     }
 
