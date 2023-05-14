@@ -8,4 +8,9 @@ public class PMWindow implements Window{
     public void display() {
         System.out.println("PMWindow " + this.name);
     }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
 }

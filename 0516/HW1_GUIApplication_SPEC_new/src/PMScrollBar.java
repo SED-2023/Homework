@@ -8,4 +8,9 @@ public class PMScrollBar implements ScrollBar{
     public void display() {
         System.out.println("PMScrollBar " + this.name);
     }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
 }

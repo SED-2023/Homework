@@ -8,4 +8,9 @@ public class MotifWindow implements Window{
     public void display() {
         System.out.println("MotifWindow " + this.name);
     }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
 }
