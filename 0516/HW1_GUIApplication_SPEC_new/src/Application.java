@@ -21,9 +21,9 @@ public class Application {
     }
 
     public void setStyle(String style) {
-        if (style.equal("Motif")) {
+        if (style.equals("Motif")) {
             factory = new MotifFactory();
-        } else if (style.equal("PM")) {
+        } else if (style.equals("PM")) {
             factory = new PMFactory();
         }
 
@@ -44,13 +44,13 @@ public class Application {
 
     public void present() {
         for (int i = 0; i < windows.size(); i++) {
-            System.out.println(windows.get(i).display());
+            windows.get(i).display();
         }
-        for (int i = 0; i < scrollbars.size(); i++) {
-            System.out.println(scrollbars.get(i).display());
+        for (int i = 0; i < scrollBars.size(); i++) {
+            scrollBars.get(i).display();
         }
         for (int i = 0; i < buttons.size(); i++) {
-            System.out.println(buttons.get(i).display());
+            buttons.get(i).display();
         }
     }
 
