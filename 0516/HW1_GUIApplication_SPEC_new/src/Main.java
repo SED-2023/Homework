@@ -4,7 +4,6 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         Application application = new Application();
-        ArrayList<String> outputString = new ArrayList<>();
 
         try {
             InputParser input = new InputParser();
@@ -15,18 +14,23 @@ public class Main {
                 String[] tokens = line.split(" ");
                 String command = tokens[0];
                 switch (command) {
-//                    case "Draw":
-//                    case "Text":
-//                        application.createDocument(tokens[0]);
-//                        break;
-//
-//                    case "Present":
-//                        ArrayList<String> outputTemp = application.present();
-//                        for(String o :outputTemp){
-//                            outputString.add(o);
-//                        }
-//                        break;
+                    case "ScrollBar":
+                        application.addScrollBar(tokens[1]);
+                        break;
+                    case "Window":
+                        application.addWindow(tokens[1]);
+                        break;
+                    case "Button":
+                        application.addButton(tokens[1]);
+                        break;
+                    case "Present":
+                        application.present();
+                        break;
 
+                    case "Motif":
+                    case "PM":
+                        application.setStyle(tokens[0]);
+                        break;
                     default:
                         break;
                 }
@@ -36,10 +40,6 @@ public class Main {
 
         } catch (IOException ex) {
 //            System.out.println("Input Error");
-        }
-        //print
-        for (String line : outputString) {
-            System.out.println(line);
         }
     }
 }
