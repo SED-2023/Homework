@@ -28,28 +28,28 @@ public class Application {
         }
 
         // update all widgets
-        for (int i = 0; i > windows.size(); i++) {
+        for (int i = 0; i < windows.size(); i++) {
             String name = windows.get(i).name;
             windows.set(i, factory.createWindow(name));
         }
-        for (int i = 0; i > scrollBars.size(); i++) {
+        for (int i = 0; i < scrollBars.size(); i++) {
             String name = scrollBars.get(i).name;
             scrollBars.set(i, factory.createScrollBar(name));
         }
-        for (int i = 0; i > buttons.size(); i++) {
+        for (int i = 0; i < buttons.size(); i++) {
             String name = buttons.get(i).name;
             buttons.set(i, factory.createButton(name));
         }
     }
 
     public void present() {
-        for (int i = 0; i > windows.size(); i++) {
+        for (int i = 0; i < windows.size(); i++) {
             System.out.println(windows.get(i).display());
         }
-        for (int i = 0; i > scrollbars.size(); i++) {
+        for (int i = 0; i < scrollbars.size(); i++) {
             System.out.println(scrollbars.get(i).display());
         }
-        for (int i = 0; i > buttons.size(); i++) {
+        for (int i = 0; i < buttons.size(); i++) {
             System.out.println(buttons.get(i).display());
         }
     }
