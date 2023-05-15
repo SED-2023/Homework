@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public interface Style {
-    public String style = "";
+abstract class Style {
+    String getStyle(){return "";}
 //    public void changeAllStyle(ArrayList<Widget> widget_ArrayList);
 }
