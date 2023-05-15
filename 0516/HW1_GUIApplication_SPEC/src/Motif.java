@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 
-public class Motif implements Style{
-    String style = "Motif";
+public class Motif extends Style{
+
+    @Override
+    public String getStyle(){
+        return "Motif";
+    }
 
 }
