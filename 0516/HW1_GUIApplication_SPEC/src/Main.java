@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.*;
 
+
 public class Main {
     public static void main(String[] args) throws IOException {
         Application application = new Application();
@@ -15,18 +16,15 @@ public class Main {
                 String[] tokens = line.split(" ");
                 String command = tokens[0];
                 switch (command) {
-//                    case "Draw":
-//                    case "Text":
-//                        application.createDocument(tokens[0]);
-//                        break;
-//
-//                    case "Present":
-//                        ArrayList<String> outputTemp = application.present();
-//                        for(String o :outputTemp){
-//                            outputString.add(o);
-//                        }
-//                        break;
-
+                    case "PM", "Motif":
+                        application.Styling(command);
+                        break;
+                    case "Button", "ScrollBar", "Window":
+                        application.setWidget(command, tokens[1]);
+                        break;
+                    case "Present":
+                        application.present();
+                        break;
                     default:
                         break;
                 }

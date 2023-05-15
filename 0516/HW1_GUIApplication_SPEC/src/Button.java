@@ -1,4 +1,10 @@
-public class Button implements Widget{
+public class Button extends Widget{
     String type = "Button";
-    public void setName(String input_name){this.name = input_name;}
+    String name = "";
+
+
+    @Override
+    public void setName(String input_name){name = input_name;}
+
+
 }
