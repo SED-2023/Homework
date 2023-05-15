@@ -1,3 +1,6 @@
-public class PresentationManager implements Style{
-    String style = "PM";
+public class PresentationManager extends Style{
+    @Override
+    public String getStyle(){
+        return "PM";
+    }
 }
