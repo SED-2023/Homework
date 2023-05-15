@@ -1,11 +1,13 @@
 import java.util.ArrayList;
+import java.util.*;
 
 public class Application {
 
     public  Style style_obj;
-    public ArrayList<Widget> widget_objs;
+    public Widget widget_obj;
+    public ArrayList<Widget> widget_ArrayList = new ArrayList<Widget>();
 
-    private void setStyle(String style){
+    public void setStyle(String style){
         Style styler;
         if (style != "Motif"){
             styler = new PresentationManager();
@@ -14,29 +16,34 @@ public class Application {
             styler = new Motif();
         }
     }
-    private void setWidget(String type, String name){
-        Widget tmp_widget;
+    public void setWidget(String type, String name){
         switch(type){
             case "Button" :
-                tmp_widget = new Button();
+                widget_obj = new Button();
                 break;
             case "ScrollBar" :
-                tmp_widget = new ScrollBar();
+                widget_obj = new ScrollBar();
                 break;
             case "Window" :
-                tmp_widget = new Window();
+                widget_obj = new Window();
                 break;
             default :
                 break;
         }
-        if tmp_widget.setName(name);
-        widget_objs.add(tmp_widget);
+        if (name.equals("Button") || name.equals("Scrollbar") || name.equals("Window")){
+            widget_obj.setName(name);
+            widget_obj.setPriority(name, (widget_ArrayList.size()+1));
+        }
+        widget_ArrayList.add(widget_obj);
     }
 
 
 
-    private present(){
-        System.out.println(style_obj.type + widget_obj.type + " " + widget_obj.name);
+    public void present(){
+
+        for(Widget widget : widget_ArrayList){
+            System.out.println(style_obj.style + widget.type + " " + widget.name);
+        }
     }
 
 }
