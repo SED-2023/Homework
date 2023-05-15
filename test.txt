@@ -1,4 +1,5 @@
 <branch_name> <chinese_name>
 laura 蔡祐琳
+alex 郭政維
 darkqq17 王敬順
 ccchiu 邱承之
