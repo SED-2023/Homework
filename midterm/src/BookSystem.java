@@ -10,6 +10,10 @@ public class BookSystem {
         lastBookId++;
     }
 
+    public Book getBook(int bookId) {
+        return books.get(bookId);
+    }
+
     public void removeBook(int bookId) {
         books.remove(bookId);
     }
