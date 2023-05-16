@@ -13,10 +13,9 @@ public class Main {
 
             while (line != null) {
 
-
                 switch (line) {
-                    case "Tex":
-                        application.setFormat("Tex");
+                    case "TeX":
+                        application.setFormat("TeX");
                         break;
                     case "TextWidget":
                         application.setFormat("TextWidget");
@@ -25,7 +24,7 @@ public class Main {
                         if (application.getFormat() == null) {
                             break;
                         }
-                        outputString.add(application.convert(application.getFormat()));
+                        outputString.add(application.convert(line));
                         break;
                 }
                 line = fileReader.readLine();
