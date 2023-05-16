@@ -25,6 +25,9 @@ public class Staff extends User{
     @Override
     public void findChecked(User user1, User user2) {
         // TODO: sout need to sort by book id
+        if (user2.borrowedBooks.size() == 0) {
+            return;
+        }
         for(Map.Entry<Integer, Book> u: user2.borrowedBooks.entrySet()){
             System.out.println("ID: " + u.getValue().id + " Author: " + u.getValue().author + " Subject: " + u.getValue().subject);
         }

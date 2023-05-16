@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.TreeMap;
 
 public abstract class User {
     public String name;
     public int predefinedBorrowBookNumber;
     public String type;
-    public Map<Integer, Book> borrowedBooks = null;
+    public Map<Integer, Book> borrowedBooks = new TreeMap<>();
 
     public abstract void addBook(BookSystem bookSystem, String author, String subject);
 

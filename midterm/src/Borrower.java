@@ -8,7 +8,7 @@ public class Borrower extends User{
 
     public String type = "Borrower";
 
-    public Map<Integer, Book> borrowedBooks = null;
+    public Map<Integer, Book> borrowedBooks = new TreeMap<>();
 
     public Borrower (String name, int predefinedBorrowBookNumber) {
         this.name = name;
@@ -33,6 +33,9 @@ public class Borrower extends User{
     @Override
     public void findChecked(User user1, User user2) {
         if (user1.name.equals(user2.name)) {
+            if (user2.borrowedBooks.size() == 0) {
+                return;
+            }
             // TODO: sout need to sort by book id
             for(Map.Entry<Integer, Book> u: user2.borrowedBooks.entrySet()){
 

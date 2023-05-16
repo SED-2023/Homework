@@ -27,11 +27,11 @@ public class Application {
             System.out.println("Error");
             return;
         }
-        if(userType == "Staff"){
+        if(userType.equals("Staff")){
             User user = new Staff(userName);
             users.put(userName, user);
         }
-        else if(userType == "Borrower"){
+        else if(userType.equals("Borrower")){
             User user = new Borrower(userName, Integer.parseInt(predefinedBorrowBookNumber));
             users.put(userName, user);
         }
