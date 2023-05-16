@@ -13,7 +13,7 @@ for file in "$directory"/*; do
         if [[ $filename == *_Input.txt ]]; then
           echo "Processing file: $filename"
           result="${filename//$search_string/$replacement_string}"
-          java Main ../testCase/"$filename" > ../outputFiles/"$result"
+          java LibrarySystem ../testCase/"$filename" > ../outputFiles/"$result"
         fi
     fi
 done
