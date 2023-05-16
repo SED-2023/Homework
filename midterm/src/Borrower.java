@@ -4,7 +4,9 @@ import java.util.TreeMap;
 
 public class Borrower extends User{
 
-    int predefinedBorrowBookNumber;
+    public int predefinedBorrowBookNumber;
+
+    public String type = "Borrower";
 
     Map<Integer, Book> borrowedBooks = null;
 
@@ -46,7 +48,7 @@ public class Borrower extends User{
     }
 
     @Override
-    public void checkOut(Staff user1, Borrower user2, ArrayList<Integer> borrowBookList) {
+    public void checkOut(User user1, User user2, ArrayList<Integer> borrowBookList) {
         System.out.println("Borrower can not check out the books");
     }
 }
