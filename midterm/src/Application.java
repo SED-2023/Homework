@@ -72,10 +72,7 @@ public class Application {
         try {
             User staff = users.get(user1);
             User borrower = users.get(user2);
-            if (staff.type.equals("Borrower")) {
-                System.out.println("Error");
-                return;
-            }
+
             if (borrower.type.equals("Staff")) {
                 System.out.println("Error");
                 return;
@@ -87,4 +84,6 @@ public class Application {
             return;
         }
     }
+
+
 }
