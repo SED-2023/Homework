@@ -22,7 +22,7 @@ public class Application {
         return exist;
     }
 
-    public void addUser(String userType, String userName, int predefinedBorrowBookNumber){
+    public void addUser(String userType, String userName, String predefinedBorrowBookNumber){
         if(checkUserExist(userName)){
             System.out.println("Error");
             return;
@@ -32,7 +32,7 @@ public class Application {
             users.put(userName, user);
         }
         else if(userType == "Borrower"){
-            User user = new Borrower(userName, predefinedBorrowBookNumber);
+            User user = new Borrower(userName, Integer.parseInt(predefinedBorrowBookNumber));
             users.put(userName, user);
         }
     }
@@ -43,7 +43,7 @@ public class Application {
             return;
         }
         User user = users.get(userName);
-        user.addBook(userName, author, subject);
+        user.addBook(bookSystem, author, subject);
     }
 
     public void removeBook(String userName, int bookId){
@@ -52,7 +52,7 @@ public class Application {
             return;
         }
         User user = users.get(userName);
-        user.removeBook(userName, bookId);
+        user.removeBook(bookSystem, bookId);
     }
 
     public void findChecked(String user1, String user2){
@@ -87,7 +87,7 @@ public class Application {
             System.out.println("Error");
             return;
         }
-        users.get(userName).listBorrower(userName, bookId);
+        users.get(userName).listBorrower(bookSystem, bookId);
     }
 
     public void returnBook(String userName, int bookId){
@@ -120,7 +120,7 @@ public class Application {
             for(String stringValue : borrowBookList) {
                 borrowBookListInt.add(Integer.parseInt(stringValue));
             }
-            staff.checkOut(staff, borrower, borrowBookListInt);
+            staff.checkOut(staff, borrower, borrowBookListInt,  bookSystem);
         }
         catch(Exception e){
             System.out.println("Error");
