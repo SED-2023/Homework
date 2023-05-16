@@ -1,8 +1,16 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Application {
     private Map<String, User> users;
+    public BookSystem bookSystem;
+
+    public Application(){
+        users = new LinkedHashMap<>();
+        bookSystem = new BookSystem();
+    }
 
     public boolean checkUserExist(String name){
         boolean exist = false;
@@ -14,18 +22,19 @@ public class Application {
         return exist;
     }
 
-    public void addUser(String userType, String userName){
+    public void addUser(String userType, String userName, int predefinedBorrowBookNumber){
         if(checkUserExist(userName)){
             System.out.println("Error");
             return;
         }
         if(userType == "Staff"){
-            User user = new Staff();
+            User user = new Staff(userName);
+            users.put(userName, user);
         }
         else if(userType == "Borrower"){
-            User user = new Borrower();
+            User user = new Borrower(userName, predefinedBorrowBookNumber);
+            users.put(userName, user);
         }
-        users.put(userName, user);
     }
 
     public void addBook(String userName, String author, String subject){
@@ -58,22 +67,39 @@ public class Application {
 
 
     public void listAuthor(String userName, String author) {
-        bookSystem.listAuthor(userName, author);
+        if(!checkUserExist(userName)){
+            System.out.println("Error");
+            return;
+        }
+        bookSystem.listAuthor(author);
     }
 
     public void listSubject(String userName, String subject) {
-        bookSystem.listSubject(userName, subject);
+        if(!checkUserExist(userName)){
+            System.out.println("Error");
+            return;
+        }
+        bookSystem.listSubject(subject);
     }
 
     public void listBorrower(String userName, int bookId) {
+        if(!checkUserExist(userName)){
+            System.out.println("Error");
+            return;
+        }
         users.get(userName).listBorrower(userName, bookId);
     }
 
     public void returnBook(String userName, int bookId){
-
+        if(!checkUserExist(userName)){
+            System.out.println("Error");
+            return;
+        }
+        User user = users.get(userName);
+        user.returnBook(userName, bookId);
     }
 
-    public void checkOut(String user1, String user2, ArrayList<Integer> borrowBookList){
+    public void checkOut(String user1, String user2, ArrayList<String> borrowBookList){
         if(!checkUserExist(user1)){
             System.out.println("Error");
             return;
@@ -90,7 +116,11 @@ public class Application {
                 System.out.println("Error");
                 return;
             }
-            staff.checkOut(staff, borrower, borrowBookList);
+            ArrayList<Integer> borrowBookListInt = new ArrayList<Integer>();
+            for(String stringValue : borrowBookList) {
+                borrowBookListInt.add(Integer.parseInt(stringValue));
+            }
+            staff.checkOut(staff, borrower, borrowBookListInt);
         }
         catch(Exception e){
             System.out.println("Error");
