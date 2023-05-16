@@ -19,16 +19,43 @@ public class Application {
             System.out.println("Error");
             return;
         }
-        User user = new User();
+        if(userType == "Staff"){
+            User user = new Staff();
+        }
+        else if(userType == "Borrower"){
+            User user = new Borrower();
+        }
         users.put(userName, user);
-        return;
     }
 
     public void addBook(String userName, String author, String subject){
-        if(checkUserExist(name)){
+        if(checkUserExist(userName)){
             System.out.println("Error");
             return;
         }
-        users.get(userName)
+        User user = users.get(userName);
+        user.addBook(userName, author, subject);
+    }
+
+    public void removeBook(String userName, String author, String subject){
+        if(checkUserExist(userName)){
+            System.out.println("Error");
+            return;
+        }
+        User user = users.get(userName);
+        user.removeBook();
+    }
+
+
+    public void listAuthor(String userName, String author) {
+        bookSystem.listAuthor(userName, author);
+    }
+
+    public void listSubject(String userName, String subject) {
+        bookSystem.listSubject(userName, subject);
+    }
+
+    public void listBorrower(String userName, int bookId) {
+        users.get(userName).listBorrower(userName, bookId);
     }
 }
