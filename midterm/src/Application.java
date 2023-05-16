@@ -37,6 +37,10 @@ public class Application {
         }
     }
 
+    public void initAddBook(String author, String subject){
+
+        bookSystem.addBook(author, subject);
+    }
     public void addBook(String userName, String author, String subject){
         if(!checkUserExist(userName)){
             System.out.println("Error");
