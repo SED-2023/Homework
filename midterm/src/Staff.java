@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Staff extends User{
 
+    public String type = "Staff";
     public Staff(String name) {
         this.name = name;
     }
@@ -34,7 +35,7 @@ public class Staff extends User{
     }
 
     @Override
-    public void checkOut(Staff user1, Borrower user2, ArrayList<Integer> borrowBookList) {
+    public void checkOut(User user1, User user2, ArrayList<Integer> borrowBookList) {
         if ( borrowBookList.size() <= user2.predefinedBorrowBookNumber - user2.borrowedBooks.size()){
             for (int i: borrowBookList){
                 if ( bookSystem.checkBookExist(i) == False ){
