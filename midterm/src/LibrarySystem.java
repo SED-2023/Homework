@@ -16,7 +16,7 @@ public class LibrarySystem {
             for (int i = 0; i < numOfBooks; i++) {
                 line = fileReader.readLine();
                 String[] tokens = line.split(" ");
-                application.addBook("", tokens[0], tokens[1]);
+                application.initAddBook(tokens[0], tokens[1]);
             }
             // add init users
             line = fileReader.readLine();
