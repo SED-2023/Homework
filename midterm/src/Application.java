@@ -51,8 +51,9 @@ public class Application {
             System.out.println("Error");
             return;
         }
-        User user = users.get(user1);
-        user.findChecked(user2,);
+        User u1 = users.get(user1);
+        User u2 = users.get(user2);
+        u1.findChecked(u1, u2);
     }
 
 
@@ -68,13 +69,16 @@ public class Application {
         users.get(userName).listBorrower(userName, bookId);
     }
 
+    public void returnBook(String userName, int bookId){
+
+    }
 
     public void checkOut(String user1, String user2, ArrayList<Integer> borrowBookList){
-        if(checkUserExist(user1)){
+        if(!checkUserExist(user1)){
             System.out.println("Error");
             return;
         }
-        if (checkUserExist(user2)) {
+        if (!checkUserExist(user2)) {
             System.out.println("Error");
             return;
         }
