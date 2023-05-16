@@ -2,9 +2,6 @@ import java.util.ArrayList;
 
 public abstract class User {
     String name;
-    int predefinedBorrowBookNumber;
-
-    ArrayList<Book> = ArrayList<Book>();
 
     public abstract void addBook(String userName, String author, String subject);
 
