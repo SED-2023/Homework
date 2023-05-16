@@ -1,9 +1,16 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Application {
     private Map<String, User> users;
     public BookSystem bookSystem;
+
+    public Application(){
+        users = new LinkedHashMap<>();
+        bookSystem = new BookSystem();
+    }
 
     public boolean checkUserExist(String name){
         boolean exist = false;
