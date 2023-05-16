@@ -1,18 +1,23 @@
 public class EmptyState implements State{
 
+    private ChocolateBoiler chocolateBoiler;
+
+    public EmptyState(ChocolateBoiler chocolateBoiler) {
+        this.chocolateBoiler = chocolateBoiler;
+    }
     @Override
-    public State fill() {
+    public void fill() {
         System.out.println("Fill chocolate");
-        return new FilledState();
+        this.chocolateBoiler.setState(chocolateBoiler.getFilledState());
     }
 
     @Override
-    public State boil() {
-        return this;
+    public void boil() {
+        
     }
 
     @Override
-    public State drain() {
-        return this;
+    public void drain() {
+        
     }
 }
