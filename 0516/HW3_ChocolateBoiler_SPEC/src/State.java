@@ -1,9 +1,12 @@
 public interface State {
-    public State fill();
 
-    public State boil();
+    ChocolateBoiler chololateBoiler = null;
 
-    public State drain();
+    void fill();
+
+    void boil();
+
+    void drain();
 
 
 }
