@@ -70,7 +70,12 @@ public class Application {
     }
 
     public void returnBook(String userName, int bookId){
-
+        if (!checkUserExist(userName)){
+            System.out.println("Error");
+            return;
+        }
+        User user = users.get(userName);
+        user.returnBook(userName, bookId);
     }
 
     public void checkOut(String user1, String user2, ArrayList<Integer> borrowBookList){
@@ -97,6 +102,4 @@ public class Application {
             return;
         }
     }
-
-
 }
