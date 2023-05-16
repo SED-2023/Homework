@@ -13,5 +13,5 @@ public abstract class User {
 
     public abstract void returnBook(String userName, int bookId);
 
-    public abstract void checkOut(String user1, String user2, ArrayList<Integer> borrowBookList);
+    public abstract void checkOut(Staff user1, Borrower user2, ArrayList<Integer> borrowBookList);
 }
