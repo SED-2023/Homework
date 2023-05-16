@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 
 public class Staff extends User{
+
+    public Staff(String name) {
+        this.name = name;
+    }
     @Override
     public void addBook(String userName, String author, String subject) {
         bookSystem.addBook(author, subject);
