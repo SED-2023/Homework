@@ -28,6 +28,9 @@ public class Staff extends User{
 
     @Override
     public void checkOut(String user1, String user2, ArrayList<Integer> borrowBookList) {
+        Borrower user2 = new Borrower();
+        if ( borrowBookList.size() <= user2.predefinedBorrowBookNumber - user2.borrowedBooks.size()){
 
+        }
     }
 }
