@@ -3,6 +3,7 @@ import java.util.Map;
 
 public class Application {
     private Map<String, User> users;
+    public BookSystem bookSystem;
 
     public boolean checkUserExist(String name){
         boolean exist = false;
@@ -58,19 +59,36 @@ public class Application {
 
 
     public void listAuthor(String userName, String author) {
+        if(!checkUserExist(userName)){
+            System.out.println("Error");
+            return;
+        }
         bookSystem.listAuthor(userName, author);
     }
 
     public void listSubject(String userName, String subject) {
+        if(!checkUserExist(userName)){
+            System.out.println("Error");
+            return;
+        }
         bookSystem.listSubject(userName, subject);
     }
 
     public void listBorrower(String userName, int bookId) {
+        if(!checkUserExist(userName)){
+            System.out.println("Error");
+            return;
+        }
         users.get(userName).listBorrower(userName, bookId);
     }
 
     public void returnBook(String userName, int bookId){
-
+        if(!checkUserExist(userName)){
+            System.out.println("Error");
+            return;
+        }
+        User user = users.get(userName);
+        user.returnBook(userName, bookId);
     }
 
     public void checkOut(String user1, String user2, ArrayList<Integer> borrowBookList){
