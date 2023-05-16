@@ -23,26 +23,31 @@ public class Staff extends User{
     }
 
     @Override
-    public void findChecked(User user1, User user2) {
+    public void findChecked(User user2) {
         // TODO: sout need to sort by book id
+        if (user2.borrowedBooks.size() == 0) {
+            return;
+        }
         for(Map.Entry<Integer, Book> u: user2.borrowedBooks.entrySet()){
             System.out.println("ID: " + u.getValue().id + " Author: " + u.getValue().author + " Subject: " + u.getValue().subject);
         }
     }
 
     @Override
-    public void returnBook(String userName, int bookId) {
+    public void returnBook(String userName, int bookId, BookSystem bookSystem, User user2) {
         Book book = bookSystem.getBook(bookId);
-        if ( book.isCheckedOut ){
-            System.out.println("Can not return since the book isn't checked out");
-        } else {
-            book.isCheckedOut = false;
+        if (bookSystem.checkBookExist(bookId) == false){
+            System.out.println("Can not return since the book is not exist");
+            return;
         }
+        bookSystem.getBook(bookId).isCheckedOut = false;
+        user2.borrowedBooks.remove(bookId, book);
+
     }
 
     @Override
     public void checkOut(User user1, User user2, ArrayList<Integer> borrowBookList, BookSystem bookSystem) {
-        if ( borrowBookList.size() <= user2.predefinedBorrowBookNumber - user2.borrowedBooks.size()){
+        if ( borrowBookList.size() <= user2.predefinedBorrowBookNumber - user2.borrowedBooks.size() + 1){
             for (int i: borrowBookList){
                 if ( bookSystem.checkBookExist(i) == false ){
                     System.out.println("Can not check out since the book is checked out");
@@ -51,6 +56,7 @@ public class Staff extends User{
             }
             for (int id: borrowBookList){
                 Book book = bookSystem.getBook(id);
+                book.lastCheckoutUser = user2.name;
                 user2.borrowedBooks.put(id, book);
             }
         } else {

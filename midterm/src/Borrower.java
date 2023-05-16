@@ -4,11 +4,7 @@ import java.util.TreeMap;
 
 public class Borrower extends User{
 
-    public int predefinedBorrowBookNumber;
-
     public String type = "Borrower";
-
-    public Map<Integer, Book> borrowedBooks = null;
 
     public Borrower (String name, int predefinedBorrowBookNumber) {
         this.name = name;
@@ -31,8 +27,11 @@ public class Borrower extends User{
     }
 
     @Override
-    public void findChecked(User user1, User user2) {
-        if (user1.name.equals(user2.name)) {
+    public void findChecked(User user2) {
+        if (this.name.equals(user2.name)) {
+            if (user2.borrowedBooks.size() == 0) {
+                return;
+            }
             // TODO: sout need to sort by book id
             for(Map.Entry<Integer, Book> u: user2.borrowedBooks.entrySet()){
 
@@ -44,7 +43,7 @@ public class Borrower extends User{
     }
 
     @Override
-    public void returnBook(String userName, int bookId) {
+    public void returnBook(String userName, int bookId, BookSystem bookSystem, User user) {
         System.out.println("Borrower can not return book");
     }
 

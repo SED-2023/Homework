@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class BookSystem {
     private int lastBookId = 0;
-    private Map<Integer, Book> books = new LinkedHashMap<>();
+    public Map<Integer, Book> books = new LinkedHashMap<>();
 
     public void addBook(String author, String subject) {
         Book book = new Book(lastBookId, subject, author);
@@ -22,7 +22,7 @@ public class BookSystem {
     public void listAuthor(String author) {
         for (Map.Entry<Integer, Book> entry : books.entrySet()) {
             Book book = entry.getValue();
-            if (book.author == author)
+            if (book.author.equals(author))
                 System.out.println("ID: " + book.id + " Author: " + book.author + " Subject: " + book.subject);
         }
     }
@@ -30,7 +30,7 @@ public class BookSystem {
     public void listSubject(String subject) {
         for (Map.Entry<Integer, Book> entry : books.entrySet()) {
             Book book = entry.getValue();
-            if (book.subject == subject)
+            if (book.subject.equals(subject))
                 System.out.println("ID: " + book.id + " Author: " + book.author + " Subject: " + book.subject);
         }
     }

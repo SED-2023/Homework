@@ -27,11 +27,11 @@ public class Application {
             System.out.println("Error");
             return;
         }
-        if(userType == "Staff"){
+        if(userType.equals("Staff")){
             User user = new Staff(userName);
             users.put(userName, user);
         }
-        else if(userType == "Borrower"){
+        else if(userType.equals("Borrower")){
             User user = new Borrower(userName, Integer.parseInt(predefinedBorrowBookNumber));
             users.put(userName, user);
         }
@@ -66,7 +66,7 @@ public class Application {
         }
         User u1 = users.get(user1);
         User u2 = users.get(user2);
-        u1.findChecked(u1, u2);
+        u1.findChecked(u2);
     }
 
 
@@ -100,7 +100,9 @@ public class Application {
             return;
         }
         User user = users.get(userName);
-        user.returnBook(userName, bookId);
+        String name = bookSystem.books.get(bookId).lastCheckoutUser;
+        User user2 = users.get(name);
+        user.returnBook(userName, bookId, bookSystem, user2);
     }
 
     public void checkOut(String user1, String user2, ArrayList<String> borrowBookList){
@@ -112,23 +114,20 @@ public class Application {
             System.out.println("Error");
             return;
         }
-        try {
-            User staff = users.get(user1);
-            User borrower = users.get(user2);
 
-            if (borrower.type.equals("Staff")) {
-                System.out.println("Error");
-                return;
-            }
-            ArrayList<Integer> borrowBookListInt = new ArrayList<Integer>();
-            for(String stringValue : borrowBookList) {
-                borrowBookListInt.add(Integer.parseInt(stringValue));
-            }
-            staff.checkOut(staff, borrower, borrowBookListInt,  bookSystem);
+        User staff = users.get(user1);
+        User borrower = users.get(user2);
+//
+//        if (borrower.type.equals("Staff")) {
+//            System.out.println("Error");
+//            return;
+//        }
+        ArrayList<Integer> borrowBookListInt = new ArrayList<Integer>();
+        for(String stringValue : borrowBookList) {
+            borrowBookListInt.add(Integer.parseInt(stringValue));
         }
-        catch(Exception e){
-            System.out.println("Error");
-            return;
-        }
+        staff.checkOut(staff, borrower, borrowBookListInt,  bookSystem);
+
+
     }
 }

@@ -55,7 +55,7 @@ public class LibrarySystem {
                         ArrayList<String> stringList = new ArrayList<>(Arrays.asList(tokens));
                         application.checkOut(user, user2, stringList);
                         break;
-                    case "returnBook":
+                    case "return":
                         application.returnBook(user, Integer.parseInt(tokens[2]));
                         break;
                     case "listAuthor":
@@ -67,7 +67,7 @@ public class LibrarySystem {
                     case "findChecked":
                         application.findChecked(user, tokens[2]);
                         break;
-                    case "listBorrower":
+                    case "Borrower":
                         application.listBorrower(user, Integer.parseInt(tokens[2]));
                         break;
                     default:
