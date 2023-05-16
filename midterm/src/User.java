@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public abstract class User {
     public String name;
+    public String type;
 
     public abstract void addBook(String userName, String author, String subject);
 

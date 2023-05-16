@@ -15,18 +15,19 @@ public class Application {
         return exist;
     }
 
-    public void addUser(String userType, String userName){
+    public void addUser(String userType, String userName, int predefinedBorrowBookNumber){
         if(checkUserExist(userName)){
             System.out.println("Error");
             return;
         }
         if(userType == "Staff"){
-            User user = new Staff();
+            User user = new Staff(userName);
+            users.put(userName, user);
         }
         else if(userType == "Borrower"){
-            User user = new Borrower();
+            User user = new Borrower(userName, predefinedBorrowBookNumber);
+            users.put(userName, user);
         }
-        users.put(userName, user);
     }
 
     public void addBook(String userName, String author, String subject){
@@ -63,7 +64,7 @@ public class Application {
             System.out.println("Error");
             return;
         }
-        bookSystem.listAuthor(userName, author);
+        bookSystem.listAuthor(author);
     }
 
     public void listSubject(String userName, String subject) {
@@ -71,7 +72,7 @@ public class Application {
             System.out.println("Error");
             return;
         }
-        bookSystem.listSubject(userName, subject);
+        bookSystem.listSubject(subject);
     }
 
     public void listBorrower(String userName, int bookId) {
@@ -91,7 +92,7 @@ public class Application {
         user.returnBook(userName, bookId);
     }
 
-    public void checkOut(String user1, String user2, ArrayList<Integer> borrowBookList){
+    public void checkOut(String user1, String user2, ArrayList<String> borrowBookList){
         if(!checkUserExist(user1)){
             System.out.println("Error");
             return;
@@ -108,7 +109,11 @@ public class Application {
                 System.out.println("Error");
                 return;
             }
-            staff.checkOut(staff, borrower, borrowBookList);
+            ArrayList<Integer> borrowBookListInt = new ArrayList<Integer>();
+            for(String stringValue : borrowBookList) {
+                borrowBookListInt.add(Integer.parseInt(stringValue));
+            }
+            staff.checkOut(staff, borrower, borrowBookListInt);
         }
         catch(Exception e){
             System.out.println("Error");
