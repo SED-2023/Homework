@@ -30,14 +30,19 @@ public class Staff extends User{
 
     @Override
     public void returnBook(String userName, int bookId) {
-
+        Book book = bookSystem.getBook(bookId);
+        if ( book.isCheckedOut ){
+            System.out.println("Can not return since the book isn't checked out");
+        } else {
+            book.isCheckedOut = false;
+        }
     }
 
     @Override
     public void checkOut(Staff user1, Borrower user2, ArrayList<Integer> borrowBookList) {
         if ( borrowBookList.size() <= user2.predefinedBorrowBookNumber - user2.borrowedBooks.size()){
             for (int i: borrowBookList){
-                if ( bookSystem.checkBookExist(i) == False ){
+                if ( bookSystem.checkBookExist(i) == false ){
                     System.out.println("Can not check out since the book is checked out");
                     return;
                 }
