@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Application {
     private Map<String, User> users;
@@ -14,12 +15,12 @@ public class Application {
     }
 
     public void addUser(String userType, String userName){
-        if(checkUserExist(name)){
+        if(checkUserExist(userName)){
             System.out.println("Error");
             return;
         }
-        user = new User(userType, userName);
-        users.put(type, user);
+        User user = new User();
+        users.put(userName, user);
         return;
     }
 
