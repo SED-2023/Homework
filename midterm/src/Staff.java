@@ -38,7 +38,7 @@ public class Staff extends User{
                     return;
                 }
             }
-            for (int i: borrowBookList){
+            for (int id: borrowBookList){
                 Book book = bookSystem.getBook(id);
                 user2.borrowedBooks.put(id, book);
             }
