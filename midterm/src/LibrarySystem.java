@@ -1,4 +1,7 @@
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class LibrarySystem {
     public static void main(String[] args) throws IOException {
@@ -48,7 +51,9 @@ public class LibrarySystem {
                         String user2 = tokens[2];
                         line = fileReader.readLine();
                         tokens = line.split(" ");
-                        application.checkOut(user, user2, tokens);
+
+                        ArrayList<String> stringList = new ArrayList<>(Arrays.asList(tokens));
+                        application.checkOut(user, user2, stringList);
                         break;
                     case "returnBook":
                         application.returnBook(user, Integer.parseInt(tokens[2]));

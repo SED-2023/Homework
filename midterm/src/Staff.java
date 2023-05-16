@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Map;
 
 public class Staff extends User{
 
@@ -7,25 +8,25 @@ public class Staff extends User{
         this.name = name;
     }
     @Override
-    public void addBook(String userName, String author, String subject) {
+    public void addBook(BookSystem bookSystem, String author, String subject) {
         bookSystem.addBook(author, subject);
     }
 
     @Override
-    public void removeBook(String userName, int bookId) {
+    public void removeBook(BookSystem bookSystem, int bookId) {
         bookSystem.removeBook(bookId);
     }
 
     @Override
-    public void listBorrower(String userName, int bookId) {
+    public void listBorrower(BookSystem bookSystem, int bookId) {
         bookSystem.listBorrower(bookId);
     }
 
     @Override
     public void findChecked(User user1, User user2) {
         // TODO: sout need to sort by book id
-        for (var entry: borrowedBooks) {
-            System.out.println("ID: " + entry.id + " Author: " + entry.author + " Subject: " + entry.subject);
+        for(Map.Entry<Integer, Book> u: user2.borrowedBooks.entrySet()){
+            System.out.println("ID: " + u.getValue().id + " Author: " + u.getValue().author + " Subject: " + u.getValue().subject);
         }
     }
 
@@ -35,10 +36,10 @@ public class Staff extends User{
     }
 
     @Override
-    public void checkOut(User user1, User user2, ArrayList<Integer> borrowBookList) {
+    public void checkOut(User user1, User user2, ArrayList<Integer> borrowBookList, BookSystem bookSystem) {
         if ( borrowBookList.size() <= user2.predefinedBorrowBookNumber - user2.borrowedBooks.size()){
             for (int i: borrowBookList){
-                if ( bookSystem.checkBookExist(i) == False ){
+                if ( bookSystem.checkBookExist(i) == false ){
                     System.out.println("Can not check out since the book is checked out");
                     return;
                 }
