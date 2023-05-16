@@ -6,8 +6,8 @@ public class Application {
 
     public boolean checkUserExist(String name){
         boolean exist = false;
-        for(User u: users){
-            if(name.equals(u.name)){
+        for(Map.Entry<String, User> u: users.entrySet()){
+            if(name.equals(u.getKey())){
                 exist = true;
             }
         }
@@ -29,7 +29,7 @@ public class Application {
     }
 
     public void addBook(String userName, String author, String subject){
-        if(checkUserExist(userName)){
+        if(!checkUserExist(userName)){
             System.out.println("Error");
             return;
         }
@@ -37,13 +37,22 @@ public class Application {
         user.addBook(userName, author, subject);
     }
 
-    public void removeBook(String userName, String author, String subject){
-        if(checkUserExist(userName)){
+    public void removeBook(String userName, int bookId){
+        if(!checkUserExist(userName)){
             System.out.println("Error");
             return;
         }
         User user = users.get(userName);
-        user.removeBook();
+        user.removeBook(userName, bookId);
+    }
+
+    public void findChecked(String user1, String user2){
+        if(!checkUserExist(user1)||!checkUserExist(user2)){
+            System.out.println("Error");
+            return;
+        }
+        User user = users.get(user1);
+        user.findChecked(user2,);
     }
 
 
