@@ -67,4 +67,33 @@ public class Application {
     public void listBorrower(String userName, int bookId) {
         users.get(userName).listBorrower(userName, bookId);
     }
+
+
+    public void checkOut(String user1, String user2, ArrayList<Integer> borrowBookList){
+        if(checkUserExist(user1)){
+            System.out.println("Error");
+            return;
+        }
+        if (checkUserExist(user2)) {
+            System.out.println("Error");
+            return;
+        }
+        try {
+            User staff = users.get(user1);
+            User borrower = users.get(user2);
+            if (staff.type.equals("Borrower")) {
+                System.out.println("Error");
+                return;
+            }
+            if (borrower.type.equals("Staff")) {
+                System.out.println("Error");
+                return;
+            }
+            staff.checkOut(staff, borrower, borrowBookList);
+        }
+        catch(Exception e){
+            System.out.println("Error");
+            return;
+        }
+    }
 }
