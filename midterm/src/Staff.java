@@ -42,6 +42,7 @@ public class Staff extends User{
         }
         bookSystem.getBook(bookId).isCheckedOut = false;
         user2.borrowedBooks.remove(bookId, book);
+
     }
 
     @Override
