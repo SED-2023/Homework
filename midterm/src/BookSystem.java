@@ -22,7 +22,7 @@ public class BookSystem {
     public void listAuthor(String author) {
         for (Map.Entry<Integer, Book> entry : books.entrySet()) {
             Book book = entry.getValue();
-            if (book.author == author)
+            if (book.author.equals(author))
                 System.out.println("ID: " + book.id + " Author: " + book.author + " Subject: " + book.subject);
         }
     }
@@ -30,7 +30,7 @@ public class BookSystem {
     public void listSubject(String subject) {
         for (Map.Entry<Integer, Book> entry : books.entrySet()) {
             Book book = entry.getValue();
-            if (book.subject == subject)
+            if (book.subject.equals(subject))
                 System.out.println("ID: " + book.id + " Author: " + book.author + " Subject: " + book.subject);
         }
     }

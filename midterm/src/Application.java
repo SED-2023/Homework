@@ -66,7 +66,7 @@ public class Application {
         }
         User u1 = users.get(user1);
         User u2 = users.get(user2);
-        u1.findChecked(u1, u2);
+        u1.findChecked(u2);
     }
 
 
@@ -112,24 +112,21 @@ public class Application {
             System.out.println("Error");
             return;
         }
-        try {
-            User staff = users.get(user1);
-            User borrower = users.get(user2);
 
-            if (borrower.type.equals("Staff")) {
-                System.out.println("Error");
-                return;
-            }
-            ArrayList<Integer> borrowBookListInt = new ArrayList<Integer>();
-            for(String stringValue : borrowBookList) {
-                borrowBookListInt.add(Integer.parseInt(stringValue));
-            }
-            staff.checkOut(staff, borrower, borrowBookListInt,  bookSystem);
+        User staff = users.get(user1);
+        User borrower = users.get(user2);
+//
+//        if (borrower.type.equals("Staff")) {
+//            System.out.println("Error");
+//            return;
+//        }
+        ArrayList<Integer> borrowBookListInt = new ArrayList<Integer>();
+        for(String stringValue : borrowBookList) {
+            borrowBookListInt.add(Integer.parseInt(stringValue));
         }
-        catch(Exception e){
-            System.out.println("Error");
-            return;
-        }
+        staff.checkOut(staff, borrower, borrowBookListInt,  bookSystem);
+
+
     }
 
 
