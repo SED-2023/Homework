@@ -30,7 +30,20 @@ public class Staff extends User{
     }
 
     @Override
-    public void checkOut(String user1, String user2, ArrayList<Integer> borrowBookList) {
-
+    public void checkOut(Staff user1, Borrower user2, ArrayList<Integer> borrowBookList) {
+        if ( borrowBookList.size() <= user2.predefinedBorrowBookNumber - user2.borrowedBooks.size()){
+            for (int i: borrowBookList){
+                if ( bookSystem.checkBookExist(i) == False ){
+                    System.out.println("Can not check out since the book is checked out");
+                    return;
+                }
+            }
+            for (int id: borrowBookList){
+                Book book = bookSystem.getBook(id);
+                user2.borrowedBooks.put(id, book);
+            }
+        } else {
+            System.out.println("Can not check out since the number of books exceed the limitation of user can check-out");
+        }
     }
 }

@@ -47,6 +47,6 @@ public class Borrower extends User{
 
     @Override
     public void checkOut(String user1, String user2, ArrayList<Integer> borrowBookList) {
-
+        System.out.println("Borrower can not check out the books");
     }
 }
