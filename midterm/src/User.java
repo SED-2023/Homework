@@ -16,7 +16,7 @@ public abstract class User {
 
     public abstract void findChecked(User user2);
 
-    public abstract void returnBook(String userName, int bookId);
+    public abstract void returnBook(String userName, int bookId, BookSystem bookSystem, User user2);
 
     public abstract void checkOut(User user1, User user2, ArrayList<Integer> borrowBookList, BookSystem  bookSystem);
 }

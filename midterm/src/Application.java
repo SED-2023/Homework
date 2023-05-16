@@ -100,7 +100,9 @@ public class Application {
             return;
         }
         User user = users.get(userName);
-        user.returnBook(userName, bookId);
+        String name = bookSystem.books.get(bookId).lastCheckoutUser;
+        User user2 = users.get(name);
+        user.returnBook(userName, bookId, bookSystem, user2);
     }
 
     public void checkOut(String user1, String user2, ArrayList<String> borrowBookList){

@@ -29,13 +29,19 @@ public class Staff extends User{
             return;
         }
         for(Map.Entry<Integer, Book> u: user2.borrowedBooks.entrySet()){
-            System.out.println("SID: " + u.getValue().id + " Author: " + u.getValue().author + " Subject: " + u.getValue().subject);
+            System.out.println("ID: " + u.getValue().id + " Author: " + u.getValue().author + " Subject: " + u.getValue().subject);
         }
     }
 
     @Override
-    public void returnBook(String userName, int bookId) {
-        
+    public void returnBook(String userName, int bookId, BookSystem bookSystem, User user2) {
+        Book book = bookSystem.getBook(bookId);
+        if (bookSystem.checkBookExist(bookId) == false){
+            System.out.println("Can not return since the book is not exist");
+            return;
+        }
+        bookSystem.getBook(bookId).isCheckedOut = false;
+        user2.borrowedBooks.remove(bookId, book);
     }
 
     @Override
@@ -49,6 +55,7 @@ public class Staff extends User{
             }
             for (int id: borrowBookList){
                 Book book = bookSystem.getBook(id);
+                book.lastCheckoutUser = user2.name;
                 user2.borrowedBooks.put(id, book);
             }
         } else {

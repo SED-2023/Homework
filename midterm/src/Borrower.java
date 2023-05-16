@@ -43,7 +43,7 @@ public class Borrower extends User{
     }
 
     @Override
-    public void returnBook(String userName, int bookId) {
+    public void returnBook(String userName, int bookId, BookSystem bookSystem, User user) {
         System.out.println("Borrower can not return book");
     }
 
