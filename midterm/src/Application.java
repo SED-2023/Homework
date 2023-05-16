@@ -95,7 +95,7 @@ public class Application {
     }
 
     public void returnBook(String userName, int bookId){
-        if(!checkUserExist(userName)){
+        if (!checkUserExist(userName)){
             System.out.println("Error");
             return;
         }
@@ -128,6 +128,4 @@ public class Application {
 
 
     }
-
-
 }
