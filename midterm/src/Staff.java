@@ -32,7 +32,12 @@ public class Staff extends User{
 
     @Override
     public void returnBook(String userName, int bookId) {
-
+        Book book = bookSystem.getBook(bookId);
+        if ( book.isCheckedOut ){
+            System.out.println("Can not return since the book isn't checked out");
+        } else {
+            book.isCheckedOut = false;
+        }
     }
 
     @Override
