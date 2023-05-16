@@ -1,8 +1,9 @@
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class BookSystem {
     private int lastBookId = 0;
-    private Map<Integer, Book> books;
+    private Map<Integer, Book> books = new LinkedHashMap<>();
 
     public void addBook(String author, String subject) {
         Book book = new Book(lastBookId, subject, author);
