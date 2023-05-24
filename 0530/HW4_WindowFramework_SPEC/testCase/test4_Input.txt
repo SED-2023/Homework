@@ -1,0 +1,28 @@
+10
+AuthorA SubjectA
+AuthorB SubjectB
+AuthorC SubjectB
+AuthorA SubjectC
+AuthorB SubjectD
+AuthorC SubjectE
+AuthorA SubjectE
+AuthorB SubjectE
+AuthorC SubjectF
+AuthorA SubjectG
+4
+Staff UserA
+Borrower UserB 3
+Borrower UserC 4
+Staff UserD
+UserA listAuthor AuthorA
+UserB listSubject SubjectB
+UserA addBook
+AuthorD SubjectA
+UserB listAuthor AuthorD
+UserA checkout UserB
+0 3
+UserD listAuthor AuthorA
+UserA removeBook 10
+UserC listAuthor AuthorD
+UserD return 3
+UserA listAuthor AuthorA
