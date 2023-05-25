@@ -16,4 +16,4 @@ rm "$folder_path"/"$team_name"/MainTest.java
 
 javac -d target ./"$folder_path"/"$team_name"/*.java
 cd target
-java Main ../sampleInput > ../outputFiles/sampleOutput
+java Main ../Sample.in > ../outputFiles/sampleOutput

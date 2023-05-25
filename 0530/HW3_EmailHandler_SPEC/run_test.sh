@@ -1,7 +1,7 @@
 #!/bin/bash
 javac -cp "lib/*" -d target ./src/*.java
 cd target
-java LibrarySystem ../sample.in > ../outputFiles/sampleResult
+java Main ../Sample.in > ../outputFiles/sampleResult
 
 directory="../testCase"
 search_string="_Input"
@@ -13,7 +13,7 @@ for file in "$directory"/*; do
         if [[ $filename == *_Input.txt ]]; then
           echo "Processing file: $filename"
           result="${filename//$search_string/$replacement_string}"
-          java LibrarySystem ../testCase/"$filename" > ../outputFiles/"$result"
+          java Main ../testCase/"$filename" > ../outputFiles/"$result"
         fi
     fi
 done
