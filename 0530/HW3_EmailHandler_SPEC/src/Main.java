@@ -4,12 +4,11 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        ArrayList<String> outputString = new ArrayList<>();
 
         try {
             InputParser input = new InputParser();
             BufferedReader fileReader = input.parse(args);
-            String line = null;
+            String line = fileReader.readLine();
 
             // define handlers
             Handler fan = new FanHandler(null);
@@ -19,7 +18,7 @@ public class Main {
             Handler emailHandler = spam;
 
             // Read the file line
-            do {
+            while  (line != null) {
                 line = fileReader.readLine();
                 String[] tokens = line.split(" ");
                 if (tokens.length != 1){
@@ -32,7 +31,7 @@ public class Main {
 
 
                 line = fileReader.readLine();
-            } while  (line != null);
+            };
 
             fileReader.close();
 
