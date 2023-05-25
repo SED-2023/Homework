@@ -1,17 +1,5 @@
-3
-AuthorA SubjectA
-AuthorB SubjectB
-AuthorC SubjectC
-2
-Staff StaffA
-Borrower BorrowerB 2
-UserA addBook
-Author1 Subject1
-UserA removeBook 3
-UserA checkout UserB
-0 1
-UserA return 0
-UserA listAuthor AuthorA
-UserA listSubject SubjectA
-UserA findChecked UserB
-UserA Borrower 1
+FAN
+SPAM
+FAN
+SPAM
+COMPLAINT
