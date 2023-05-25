@@ -7,7 +7,7 @@ public class SpamHandler extends Handler {
 
     @Override
     public void handle(Email email) {
-        if (email.type == "SPAM") {
+        if (email.type.equals("SPAM")) {
             System.out.println("Put mail to the spam box.");
         }
         if (nextHandler != null) {

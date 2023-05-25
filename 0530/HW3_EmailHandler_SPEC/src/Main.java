@@ -19,9 +19,9 @@ public class Main {
 
             // Read the file line
             while  (line != null) {
-                line = fileReader.readLine();
                 String[] tokens = line.split(" ");
                 if (tokens.length != 1){
+                    line = fileReader.readLine();
                     continue;
                 }
                 String emailType = tokens[0];

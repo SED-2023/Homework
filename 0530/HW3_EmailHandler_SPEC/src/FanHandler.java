@@ -7,7 +7,7 @@ public class FanHandler extends Handler {
 
     @Override
     public void handle(Email email) {
-        if (email.type == "FAN") {
+        if (email.type.equals("FAN")) {
             System.out.println("Forward to CEO.");
         }
         if (nextHandler != null) {

@@ -7,7 +7,7 @@ public class ComplaintHandler extends Handler {
 
     @Override
     public void handle(Email email) {
-        if (email.type == "COMPLAINT") {
+        if (email.type.equals("COMPLAINT")) {
             System.out.println("Forward to legal department.");
         }
         if (nextHandler != null) {
