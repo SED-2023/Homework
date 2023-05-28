@@ -11,29 +11,26 @@ public class Main {
         switch (componentType) {
             case "Line":
                 BasicComponent lineComponent = new Line();
-                lineComponent.draw();
-                System.out.println();
                 return lineComponent;
             case "Rectangle":
                 BasicComponent rectangle = new Rectangle();
-                rectangle.draw();
-                System.out.println();
                 return rectangle;
             case "Text":
                 BasicComponent text = new Text();
-                text.draw();
-                System.out.println();
                 return text;
             case "Group":
                 BasicComponent group = new Group();
                 NodeList groupChildList = node.getChildNodes();
-//                System.out.println(chileComponentType);
+
                 for (int index = 0; index < groupChildList.getLength(); index++) {
                     Node childNode = groupChildList.item(index);
-                    String chileComponentType = node.getNodeName();
-//                    System.out.println(chileComponentType);
-                    BasicComponent bc = switchComponents(chileComponentType, childNode);
-                    ((Group) group).add(bc);
+                    String childComponentType = childNode.getNodeName();
+                    System.out.println(childComponentType);
+                    BasicComponent bc = switchComponents(childComponentType, childNode);
+//                    bc.draw();
+                    if(bc!=null) {
+                        ((Group) group).add(bc);
+                    }
                 }
 //                group.draw();
                 return group;
@@ -51,32 +48,33 @@ public class Main {
             for (int index = 0; index < childList.getLength(); index++) {
                 Node node = childList.item(index);
                 String componentType = node.getNodeName();
-                switchComponents(componentType, node);
+//                switchComponents(componentType, node);
 //                System.out.println(componentType);
-//                switch (componentType) {
-//                    case "Line":
-//                        BasicComponent lineComponent = new Line();
-//                        lineComponent.draw();
-//                        System.out.println();
-//                        break;
-//                    case "Rectangle":
-//                        BasicComponent rectangle = new Rectangle();
-//                        rectangle.draw();
-//                        System.out.println();
-//                        break;
-//                    case "Text":
-//                        BasicComponent text = new Text();
-//                        text.draw();
-//                        System.out.println();
-//                        break;
-//                    case "Group":
+                switch (componentType) {
+                    case "Line":
+                        BasicComponent lineComponent = new Line();
+                        lineComponent.draw();
+                        System.out.println();
+                        break;
+                    case "Rectangle":
+                        BasicComponent rectangle = new Rectangle();
+                        rectangle.draw();
+                        System.out.println();
+                        break;
+                    case "Text":
+                        BasicComponent text = new Text();
+                        text.draw();
+                        System.out.println();
+                        break;
+                    case "Group":
+                        switchComponents(componentType, node);
 //                        BasicComponent group = new Group();
 //                        NodeList groupChildList = node.getChildNodes();
-//
-////                        group.add();
-//                    default:
-//                        break;
-//                }
+
+//                        group.add();
+                    default:
+                        break;
+                }
             }
         } catch (Exception e) {
 //            System.out.println("Input Error");
