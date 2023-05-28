@@ -3,13 +3,12 @@ import java.util.ArrayList;
 public class List implements IList {
     public int length;
     public String name;
-    public String type;
+    public String type = "List";
     private ArrayList<String> arr;
 
     public List(String name, String type) {
         arr = new ArrayList<>();
         this.name = name;
-        this.type = type;
     }
 
     @Override

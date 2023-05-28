@@ -4,13 +4,12 @@ import java.util.ArrayList;
 
 public class SkipList implements IList {
     public String name;
-    public String type;
+    public String type = "SkipList";
     private ArrayList<SkipNode> nodes;
 
     public SkipList(String name, String type) {
         nodes = new ArrayList<>();
         this.name = name;
-        this.type = type;
     }
 
     @Override
