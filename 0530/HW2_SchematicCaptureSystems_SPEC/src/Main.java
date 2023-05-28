@@ -5,6 +5,41 @@ import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
 public class Main {
+
+    private static BasicComponent switchComponents(String componentType, Node node) {
+        if (componentType.equals("#text")) return null;
+        switch (componentType) {
+            case "Line":
+                BasicComponent lineComponent = new Line();
+                return lineComponent;
+            case "Rectangle":
+                BasicComponent rectangle = new Rectangle();
+                return rectangle;
+            case "Text":
+                BasicComponent text = new Text();
+                return text;
+            case "Group":
+                BasicComponent group = new Group();
+                NodeList groupChildList = node.getChildNodes();
+
+                for (int index = 0; index < groupChildList.getLength(); index++) {
+                    Node childNode = groupChildList.item(index);
+                    String childComponentType = childNode.getNodeName();
+                    System.out.println(childComponentType);
+                    BasicComponent bc = switchComponents(childComponentType, childNode);
+//                    bc.draw();
+                    if(bc!=null) {
+                        ((Group) group).add(bc);
+                    }
+                }
+//                group.draw();
+                return group;
+            default:
+                break;
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         try {
             InputParser input = new InputParser();
@@ -13,9 +48,7 @@ public class Main {
             for (int index = 0; index < childList.getLength(); index++) {
                 Node node = childList.item(index);
                 String componentType = node.getNodeName();
-                if (componentType.equals("#text")) {
-                    continue;
-                }
+//                switchComponents(componentType, node);
 //                System.out.println(componentType);
                 switch (componentType) {
                     case "Line":
@@ -34,7 +67,10 @@ public class Main {
                         System.out.println();
                         break;
                     case "Group":
-                        BasicComponent group = new Group();
+                        switchComponents(componentType, node);
+//                        BasicComponent group = new Group();
+//                        NodeList groupChildList = node.getChildNodes();
+
 //                        group.add();
                     default:
                         break;
