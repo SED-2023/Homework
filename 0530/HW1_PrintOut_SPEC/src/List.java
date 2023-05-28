@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class List implements AbstractList {
-    private int length;
-    private String name;
-    private String type;
+    public int length;
+    public String name;
+    public String type;
     private ArrayList<String> arr;
 
     public List(String name, String type) {
