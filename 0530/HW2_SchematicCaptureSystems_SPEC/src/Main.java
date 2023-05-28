@@ -19,59 +19,27 @@ public class Main {
 //                System.out.println(componentType);
                 switch (componentType) {
                     case "Line":
-                        BasicComponent lineComponent  = new Line();
+                        BasicComponent lineComponent = new Line();
                         lineComponent.draw();
+                        System.out.println();
                         break;
                     case "Rectangle":
                         BasicComponent rectangle = new Rectangle();
                         rectangle.draw();
+                        System.out.println();
                         break;
                     case "Text":
                         BasicComponent text = new Text();
                         text.draw();
+                        System.out.println();
                         break;
                     case "Group":
                         BasicComponent group = new Group();
-                        group.add();
+//                        group.add();
                     default:
                         break;
+                }
             }
-//            BufferedReader fileReader = input.parse(args);
-//            String line = fileReader.readLine();
-
-//            while (line != null) {
-//                String[] tokens = line.split(" ");
-//                String command = tokens[0];
-//                switch (command) {
-//                    case "<Line/>":
-//                        BasicComponent lineComponent  = new Line();
-//                        lineComponent.draw();
-//                        break;
-//                    case "<Rectangle/>":
-//                        BasicComponent rectangle = new Rectangle();
-//                        rectangle.draw();
-//                        break;
-//                    case "<Text/>":
-//                        BasicComponent textBox = new Text();
-//                        text.draw();
-//                        break;
-//                    case "<Group>":
-//                        BasicComponent group = new Group();
-//                        group.add();
-
-//                    case "Button", "ScrollBar", "Window":
-//                        application.setWidget(command, tokens[1]);
-//                        break;
-//                    case "Present":
-//                        application.present();
-//                        break;
-//                    default:
-//                        break;
-//                }
-//                line = fileReader.readLine();
-//            }
-//            fileReader.close();
-
         } catch (Exception e) {
 //            System.out.println("Input Error");
         }
