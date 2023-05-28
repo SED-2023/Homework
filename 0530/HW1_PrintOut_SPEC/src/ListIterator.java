@@ -9,7 +9,7 @@ public class ListIterator implements Iterator{
 
     @Override
     public boolean hasNext() {
-        return currentIndex < list.length();
+        return currentIndex < list.length;
     }
 
     @Override
