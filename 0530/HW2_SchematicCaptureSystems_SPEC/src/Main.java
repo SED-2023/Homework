@@ -1,84 +1,77 @@
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Main {
-
-    private static BasicComponent switchComponents(String componentType, Node node) {
-        if (componentType.equals("#text")) return null;
-        switch (componentType) {
-            case "Line":
-                BasicComponent lineComponent = new Line();
-                lineComponent.draw();
-                System.out.println();
-                return lineComponent;
-            case "Rectangle":
-                BasicComponent rectangle = new Rectangle();
-                rectangle.draw();
-                System.out.println();
-                return rectangle;
-            case "Text":
-                BasicComponent text = new Text();
-                text.draw();
-                System.out.println();
-                return text;
-            case "Group":
-                BasicComponent group = new Group();
-                NodeList groupChildList = node.getChildNodes();
-//                System.out.println(chileComponentType);
-                for (int index = 0; index < groupChildList.getLength(); index++) {
-                    Node childNode = groupChildList.item(index);
-                    String chileComponentType = node.getNodeName();
-//                    System.out.println(chileComponentType);
-                    BasicComponent bc = switchComponents(chileComponentType, childNode);
-                    ((Group) group).add(bc);
-                }
-//                group.draw();
-                return group;
-            default:
-                break;
-        }
-        return null;
-    }
 
     public static void main(String[] args) {
         try {
             InputParser input = new InputParser();
-            NodeList childList = input.xmlParse(args);
-            //loop childList
-            for (int index = 0; index < childList.getLength(); index++) {
-                Node node = childList.item(index);
-                String componentType = node.getNodeName();
-                switchComponents(componentType, node);
-//                System.out.println(componentType);
-//                switch (componentType) {
-//                    case "Line":
-//                        BasicComponent lineComponent = new Line();
-//                        lineComponent.draw();
-//                        System.out.println();
-//                        break;
-//                    case "Rectangle":
-//                        BasicComponent rectangle = new Rectangle();
-//                        rectangle.draw();
-//                        System.out.println();
-//                        break;
-//                    case "Text":
-//                        BasicComponent text = new Text();
-//                        text.draw();
-//                        System.out.println();
-//                        break;
-//                    case "Group":
-//                        BasicComponent group = new Group();
-//                        NodeList groupChildList = node.getChildNodes();
-//
-////                        group.add();
-//                    default:
-//                        break;
-//                }
+            BufferedReader fileReader = input.parse(args);
+            String line = fileReader.readLine();
+            ArrayList<Group> groupList = new ArrayList<>();
+
+            while (line != null) {
+                String command = line.replace("\t", "").replace(" ", "");
+                switch (command) {
+                    case "<Line/>":
+                        BasicComponent lineComponent = new Line();
+                        if (groupList.size() > 0) {
+                            groupList.get(groupList.size() - 1).add(lineComponent);
+                        } else {
+                            lineComponent.draw();
+                            System.out.println(" ");
+                        }
+                        break;
+                    case "<Rectangle/>":
+                        BasicComponent rectangle = new Rectangle();
+                        if (groupList.size() > 0) {
+                            groupList.get(groupList.size() - 1).add(rectangle);
+                        } else {
+                            rectangle.draw();
+                            System.out.println(" ");
+                        }
+                        break;
+                    case "<Text/>":
+                        BasicComponent text = new Text();
+                        if (groupList.size() > 0) {
+                            groupList.get(groupList.size() - 1).add(text);
+                        } else {
+                            text.draw();
+                            System.out.println(" ");
+                        }
+                        break;
+                    case "<Group/>": // one-line group
+                        BasicComponent singleGroup = new Group();
+                        if (groupList.size() > 0) {
+                            groupList.get(groupList.size() - 1).add(singleGroup);
+                        } else {
+                            singleGroup.draw();
+                            System.out.println(" ");
+                        }
+                        break;
+                    case "<Group>": //group start
+                        Group group = new Group();
+                        if (groupList.size() > 0) {
+                            groupList.get(groupList.size() - 1).add(group);
+                        }
+                        groupList.add(group);
+                        break;
+                    case "</Group>": //group end
+                        if (groupList.size() == 1) {
+                            groupList.get(0).draw();
+                            System.out.println(" ");
+                        }
+                        groupList.remove(groupList.size() - 1);
+                        break;
+                    default:
+                        break;
+                }
+                line = fileReader.readLine();
             }
-        } catch (Exception e) {
+            fileReader.close();
+
+        } catch (IOException ex) {
 //            System.out.println("Input Error");
         }
     }
