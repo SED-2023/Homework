@@ -16,7 +16,7 @@ public class Group implements BasicComponent{
             component.draw();
             System.out.printf("%s", " ");
         }
-        System.out.printf("} ");
+        System.out.printf("}");
 
     }
 }

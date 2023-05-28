@@ -29,7 +29,7 @@ public class Main {
                             ws = new IconWindow(implementtype);
                             break;
                         }
-                        if (implementtype.equals("TransientWindow")) {
+                        if (windowsubtype.equals("TransientWindow")) {
                             ws =  new TransientWindow(implementtype);
                             break;
                         }

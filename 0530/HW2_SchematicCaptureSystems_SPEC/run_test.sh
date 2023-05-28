@@ -1,7 +1,7 @@
 #!/bin/bash
 javac -cp "lib/*" -d target ./src/*.java
 cd target
-java Main ../sampleInput > ../outputFiles/sampleResult
+java Main ../Sample0.in > ../outputFiles/sampleResult
 
 directory="../testCase"
 search_string="_Input"

@@ -1,17 +1,3 @@
-5
-AuthorA SubjectA
-AuthorB SubjectB
-AuthorB SubjectB
-AuthorB SubjectB
-AuthorC SubjectC
-3
-Staff StaffA
-Borrower BorrowerB 2
-Borrower BorrowerC 5
-Staff StaffD
-StaffA addBook
-Author1 Subject1
-BorrowerB addBook
-Author2 Subject2
-StaffA removeBook 0
-StaffD removeBook 4
+window TransientWindow XWindow
+drawBorder
+drawCloseBox
