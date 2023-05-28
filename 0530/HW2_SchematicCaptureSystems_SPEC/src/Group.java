@@ -11,10 +11,11 @@ public class Group implements BasicComponent{
     }
 
     public void draw(){
-        System.out.print("Group:{");
+        System.out.printf("Group:{");
         for(BasicComponent component : components){
             component.draw();
         }
-        System.out.print("} ");
+        System.out.printf("} ");
+
     }
 }
