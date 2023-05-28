@@ -1,15 +1,10 @@
-6
-AuthorA SubjectA
-AuthorB SubjectB
-AuthorC SubjectC
-AuthorD SubjectD
-AuthorE SubjectE
-AuthorF SubjectF
-7
-Staff UserA 2
-Borrower UserA
-Borrower UserA 3
-Staff UserB
-Borrower UserC 1
-Staff UserC 5
-Borrower UserD 4
+Create SkipList1 SkipList
+Create SkipList2 SkipList
+Add SkipList1 a
+Add SkipList2 b
+Length SkipList1
+Size SkipList1
+Add SkipList1 c
+Get SkipList1 0
+GetNode SkipList1 0
+PrintOutList SkipList1

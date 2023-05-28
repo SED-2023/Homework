@@ -1,4 +1,5 @@
 public interface Iterator {
-    boolean hasNext();
-    String getObject();
+    public int currentIndex = 0;
+    public boolean hasNext();
+    public String next();
 }

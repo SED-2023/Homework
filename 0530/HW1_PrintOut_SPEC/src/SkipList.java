@@ -1,39 +1,35 @@
+import org.w3c.dom.Node;
+
 import java.util.ArrayList;
 
-public class SkipList {
-    private int index;
+public class SkipList implements AbstractList {
+    public String name;
+    public String type;
     private ArrayList<SkipNode> nodes;
 
-    public SkipList() {
+    public SkipList(String name, String type) {
         nodes = new ArrayList<>();
-        this.index = 0;
+        this.name = name;
+        this.type = type;
     }
 
+    @Override
     public void add(String item) {
         SkipNode node = new SkipNode(item);
         nodes.add(node);
+    }
+
+    public SkipNode getNode(int index) {
+        return nodes.get(index);
     }
 
     public int size() {
         return nodes.size();
     }
 
-    public Iterator getIterator() {
-        return new SkipListIterator();
+    @Override
+    public Iterator createIterator() {
+        return new SkipListIterator(this);
     }
 
-    // SkipListIterator implementation
-    private class SkipListIterator implements Iterator {
-
-        public boolean hasNext() {
-            return index < nodes.size();
-        }
-
-        public String getObject() {
-            if (hasNext()) {
-                return nodes.get(index++).getData();
-            }
-            return null;
-        }
-    }
 }
