@@ -1,4 +1,6 @@
-ID: 0 Author: AuthorA Subject: SubjectA
-ID: 0 Author: AuthorA Subject: SubjectA
-ID: 1 Author: AuthorB Subject: SubjectB
-User: UserB
+Group:{}
+Group:{}
+Rectangle 
+Group:{Group:{} Group:{} Rectangle Group:{} Group:{Group:{} Group:{} Group:{} Text Rectangle Group:{} } }
+Group:{} 
+Group:{Group:{} Group:{Text Line Text Rectangle } Rectangle }

@@ -1,17 +1,31 @@
-3
-AuthorA SubjectA
-AuthorB SubjectB
-AuthorC SubjectC
-2
-Staff StaffA
-Borrower BorrowerB 2
-UserA addBook
-Author1 Subject1
-UserA removeBook 3
-UserA checkout UserB
-0 1
-UserA return 0
-UserA listAuthor AuthorA
-UserA listSubject SubjectA
-UserA findChecked UserB
-UserA Borrower 1
+<?xml version="1.0"?>
+<Question>
+	<Group>
+	<Group>
+	<Rectangle/>	
+	<Group>
+		<Group/>
+		<Group/>
+		<Rectangle/>
+		<Group/>
+		<Group>
+			<Group/>
+			<Group/>
+			<Group/>
+			<Text/>
+			<Rectangle/>
+			<Group/>
+		</Group>
+	</Group>
+	<Group/>
+	<Group>
+		<Group/>
+		<Group/>
+            <Text/>
+            <Line/>
+            <Text/>
+            <Rectangle/>
+		<Group/>
+		<Rectangle/>
+	</Group>
+</Question>
