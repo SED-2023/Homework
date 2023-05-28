@@ -1,38 +1,29 @@
 import java.util.ArrayList;
 
-public class List {
-    private int index;
-    private ArrayList<String> data;
+public class List implements AbstractList {
+    private int length;
+    private String name;
+    private String type;
+    private ArrayList<String> arr;
 
-    public List() {
-        data = new ArrayList<>();
-        this.index = 0;
+    public List(String name, String type) {
+        arr = new ArrayList<>();
+        this.name = name;
+        this.type = type;
     }
 
+    @Override
     public void add(String item) {
-        data.add(item);
+        arr.add(item);
     }
 
-    public int length() {
-        return data.size();
+    public String get(int index) {
+        return arr.get(index);
     }
 
-    public Iterator getIterator() {
-        return new ListIterator();
+    @Override
+    public Iterator createIterator() {
+        return new ListIterator(this);
     }
 
-    // ListIterator implementation
-    private class ListIterator implements Iterator {
-
-        public boolean hasNext() {
-            return index < data.size();
-        }
-
-        public String next() {
-            if (hasNext()) {
-                return data.get(index++);
-            }
-            return null;
-        }
-    }
 }

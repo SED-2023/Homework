@@ -1,11 +1,11 @@
 public class SkipNode {
-    private String data;
+    private String value;
 
-    public SkipNode(String data){
-        this.data = data;
+    public SkipNode(String value){
+        this.value = value;
     }
 
-    public String getData() {
-        return data;
+    public String get() {
+        return value;
     }
 }
