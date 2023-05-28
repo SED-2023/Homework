@@ -26,11 +26,11 @@ public class Main {
                         windowsubtype = tokens[1];
                         implementtype = tokens[2];
                         if (windowsubtype.equals("IconWindow")) {
-                            ws = WindowSubtype(implementtype);
+                            ws = new IconWindow(implementtype);
                             break;
                         }
                         if (implementtype.equals("TransientWindow")) {
-                            ws = WindowSubtype(implementtype);
+                            ws =  new TransientWindow(implementtype);
                             break;
                         }
                         break;
@@ -39,7 +39,7 @@ public class Main {
                             break;
                         }
                         if (windowsubtype.equals("IconWindow")) {
-                            ws.drawBorder();
+                            ((IconWindow) ws).drawBorder();
                             break;
                         }
                         break;
@@ -48,7 +48,7 @@ public class Main {
                             break;
                         }
                         if (windowsubtype.equals("TransientWindow")) {
-                            ws.drawCloseBox();
+                            ((TransientWindow) ws).drawCloseBox();
                             break;
                         }
                         break;
