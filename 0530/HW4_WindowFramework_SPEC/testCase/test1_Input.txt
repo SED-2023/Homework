@@ -1,15 +1,3 @@
-6
-AuthorA SubjectA
-AuthorB SubjectB
-AuthorC SubjectC
-AuthorD SubjectD
-AuthorE SubjectE
-AuthorF SubjectF
-7
-Staff UserA 2
-Borrower UserA
-Borrower UserA 3
-Staff UserB
-Borrower UserC 1
-Staff UserC 5
-Borrower UserD 4
+window IconWindow XWindow
+drawBorder
+drawCloseBox
