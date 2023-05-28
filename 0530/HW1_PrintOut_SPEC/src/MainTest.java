@@ -18,7 +18,7 @@ class MainTest {
         System.out.println("Result: ");
 
         Path projRootPath = Paths.get(path).getParent();
-        String expectedFile = projRootPath + File.separator + "sample.out";
+        String expectedFile = projRootPath + File.separator + "sampleOutput";
         String actualFile = projRootPath + File.separator + "outputFiles" + File.separator +  "sampleResult";
 
         assertTrue(parseTwoFiles(expectedFile, actualFile));

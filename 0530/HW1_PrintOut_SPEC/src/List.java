@@ -1,19 +1,19 @@
 import java.util.ArrayList;
 
-public class List implements IList {
-    public int length;
-    public String name;
-    public String type = "List";
+public class List extends IList {
     private ArrayList<String> arr;
+    public int length = 0;
 
     public List(String name, String type) {
         arr = new ArrayList<>();
         this.name = name;
+        this.type = "List";
     }
 
     @Override
     public void add(String item) {
         arr.add(item);
+        length++;
     }
 
     public String get(int index) {

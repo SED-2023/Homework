@@ -78,7 +78,7 @@ public class Application {
                 int str = ((SkipList)iList).size();
                 System.out.println(str);
             } else {
-                System.out.println("List can not access size");
+                System.out.println("List do not have method size");
             }
         }
     }

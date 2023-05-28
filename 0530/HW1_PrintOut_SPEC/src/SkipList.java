@@ -1,15 +1,12 @@
-import org.w3c.dom.Node;
-
 import java.util.ArrayList;
 
-public class SkipList implements IList {
-    public String name;
-    public String type = "SkipList";
+public class SkipList extends IList {
     private ArrayList<SkipNode> nodes;
 
     public SkipList(String name, String type) {
         nodes = new ArrayList<>();
         this.name = name;
+        this.type = "SkipList";
     }
 
     @Override

@@ -6,6 +6,6 @@ public class SkipNode {
     }
 
     public String get() {
-        return "SkipNode: " + value;
+        return "SkipNode:" + value;
     }
 }
