@@ -2,7 +2,7 @@ import org.w3c.dom.Node;
 
 import java.util.ArrayList;
 
-public class SkipList implements AbstractList {
+public class SkipList implements IList {
     public String name;
     public String type;
     private ArrayList<SkipNode> nodes;

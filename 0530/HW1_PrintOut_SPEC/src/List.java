@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class List implements AbstractList {
+public class List implements IList {
     public int length;
     public String name;
     public String type;
