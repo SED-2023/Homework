@@ -29,7 +29,7 @@ public class SkipList {
             return index < nodes.size();
         }
 
-        public String next() {
+        public String getObject() {
             if (hasNext()) {
                 return nodes.get(index++).getData();
             }

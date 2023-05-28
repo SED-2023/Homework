@@ -1,74 +1,89 @@
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Application {
 
-    private Map<String, List> listMap;
-    private Map<String, SkipList> skipListMap;
+    private Map<String, AbstractList> listMap;
+
     public Application(){
         listMap = new LinkedHashMap<>();
-        skipListMap = new LinkedHashMap<>();
     }
     public void create(String name, String type){
         if ("List".equals(type)){
-            List list = new List();
+            AbstractList list = new List();
             listMap.put(name, list);
         } else if ("SkipList".equals(type)) {
-            SkipList skipList = new SkipList();
-            skipListMap.put(name, skipList);
+            AbstractList skipList = new SkipList();
+            listMap.put(name, skipList);
         }
     }
 
     public void add(String name, String value){
-        for (Map.Entry<String, List> entry : listMap.entrySet()){
-            if (name.equals(entry.getKey())){
-                entry.getValue().add(value);
-            }
-        }
-        for (Map.Entry<String, SkipList> entry : skipListMap.entrySet()){
+        for (Map.Entry<String, AbstractList> entry : listMap.entrySet()){
             if (name.equals(entry.getKey())){
                 entry.getValue().add(value);
             }
         }
     }
 
-    public String get(){
-        return null;
-    }
-
-    public String getNode(){
-        return null;
-    }
-
-    public ArrayList<String> printOutList(String name){
-        ArrayList<String> strings = new ArrayList<>();
-        for (Map.Entry<String, List> entry : listMap.entrySet()){
+    public void get(String name, Integer index){
+        for (Map.Entry<String, AbstractList> entry : listMap.entrySet()){
             if (name.equals(entry.getKey())){
-                Iterator iterator = entry.getValue().getIterator();
-                while (iterator.hasNext()){
-                    strings.add(iterator.next());
+                if ("List".equals(entry.getValue())){
+                    System.out.println(entry.getValue().get(index));
+                } else {
+                    System.out.println("SkipList do not have method get");
                 }
-                return strings;
             }
         }
-        for (Map.Entry<String, SkipList> entry : skipListMap.entrySet()){
+    }
+
+    public void getNode(String name, Integer index){
+        for (Map.Entry<String, AbstractList> entry : listMap.entrySet()){
             if (name.equals(entry.getKey())){
-                Iterator iterator = entry.getValue().getIterator();
-                while (iterator.hasNext()){
-                    strings.add(iterator.next());
+                if ("SkipList".equals(entry.getValue())){
+                    System.out.println(entry.getValue().getNode(index));
+                } else {
+                    System.out.println("List do not have method getNode");
                 }
-                return strings;
             }
         }
-        return null;
     }
 
-    public Integer length(){
-        return null;
+    public void printOutList(String name){
+        for (Map.Entry<String, AbstractList> entry : listMap.entrySet()){
+            if (name.equals(entry.getKey())){
+                Iterator iterator = entry.getValue().createIterator();
+                while (iterator.hasNext()){
+                    System.out.println(iterator.next());
+                }
+            }
+        }
     }
 
-    public Integer size(){
-        return null;
+    public void length(String name){
+        for (Map.Entry<String, AbstractList> entry : listMap.entrySet()){
+            if (name.equals(entry.getKey())){
+                if ("List".equals(entry.getValue())){
+                    System.out.println(entry.getValue().length());
+                } else {
+                    System.out.println("SkipList can not access length");
+                }
+            }
+        }
+    }
+
+    public void size(String name){
+        for (Map.Entry<String, AbstractList> entry : listMap.entrySet()){
+            if (name.equals(entry.getKey())){
+                if ("SkipList".equals(entry.getValue())){
+                    System.out.println(entry.getValue().size());
+                } else {
+                    System.out.println("List do not have method size");
+                }
+            }
+        }
     }
 }

@@ -28,7 +28,7 @@ public class List {
             return index < data.size();
         }
 
-        public String next() {
+        public String getObject() {
             if (hasNext()) {
                 return data.get(index++);
             }

@@ -23,21 +23,19 @@ public class Main {
                         application.add(tokens[1], tokens[2]);
                         break;
                     case "Length":
-                        application.length();
+                        application.length(tokens[1]);
                         break;
                     case "Size":
-                        application.size();
+                        application.size(tokens[1]);
                         break;
                     case "Get":
-                        application.get();
+                        application.get(tokens[1], Integer.parseInt(tokens[2]));
                         break;
                     case "GetNode":
-                        application.getNode();
+                        application.getNode(tokens[1], Integer.parseInt(tokens[2]));
                         break;
                     case "PrintOutList":
-                        for (String string : application.printOutList(tokens[1])){
-                            outputString.add(string);
-                        }
+                        application.printOutList(tokens[1]);
                         break;
                     default:
                         break;
