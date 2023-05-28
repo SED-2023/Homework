@@ -1,4 +1,4 @@
 public interface Iterator {
     boolean hasNext();
-    Object next();
+    String next();
 }

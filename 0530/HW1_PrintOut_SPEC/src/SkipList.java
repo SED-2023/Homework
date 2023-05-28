@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 
 public class SkipList {
+    private int index;
     private ArrayList<SkipNode> nodes;
 
     public SkipList() {
         nodes = new ArrayList<>();
+        this.index = 0;
     }
 
-    public void create(String item) {
+    public void add(String item) {
         SkipNode node = new SkipNode(item);
         nodes.add(node);
     }
@@ -22,13 +24,12 @@ public class SkipList {
 
     // SkipListIterator implementation
     private class SkipListIterator implements Iterator {
-        private int index;
 
         public boolean hasNext() {
             return index < nodes.size();
         }
 
-        public Object next() {
+        public String next() {
             if (hasNext()) {
                 return nodes.get(index++).getData();
             }

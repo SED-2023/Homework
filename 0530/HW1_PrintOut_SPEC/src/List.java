@@ -1,10 +1,12 @@
 import java.util.ArrayList;
 
 public class List {
+    private int index;
     private ArrayList<String> data;
 
     public List() {
         data = new ArrayList<>();
+        this.index = 0;
     }
 
     public void add(String item) {
@@ -21,13 +23,12 @@ public class List {
 
     // ListIterator implementation
     private class ListIterator implements Iterator {
-        private int index;
 
         public boolean hasNext() {
             return index < data.size();
         }
 
-        public Object next() {
+        public String next() {
             if (hasNext()) {
                 return data.get(index++);
             }
