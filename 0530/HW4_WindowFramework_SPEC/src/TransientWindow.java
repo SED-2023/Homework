@@ -4,7 +4,7 @@ public class TransientWindow extends WindowSubtype {
 //        this.wf = wf;
     }
 
-    public void drawBorder() {
+    public void drawCloseBox() {
         wf.drawRectangle();
     }
 }
