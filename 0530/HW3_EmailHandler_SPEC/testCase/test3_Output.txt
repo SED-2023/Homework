@@ -1,4 +1,5 @@
-ID: 0 Author: AuthorA Subject: SubjectA
-ID: 0 Author: AuthorA Subject: SubjectA
-ID: 1 Author: AuthorB Subject: SubjectB
-User: UserB
+Forward to CEO.
+Put mail to the spam box.
+Forward to CEO.
+Put mail to the spam box.
+Forward to legal department.

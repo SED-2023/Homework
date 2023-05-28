@@ -1,2 +1,0 @@
-Borrower can not add book
-Borrower can not remove book
