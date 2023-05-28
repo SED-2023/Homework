@@ -19,10 +19,9 @@ public class Application {
     }
 
     public void add(String name, String value){
-        for (Map.Entry<String, IList> entry : listMap.entrySet()){
-            if (name.equals(entry.getKey())){
-                entry.getValue().add(value);
-            }
+        if (listMap.containsKey(name)){
+            IList iList = listMap.get(name);
+            iList.add(value);
         }
     }
 
@@ -51,12 +50,11 @@ public class Application {
     }
 
     public void printOutList(String name){
-        for (Map.Entry<String, IList> entry : listMap.entrySet()){
-            if (name.equals(entry.getKey())){
-                Iterator iterator = entry.getValue().createIterator();
-                while (iterator.hasNext()){
-                    System.out.println(iterator.next());
-                }
+        if (listMap.containsKey(name)){
+            IList iList = listMap.get(name);
+            Iterator iterator = iList.createIterator();
+            while (iterator.hasNext()){
+                System.out.println(iterator.next());
             }
         }
     }
