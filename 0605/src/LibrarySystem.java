@@ -25,9 +25,9 @@ public class LibrarySystem {
                 line = fileReader.readLine();
                 String[] tokens = line.split(" ");
                 if (tokens[0].equals("Staff") && tokens.length == 2)
-                    application.addUser(tokens[0], tokens[1], "0");
+                    application.initAddUser(tokens[0], tokens[1], "0");
                 else if (tokens[0].equals("Borrower") && tokens.length == 3)
-                    application.addUser(tokens[0], tokens[1], tokens[2]);
+                    application.initAddUser(tokens[0], tokens[1], tokens[2]);
                 else {
                     System.out.println("Error");
                 }
