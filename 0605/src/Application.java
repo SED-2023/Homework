@@ -5,8 +5,10 @@ public class Application {
     public void initAddBook(String author, String subject){
         bookSystem.addBook(author, subject);
     }
-    public void initAddUser(String type, String name){
-        userSystem.addUser(type, name);
+    public void initAddUser(String type, String name, int predefinedBorrowedBooks){
+        userSystem.addUser(type, name, predefinedBorrowedBooks);
     }
-
+//    public addBook(User user, String author, String subject){
+//
+//    }
 }
