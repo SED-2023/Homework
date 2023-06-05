@@ -14,11 +14,13 @@ class MainTest {
 
     @Test
     void testMain() throws IOException {
+        String arg = "Sample0.out";
+
         System.out.println("\nTest case: sample");
         System.out.println("Result: ");
 
         Path projRootPath = Paths.get(path).getParent();
-        String expectedFile = projRootPath + File.separator + "Sample0.out";
+        String expectedFile = projRootPath + File.separator + arg;
         String actualFile = projRootPath + File.separator + "outputFiles" + File.separator +  "sampleResult";
 
         assertTrue(parseTwoFiles(expectedFile, actualFile));

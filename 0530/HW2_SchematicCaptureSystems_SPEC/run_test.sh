@@ -1,7 +1,11 @@
 #!/bin/bash
+main_class="Main"
+sample_input="Sample0.in"
+sample_output="Sample0.out"
+
 javac -cp "lib/*" -d target ./src/*.java
 cd target
-java Main ../Sample0.in > ../outputFiles/sampleResult
+java "$main_class" "../$sample_input" > ../outputFiles/sampleResult
 
 directory="../testCase"
 search_string="_Input"
