@@ -14,3 +14,4 @@ public class MotifButton implements Button{
         return this.name;
     }
 }
+

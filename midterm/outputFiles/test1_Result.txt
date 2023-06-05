@@ -1,12 +1,3 @@
-MotifWindow window1
-MotifWindow window2
-MotifScrollBar scrollBar1
-MotifScrollBar scrollBar2
-MotifButton button1
-MotifButton button2
-PMWindow window1
-PMWindow window2
-PMScrollBar scrollBar1
-PMScrollBar scrollBar2
-PMButton button1
-PMButton button2
+Error
+Error
+Error
