@@ -7,6 +7,9 @@ public class Application {
     private Map<String, User> users;
     public BookSystem bookSystem;
 
+    private String test;
+
+
     public Application(){
         users = new LinkedHashMap<>();
         bookSystem = new BookSystem();
