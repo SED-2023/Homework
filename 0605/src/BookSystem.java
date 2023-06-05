@@ -34,21 +34,52 @@ public class BookSystem {
         return null;
     }
 
-    public Book getBookByAuthor(String author) {
+//    public Book getBookByAuthor(String author) {
+//        for(Book book: books){
+//            if(book.getAuthor().equals(author)){
+//                return book;
+//            }
+//        }
+//        return null;
+//    }
+//
+//    public Book getBookBySubject(String subject) {
+//        for(Book book: books){
+//            if(book.getSubject().equals(subject)){
+//                return book;
+//            }
+//        }
+//        return null;
+//    }
+
+    public ArrayList<Book> getBooksByAuthor(String author) {
+        ArrayList<Book> booksByAuthor = new ArrayList<>();
         for(Book book: books){
             if(book.getAuthor().equals(author)){
-                return book;
+                booksByAuthor.add(book);
             }
         }
-        return null;
+        return booksByAuthor;
     }
 
-    public Book getBookBySubject(String subject) {
+    public ArrayList<Book> getBooksBySubject(String subject) {
+        ArrayList<Book> booksBySubject = new ArrayList<>();
         for(Book book: books){
             if(book.getSubject().equals(subject)){
-                return book;
+                booksBySubject.add(book);
             }
         }
-        return null;
+        return booksBySubject;
     }
+
+    public Boolean isExist(String id) {
+        int bookId = Integer.parseInt(id);
+        for(Book book: books) {
+            if(book.getId() == bookId) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
