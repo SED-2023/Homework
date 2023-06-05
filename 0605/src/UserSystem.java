@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
 public class UserSystem {
-    ArrayList<User> users;
+    private ArrayList<User> users = new ArrayList<>();
+
 //    boolean isExist(String Id){
 //        for (User ){
 //            if (){
@@ -12,11 +13,16 @@ public class UserSystem {
 //            }
 //        }
 //    }
-    void addUser(String type,String name, int preDefinedNumber) {
+    public void addUser(String type,String name, int preDefinedNumber) {
         if (type.equals("Staff")) {
             users.add(new Staff(name, type));
         } else {
             users.add(new Borrower(name, type, preDefinedNumber));
         }
     }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
 }
