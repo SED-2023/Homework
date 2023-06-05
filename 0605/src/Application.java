@@ -3,7 +3,10 @@ public class Application {
     private UserSystem userSystem = new UserSystem();
 
     public void initAddBook(String author, String subject){
-        bookSystem.initAddBook(author, subject);
+        bookSystem.addBook(author, subject);
+    }
+    public void initAddUser(String type, String name){
+        userSystem.addUser(type, name);
     }
 
 }
