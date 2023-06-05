@@ -1,0 +1,15 @@
+ID: 0 Author: AuthorA Subject: SubjectA
+ID: 3 Author: AuthorA Subject: SubjectC
+ID: 6 Author: AuthorA Subject: SubjectE
+ID: 9 Author: AuthorA Subject: SubjectG
+ID: 1 Author: AuthorB Subject: SubjectB
+ID: 2 Author: AuthorC Subject: SubjectB
+ID: 10 Author: AuthorD Subject: SubjectA
+ID: 0 Author: AuthorA Subject: SubjectA
+ID: 3 Author: AuthorA Subject: SubjectC
+ID: 6 Author: AuthorA Subject: SubjectE
+ID: 9 Author: AuthorA Subject: SubjectG
+ID: 0 Author: AuthorA Subject: SubjectA
+ID: 3 Author: AuthorA Subject: SubjectC
+ID: 6 Author: AuthorA Subject: SubjectE
+ID: 9 Author: AuthorA Subject: SubjectG

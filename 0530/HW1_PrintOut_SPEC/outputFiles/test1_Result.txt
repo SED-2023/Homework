@@ -1,0 +1,6 @@
+SkipList can not access length
+1
+SkipList do not have method get
+SkipNode:a
+SkipNode:a
+SkipNode:c

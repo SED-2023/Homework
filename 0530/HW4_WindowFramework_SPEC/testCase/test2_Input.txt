@@ -1,0 +1,3 @@
+window TransientWindow XWindow
+drawBorder
+drawCloseBox

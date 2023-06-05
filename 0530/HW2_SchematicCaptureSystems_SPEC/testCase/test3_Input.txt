@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Question>
+	<Group>
+	<Group>
+	<Rectangle/>	
+	<Group>
+		<Group/>
+		<Group/>
+		<Rectangle/>
+		<Group/>
+		<Group>
+			<Group/>
+			<Group/>
+			<Group/>
+			<Text/>
+			<Rectangle/>
+			<Group/>
+		</Group>
+	</Group>
+	<Group/>
+	<Group>
+		<Group/>
+		<Group/>
+            <Text/>
+            <Line/>
+            <Text/>
+            <Rectangle/>
+		<Group/>
+		<Rectangle/>
+	</Group>
+</Question>

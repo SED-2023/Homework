@@ -1,0 +1,3 @@
+window IconWindow PMWindow
+drawBorder
+drawCloseBox

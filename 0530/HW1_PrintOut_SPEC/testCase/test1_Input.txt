@@ -1,0 +1,10 @@
+Create SkipList1 SkipList
+Create SkipList2 SkipList
+Add SkipList1 a
+Add SkipList2 b
+Length SkipList1
+Size SkipList1
+Add SkipList1 c
+Get SkipList1 0
+GetNode SkipList1 0
+PrintOutList SkipList1
