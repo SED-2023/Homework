@@ -12,7 +12,7 @@ public class BorrowerHandler extends Handler {
     }
 
     private boolean allow(Transaction transaction){
-        if (!transaction.getUser() instanceof Borrower) return false;
+        if (!(transaction.getUser() instanceof Borrower)) return false;
         String[] allowActions={"findCheckout", "listAuthor", "listSubject"};
         ArrayList<String> actions = new ArrayList<String>(Arrays.asList(allowActions));
         return actions.contains(transaction.getAction());
