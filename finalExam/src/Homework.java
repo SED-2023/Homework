@@ -1,4 +1,5 @@
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Homework {
     private String id;
@@ -20,24 +21,35 @@ public class Homework {
     }
 
     public void averageCriterion(String homeworkId) {
-
+        for (Map.Entry<String, Assignment> entry : assignments.entrySet()) {
+//            String author = entry.getKey();
+            Assignment assignment = entry.getValue();
+            for (Criterion criterion : rubric.getCriterion()) {
+                double sum = 0;
+                double count = assignment.getReviews().size();
+                for (Map.Entry<String, Review> reviewEntry : assignment.getReviews().entrySet()) {
+                    Review review = reviewEntry.getValue();
+                    sum += review.getContent().get(criterion).getScore();
+                }
+                System.out.printf("Assignment: %s, Criterion: %s, AvgScore: %f\n", homeworkId, criterion.getName(), Math.round(sum / count));
+            }
+        }
     }
 
     public void calculateScore(String homeworkId, String studentId, RankingStrategy rankingStrategy) {
         Assignment asg = assignments.get(studentId);
-        asg.calculateScore(homeworkId, studentId, rankingStrategy);
+        asg.calculateScore(rubric.getCriterion(), homeworkId, studentId, rankingStrategy);
     }
 
     public void findStrength(String homeworkId, String studentId, RankingStrategy rankingStrategy) {
         Assignment asg = assignments.get(studentId);
-        asg.findStrength(homeworkId, studentId, rankingStrategy);
+        asg.findStrength(rubric.getCriterion(), homeworkId, studentId, rankingStrategy);
     }
 
     public void findWeakness(String homeworkId, String studentId, RankingStrategy rankingStrategy) {
         Assignment asg = assignments.get(studentId);
-        asg.findWeakness(homeworkId, studentId, rankingStrategy);
+        asg.findWeakness(rubric.getCriterion(), homeworkId, studentId, rankingStrategy);
     }
-
 
 
     // getter setter
