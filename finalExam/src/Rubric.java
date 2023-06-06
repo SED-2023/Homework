@@ -44,11 +44,7 @@ public class Rubric {
 
     public void addCriterion(Criterion criterion) {
         // if criterion is already in criteria, do nothing
-        for (Criterion c : criteria) {
-            if (c.getName().equals(criterion.getName())) {
-                return;
-            }
-        }
+
         criteria.add(criterion);
         criterionCount += 1;
     }

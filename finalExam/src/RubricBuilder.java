@@ -12,14 +12,18 @@ public class RubricBuilder {
         // if not, add it
         // if it is, do nothing
 
-
+        boolean exist = false;
+        // if criterion is already in criteria, don't add
         for (Criterion criterion : rubric.getCriterion()) {
             if (criterion.getName().equals(c.getName())) {
-                break;
-            }else {
-                rubric.addCriterion(c);
+                exist = true;
             }
         }
+
+        if ( !exist) {
+            rubric.addCriterion(c);
+        }
+
 
 
         RubricItem rbi = new RubricItem(le, c, desc);
