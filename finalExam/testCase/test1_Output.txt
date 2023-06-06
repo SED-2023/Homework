@@ -1,4 +1,35 @@
-Error
-Error
-Error
-Error
+Assignment should be reviewed by 3-5 students.
+AC-A was reviewed by B. Level: Excellent Excellent Competent Competent
+AC-A was reviewed by C. Level: Excellent Excellent Competent Competent
+AC-A was reviewed by D. Level: Competent Competent Competent Competent
+AC-B was reviewed by A. Level: Excellent Excellent Competent Competent
+AC-B was reviewed by C. Level: Excellent Excellent Competent Competent
+AC-B was reviewed by D. Level: Competent Competent Competent Competent
+AC-C was reviewed by A. Level: Excellent Excellent Competent Competent
+AC-C was reviewed by B. Level: Excellent Excellent Competent Competent
+AC-C was reviewed by D. Level: Competent Competent Competent Competent
+AC-D was reviewed by A. Level: Excellent Excellent Competent Competent
+AC-D was reviewed by B. Level: Excellent Excellent Competent Competent
+AC-D was reviewed by C. Level: Competent Competent Competent Competent
+AC-D was reviewed by E. Level: Excellent Excellent Competent Competent
+Assignment: AC, Criterion: Knowledge/Understanding, AvgScore: 2.7
+Assignment: AC, Criterion: Thinking/Inquiry, AvgScore: 2.7
+Assignment: A1, Criterion: Communication, AvgScore: 2.0
+Assignment: AC, Criterion: UseOfVisualAids, AvgScore: 2.0
+Assignment: AC, Student: A, Score: 2.5
+Assignment: AC, Student: B, Strength: Knowledge/Understanding Thinking/Inquiry
+Assignment: AC, Student: C, Weakness: Communication UseOfVisualAids
+Assignment: AC, Student: D, Score: 2.3
+Assignment: AC, Student: D, Score: 2.4
+(Knowledge/Understanding,Excellent) The presentation demonstrates a depth ...
+(Knowledge/Understanding,Competent) The presentation uses knowledge which ...
+(Knowledge/Understanding,NeedsWork) The presentation uses little relevant ...
+(Thinking/Inquiry,Excellent) The presentation is centered around ...
+(Thinking/Inquiry,Competent) The presentation shows an analytical ...
+(Thinking/Inquiry,NeedsWork) The presentation shows no analytical ...
+(Communication,Excellent) The presentation is imaginative and ...
+(Communication,Competent) Presentation techniques used are effective ...
+(Communication,NeedsWork) The presentation fails to capture ...
+(UseOfVisualAids,Excellent) The presentation includes appropriate and ...
+(UseOfVisualAids,Competent) The presentation includes appropriate visual ...
+(UseOfVisualAids,NeedsWork) The presentation includes no visual ...

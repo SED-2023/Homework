@@ -1,15 +1,18 @@
-6
-AuthorA SubjectA
-AuthorB SubjectB
-AuthorC SubjectC
-AuthorD SubjectD
-AuthorE SubjectE
-AuthorF SubjectF
-7
-Staff UserA 2
-Borrower UserA
-Borrower UserA 3
-Staff UserB
-Borrower UserC 1
-Staff UserC 5
-Borrower UserD 4
+student A B C D
+schoolStrategy Excellent,3 Competent,2 NeedsWork,1
+student E
+designCriterion AC criteria1_1.txt
+assignment AC A B,score1_1.txt
+assignment AC A B,score1_1.txt
+assignment AC A B,score1_1.txt C,score1_1.txt D,score1_2.txt
+assignment AC B A,score1_1.txt C,score1_1.txt D,score1_2.txt
+assignment AC C A,score1_1.txt B,score1_1.txt D,score1_2.txt
+assignment AC D A,score1_1.txt B,score1_1.txt C,score1_2.txt
+assignment AC D E,score1_1.txt
+averageCriterion AC
+calculateScore AC A MedianRankingStrategy
+findStrength AC B MeanRankingStrategy
+findWeakness AC C MeanRankingStrategy
+calculateScore AC D MedianRankingStrategy
+calculateScore AC D MeanRankingStrategy
+printRubric AC
