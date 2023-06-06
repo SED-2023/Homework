@@ -14,7 +14,7 @@ public class Student {
         this.id = id;
     }
 
-    public void reviewAssignment(Homework homework, Assignment assignment,  List<String> studentIds, List<List<String>> review, List<Level> schoolStrategy) {
+    public void reviewAssignment(Homework homework, Assignment assignment,  ArrayList<String> studentIds, ArrayList<ArrayList<String>> review, ArrayList<Level> schoolStrategy) {
         //check numebr of reviewers
 
 

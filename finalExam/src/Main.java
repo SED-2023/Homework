@@ -29,8 +29,8 @@ public class Main {
                         ArrayList<String> levelScore = new ArrayList<>();
                         for (int i = 1; i < tokens.length; i++) {
                             String[] token_cache = tokens[i].split(",");
-                            schoolStrategy.add(token_cache[1]);
-                            levelScore.add(token_cache[2]);
+                            schoolStrategy.add(token_cache[0]);
+                            levelScore.add(token_cache[1]);
                         }
                         instructor.setSchoolStrategy(schoolStrategy, levelScore);
                         break;
@@ -84,7 +84,7 @@ public class Main {
                         instructor.averageCriterion(tokens[1]);
                         break;
                     case "calculateScore":
-                        instructor.caculateScore(tokens[1], tokens[2], tokens[3]);
+                        instructor.calculateScore(tokens[1], tokens[2], tokens[3]);
                         break;
                     case "findStrength":
                         instructor.findStrength(tokens[1], tokens[2], tokens[3]);

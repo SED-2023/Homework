@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class Instructor {
-    private LinkedHashMap<String, Student> students;
-    private ArrayList<Level> schoolStrategy;
-    private LinkedHashMap<String, Homework> homeworks;
+    private LinkedHashMap<String, Student> students = new LinkedHashMap<>();
+    private ArrayList<Level> schoolStrategy = new ArrayList<>();
+    private LinkedHashMap<String, Homework> homeworks = new LinkedHashMap<>();
     private RubricBuilder rubricBuilder;
-    private LinkedHashMap<String, RankingStrategy> calculateStrategies;
+    private LinkedHashMap<String, RankingStrategy> calculateStrategies = new LinkedHashMap<>();
 
     public void addStudent(ArrayList<String> ss) {
         for (String s : ss) {
