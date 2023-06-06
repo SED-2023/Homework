@@ -14,7 +14,7 @@ class MainTest {
 
     @Test
     void testMain() throws IOException {
-        String arg = "Sample0.out";
+        String arg = "Sample.out";
 
         System.out.println("\nTest case: sample");
         System.out.println("Result: ");
