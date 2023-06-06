@@ -9,6 +9,7 @@ public class Main {
         Instructor instructor = new Instructor();
 
         try {
+
             InputParser input = new InputParser();
             BufferedReader fileReader = input.parse(args);
             // add init books

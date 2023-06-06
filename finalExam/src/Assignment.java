@@ -54,7 +54,9 @@ public class Assignment {
     }
 
     public void findWeakness(ArrayList<Criterion> criterionList, String homeworkId, String studentId, RankingStrategy rankingStrategy) {
-        double minScore = 0;
+        //let minScore == max infinity
+
+        double minScore = Double.POSITIVE_INFINITY;
         String weakness = "";
         for (Criterion c : criterionList) {
             ArrayList<Integer> scoreList = new ArrayList<>();
