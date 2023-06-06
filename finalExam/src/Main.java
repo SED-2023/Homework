@@ -45,7 +45,7 @@ public class Main {
                         String rubricReader_line = rubricReader.readLine();
                         while (rubricReader_line != null){
                             ArrayList<String> cache = new ArrayList<>();
-                            String[] rubricReader_token = rubricReader_line.split(" ");
+                            String[] rubricReader_token = rubricReader_line.split("\t");
                             for (int i = 0; i < rubricReader_token.length; i++) {
                                 cache.add(rubricReader_token[i]);
                             }
