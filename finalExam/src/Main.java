@@ -36,9 +36,9 @@ public class Main {
                         break;
                     case "designCriterion":
                         String rubricFile = tokens[2];
-                        ArrayList<ArrayList<String>> RubricFile = new ArrayList<>();
+                        ArrayList<ArrayList<String>> inputFileList = new ArrayList<>();
                         String path = System.getProperty("user.dir");
-                        Path projRootPath = Paths.get(path).getParent();
+                        Path projRootPath = Paths.get(path);
                         String rubricFilePath = projRootPath + File.separator + rubricFile;
                         InputParser rubricInput = new InputParser();
                         BufferedReader rubricReader = rubricInput.parse(new String[]{rubricFilePath});
@@ -49,10 +49,10 @@ public class Main {
                             for (int i = 0; i < rubricReader_token.length; i++) {
                                 cache.add(rubricReader_token[i]);
                             }
-                            RubricFile.add(cache);
+                            inputFileList.add(cache);
                             rubricReader_line = rubricReader.readLine();
                         }
-                        instructor.addHomework(command, RubricFile);
+                        instructor.addHomework(tokens[1], inputFileList);
                         break;
                     case "assignment":
                         ArrayList<String> reviewer_id = new ArrayList<>();
@@ -61,10 +61,10 @@ public class Main {
                             String[] token_cache = tokens[i].split(",");
                             reviewer_id.add(token_cache[0]);
 
-                            String scoreFile = tokens[1];
+                            String scoreFile = token_cache[1];
                             String score_path = System.getProperty("user.dir");
-                            Path score_projRootPath = Paths.get(score_path).getParent();
-                            String scoreFilePath = score_projRootPath + File.separator + scoreFile;
+//                            Path score_projRootPath = Paths.get(score_path).getParent();
+                            String scoreFilePath = score_path + File.separator + scoreFile;
                             InputParser scoreInput = new InputParser();
                             BufferedReader scoreReader = scoreInput.parse(new String[]{scoreFilePath});
                             String score_line = scoreReader.readLine();
