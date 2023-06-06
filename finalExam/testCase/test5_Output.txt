@@ -1,0 +1,24 @@
+Assignment should be reviewed by 3-5 students.
+A1-001 was reviewed by 002. Level: Excellent Excellent Competent Competent
+A1-001 was reviewed by 003. Level: Excellent Excellent Competent Competent
+A1-001 was reviewed by 004. Level: Competent Competent Competent Competent
+A1-002 was reviewed by 001. Level: Excellent Excellent Competent Competent
+A1-002 was reviewed by 003. Level: Excellent Excellent Competent Competent
+A1-002 was reviewed by 004. Level: Competent Competent Competent Competent
+A1-003 was reviewed by 001. Level: Excellent Excellent Competent Competent
+A1-003 was reviewed by 002. Level: Excellent Excellent Competent Competent
+A1-003 was reviewed by 004. Level: Competent Competent Competent Competent
+A1-004 was reviewed by 001. Level: Competent Competent Competent Competent
+Cannot review one's own assignment.
+A1-004 was reviewed by 003. Level: Competent Competent Competent Competent
+Assignment should be reviewed by 3-5 students.
+Error
+Assignment: A1, Criterion: Knowledge/Understanding, AvgScore: 2.5
+Assignment: A1, Criterion: Thinking/Inquiry, AvgScore: 2.5
+Assignment: A1, Criterion: Communication, AvgScore: 2.0
+Assignment: A1, Criterion: UseOfVisualAids, AvgScore: 2.0
+Error
+Error
+Error
+Assignment: A1, Student: 001, Score: 2.3
+
