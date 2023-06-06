@@ -2,11 +2,11 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Rubric {
-    private ArrayList<RubricItem> rubricItems;
+    private ArrayList<RubricItem> rubricItems = new ArrayList<>();
 
     private int criterionCount;
 
-    private ArrayList<Criterion> criteria;
+    private ArrayList<Criterion> criteria = new ArrayList<>();
 
     public Rubric() {
         this.rubricItems = new ArrayList<>();
