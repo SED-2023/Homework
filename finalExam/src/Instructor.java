@@ -24,11 +24,6 @@ public class Instructor {
         }
     }
 
-    public void addHomework() {
-
-    }
-
-
     public void averageCriterion(String homeworkID) {
         Homework hw = homeworks.get(homeworkID);
         hw.averageCriterion();
@@ -50,5 +45,45 @@ public class Instructor {
         Homework hw = homeworks.get(homeworkID);
         Assignment assignment = hw.getAssignments().get(studentID);
         assignment.findWeakness(hw.getCriterionList(), homeworkID, studentID, calculateStrategies.get(rankingStrategy));
+    }
+
+    public void addHomework(String ID, ArrayList<ArrayList<String>> inputFileList){
+        //corresponding command: designCriterion
+        Homework hw = new Homework(ID);
+        RubricBuilder rb = new RubricBuilder();
+
+        for (ArrayList<String> row : inputFileList) {
+            Criterion c = new Criterion(row.get(0));
+            Level le = null;
+            // iterate schoolStrategy to get level obj
+
+            for (Level tempLev: schoolStrategy) {
+                if (tempLev.getLevel().equals(row.get(1)) ){
+                    le = tempLev;
+                    break;
+                }
+            }
+
+            String desc = row.get(2);
+            rb.addItem(c, le, desc);
+        }
+
+        Rubric r = rb.build();
+        hw.setRubric(r);
+        homeworks.put(ID, hw);
+    }
+
+    public void reviewAssignment(String homeworkID, String authorID, ArrayList<String> reviewerID, ArrayList<ArrayList<String>> inputFileList){
+        for(String s: reviewerID){
+            Student student = students.get(s);
+            Homework homework = homeworks.get(homeworkID);
+            Assignment assignment = homework.getAssignments().get(authorID);
+
+            student.reviewAssignment(homework, assignment, reviewerID, inputFileList, schoolStrategy);
+        }
+    }
+
+    public void printRubric(String homeworkID){
+        homeworks.get(homeworkID).getRubric().printRubric();
     }
 }
