@@ -57,7 +57,7 @@ public class Instructor {
             Level le = null;
             // iterate schoolStrategy to get level obj
 
-            for (Level tempLev: schoolStrategy) {
+             for (Level tempLev: schoolStrategy) {
                 if (tempLev.getLevel().equals(row.get(1)) ){
                     le = tempLev;
                     break;

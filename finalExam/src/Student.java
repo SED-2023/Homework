@@ -42,7 +42,7 @@ public class Student {
         String output = ""; // for level
         ArrayList<Criterion> criteria = homework.getRubric().getCriterion();
         for (int i = 0; i < reviewNumebers; i++) {
-
+            output = "";
 
 
             // prepare review content
