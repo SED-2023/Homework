@@ -39,11 +39,11 @@ public class Student {
 
 
 
-
+        String output = ""; // for level
         ArrayList<Criterion> criteria = homework.getRubric().getCriterion();
         for (int i = 0; i < reviewNumebers; i++) {
 
-            String output = ""; // for level
+
 
             // prepare review content
             LinkedHashMap<Criterion, Level> content = new LinkedHashMap<>();
@@ -87,7 +87,7 @@ public class Student {
 
 
 
-            System.out.printf("%s-%s was reviewed by %s. Level:%s%n", homework.getId(), assignment.getAuthor().getId(), this.id, output);
+            System.out.printf("%s-%s was reviewed by %s. Level:%s%n", homework.getId(), assignment.getAuthor().getId(), assignment.getReviews().get(studentId).getStudentId(), output);
 
         }
 

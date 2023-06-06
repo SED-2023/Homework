@@ -74,13 +74,26 @@ public class Instructor {
     }
 
     public void reviewAssignment(String homeworkID, String authorID, ArrayList<String> reviewerID, ArrayList<ArrayList<String>> inputFileList){
-        for(String s: reviewerID){
-            Student student = students.get(s);
-            Homework homework = homeworks.get(homeworkID);
-            Assignment assignment = homework.getAssignments().get(authorID);
-
-            student.reviewAssignment(homework, assignment, reviewerID, inputFileList, schoolStrategy);
+        Student student = students.get(authorID);
+        Homework homework = homeworks.get(homeworkID);
+        if (!homework.getAssignments().containsKey(authorID)) {
+            Assignment newAssignment = new Assignment(students.get(authorID));
+            homework.getAssignments().put(authorID, newAssignment);
         }
+        Assignment assignment = homework.getAssignments().get(authorID);
+        student.reviewAssignment(homework, assignment, reviewerID, inputFileList, schoolStrategy);
+        //        for(String s: reviewerID){
+//            Student student = students.get(s);
+//            Homework homework = homeworks.get(homeworkID);
+//            // if assignment not exist, create it
+//            if (!homework.getAssignments().containsKey(authorID)) {
+//                Assignment newAssignment = new Assignment(students.get(authorID));
+//                homework.getAssignments().put(authorID, newAssignment);
+//            }
+//            Assignment assignment = homework.getAssignments().get(authorID);
+//
+//            student.reviewAssignment(homework, assignment, reviewerID, inputFileList, schoolStrategy);
+//        }
     }
 
     public void printRubric(String homeworkID){

@@ -12,7 +12,7 @@ public class Homework {
 
     private RankingStrategy strategy;
 
-    private LinkedHashMap<String, Assignment> assignments;
+    private LinkedHashMap<String, Assignment> assignments = new LinkedHashMap<>();
 
     public Homework(String id) {
         this.id = id;
@@ -104,4 +104,7 @@ public class Homework {
 
     public ArrayList<Criterion> getCriterionList() { return rubric.getCriterion(); }
 
+    public void addAssignment(Assignment assignment) {
+        assignments.put(assignment.getAuthor().getId(), assignment);
+    }
 }
