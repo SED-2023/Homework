@@ -11,14 +11,16 @@ public class RubricBuilder {
         // check if criterion c is in rubic.getCriterion()
         // if not, add it
         // if it is, do nothing
+
+
         for (Criterion criterion : rubric.getCriterion()) {
             if (criterion.getName().equals(c.getName())) {
                 break;
             }else {
                 rubric.addCriterion(c);
-
             }
         }
+
 
         RubricItem rbi = new RubricItem(le, c, desc);
         rubric.addRubricItem(rbi);

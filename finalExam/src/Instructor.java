@@ -65,7 +65,7 @@ public class Instructor {
             }
 
             String desc = row.get(2);
-            rb.addItem(c, le, desc);
+            rb = rb.addItem(c, le, desc);
         }
 
         Rubric r = rb.build();
