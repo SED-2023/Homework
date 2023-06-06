@@ -1,3 +1,4 @@
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Review {
@@ -5,9 +6,9 @@ public class Review {
 
     private String assignmentId;
 
-    private Map<Criterion, Level> content;
+    private LinkedHashMap<Criterion, Level> content;
 
-    public Review(String studentId, String assignmentId, Map<Criterion, Level> content) {
+    public Review(String studentId, String assignmentId, LinkedHashMap<Criterion, Level> content) {
         this.studentId = studentId;
         this.assignmentId = assignmentId;
         this.content = content;
@@ -29,11 +30,11 @@ public class Review {
         this.assignmentId = assignmentId;
     }
 
-    public Map<Criterion, Level> getContent() {
+    public LinkedHashMap<Criterion, Level> getContent() {
         return content;
     }
 
-    public void setContent(Map<Criterion, Level> content) {
+    public void setContent(LinkedHashMap<Criterion, Level> content) {
         this.content = content;
     }
 }
