@@ -50,7 +50,7 @@ public class Assignment {
                 strength += ' ' + c.getName(); // need a space
             }
         }
-        System.out.printf("Assignment: %s, Student: %s, Strength:%s)", homeworkId, studentId, strength);
+        System.out.printf("Assignment: %s, Student: %s, Strength:%s\n", homeworkId, studentId, strength);
     }
 
     public void findWeakness(ArrayList<Criterion> criterionList, String homeworkId, String studentId, RankingStrategy rankingStrategy) {
@@ -71,7 +71,7 @@ public class Assignment {
                 weakness += ' ' + c.getName(); // need a space
             }
         }
-        System.out.printf("Assignment: %s, Student: %s, Weakness:%s)", homeworkId, studentId, weakness);
+        System.out.printf("Assignment: %s, Student: %s, Weakness:%s\n", homeworkId, studentId, weakness);
     }
 
     // getter and setter
