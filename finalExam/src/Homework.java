@@ -23,20 +23,20 @@ public class Homework {
 
     }
 
-    public void calculateScore(String homeworkId, String studentId, RankingStrategy rankingStrategy) {
-        Assignment asg = assignments.get(studentId);
-        asg.calculateScore(homeworkId, studentId, rankingStrategy);
-    }
-
-    public void findStrength(String homeworkId, String studentId, RankingStrategy rankingStrategy) {
-        Assignment asg = assignments.get(studentId);
-        asg.findStrength(homeworkId, studentId, rankingStrategy);
-    }
-
-    public void findWeakness(String homeworkId, String studentId, RankingStrategy rankingStrategy) {
-        Assignment asg = assignments.get(studentId);
-        asg.findWeakness(homeworkId, studentId, rankingStrategy);
-    }
+//    public void calculateScore(String homeworkId, String studentId, RankingStrategy rankingStrategy) {
+//        Assignment asg = assignments.get(studentId);
+//        asg.calculateScore(homeworkId, studentId, rankingStrategy);
+//    }
+//
+//    public void findStrength(String homeworkId, String studentId, RankingStrategy rankingStrategy) {
+//        Assignment asg = assignments.get(studentId);
+//        asg.findStrength(homeworkId, studentId, rankingStrategy);
+//    }
+//
+//    public void findWeakness(String homeworkId, String studentId, RankingStrategy rankingStrategy) {
+//        Assignment asg = assignments.get(studentId);
+//        asg.findWeakness(homeworkId, studentId, rankingStrategy);
+//    }
 
 
 
