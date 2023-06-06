@@ -1,28 +1,13 @@
-10
-AuthorA SubjectA
-AuthorB SubjectB
-AuthorC SubjectB
-AuthorA SubjectC
-AuthorB SubjectD
-AuthorC SubjectE
-AuthorA SubjectE
-AuthorB SubjectE
-AuthorC SubjectF
-AuthorA SubjectG
-4
-Staff UserA
-Borrower UserB 3
-Borrower UserC 4
-Staff UserD
-UserA listAuthor AuthorA
-UserB listSubject SubjectB
-UserA addBook
-AuthorD SubjectA
-UserB listAuthor AuthorD
-UserA checkout UserB
-0 3
-UserD listAuthor AuthorA
-UserA removeBook 10
-UserC listAuthor AuthorD
-UserD return 3
-UserA listAuthor AuthorA
+student 001 002 003 004
+schoolStrategy Excellent,3 Competent,2 NeedsWork,1
+designCriterion A1 criteria1_1.txt
+assignment A1 001 002,score1_1.txt
+assignment A1 001 002,score1_1.txt 003,score1_1.txt 004,score1_2.txt
+assignment A1 002 001,score1_1.txt 003,score1_1.txt 004,score1_2.txt
+assignment A1 003 001,score1_1.txt 002,score1_1.txt 004,score1_2.txt
+assignment A1 004 001,score1_1.txt 002,score1_1.txt 003,score1_2.txt
+printRubric A1
+averageCriterion A1
+calculateScore A1 001 MeanRankingStrategy
+findStrength A1 002 MeanRankingStrategy
+findWeakness A1 003 MeanRankingStrategy
