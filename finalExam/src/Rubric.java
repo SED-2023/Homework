@@ -51,7 +51,7 @@ public class Rubric {
 
     public void printRubric() {
         for (RubricItem rubricItem : rubricItems) {
-            System.out.println(rubricItem.getCriterion().getName() + " " + rubricItem.getLevel().getLevel() + " " + rubricItem.getDescription());
+            System.out.println("(" + rubricItem.getCriterion().getName() + "," + rubricItem.getLevel().getLevel() + ") " + rubricItem.getDescription());
         }
     }
 }
