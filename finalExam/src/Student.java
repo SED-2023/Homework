@@ -50,8 +50,10 @@ public class Student {
             String studentId = studentIds.get(i);
             List<String> studentReview = review.get(i);
 
+            int j = 0;
             for (Criterion c: criteria) {
-                String reviewContent = studentReview.get(i);
+                String reviewContent = studentReview.get(j);
+                j++;
                 Level currentLevel = null;
 
                 // iterate schoolStrategy, find the level that match the reviewContent

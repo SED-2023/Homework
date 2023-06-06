@@ -29,7 +29,7 @@ public class Assignment {
             }
             sum += rankingStrategy.calculate(scoreList);
         }
-        System.out.printf("Assignment: %s, Student: %s, Score: %f\n", homeworkId, studentId, Math.round(sum / count));
+        System.out.printf("Assignment: %s, Student: %s, Score: %.1f\n", homeworkId, studentId, sum / count);
     }
 
     public void findStrength(ArrayList<Criterion> criterionList, String homeworkId, String studentId, RankingStrategy rankingStrategy) {
@@ -50,7 +50,7 @@ public class Assignment {
                 strength += ' ' + c.getName(); // need a space
             }
         }
-        System.out.printf("Assignment: %s, Student: %s, Strength:%s\n", homeworkId, studentId, strength);
+        System.out.printf("Assignment: %s, Student: %s, Strength: %s\n", homeworkId, studentId, strength);
     }
 
     public void findWeakness(ArrayList<Criterion> criterionList, String homeworkId, String studentId, RankingStrategy rankingStrategy) {
@@ -71,7 +71,7 @@ public class Assignment {
                 weakness += ' ' + c.getName(); // need a space
             }
         }
-        System.out.printf("Assignment: %s, Student: %s, Weakness:%s\n", homeworkId, studentId, weakness);
+        System.out.printf("Assignment: %s, Student: %s, Weakness: %s\n", homeworkId, studentId, weakness);
     }
 
     // getter and setter

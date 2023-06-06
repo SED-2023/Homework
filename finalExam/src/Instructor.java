@@ -32,19 +32,37 @@ public class Instructor {
     public void calculateScore(String homeworkID, String studentID, String rankingStrategy) {
         Homework hw = homeworks.get(homeworkID);
         Assignment assignment = hw.getAssignments().get(studentID);
-        assignment.calculateScore(hw.getCriterionList(), homeworkID, studentID, calculateStrategies.get(rankingStrategy));
+        RankingStrategy s = null;
+        if (rankingStrategy.equals("MeanRankingStrategy")) {
+            s = new MeanRankingStrategy();
+        }else if (rankingStrategy.equals("MedianRankingStrategy")) {
+            s = new MedianRankingStrategy();
+        }
+        assignment.calculateScore(hw.getCriterionList(), homeworkID, studentID, s);
     }
 
     public void findStrength(String homeworkID, String studentID, String rankingStrategy) {
         Homework hw = homeworks.get(homeworkID);
         Assignment assignment = hw.getAssignments().get(studentID);
-        assignment.findStrength(hw.getCriterionList(), homeworkID, studentID, calculateStrategies.get(rankingStrategy));
+        RankingStrategy s = null;
+        if (rankingStrategy.equals("MeanRankingStrategy")) {
+            s = new MeanRankingStrategy();
+        }else if (rankingStrategy.equals("MedianRankingStrategy")) {
+            s = new MedianRankingStrategy();
+        }
+        assignment.findStrength(hw.getCriterionList(), homeworkID, studentID, s);
     }
 
     public void findWeakness(String homeworkID, String studentID, String rankingStrategy) {
         Homework hw = homeworks.get(homeworkID);
         Assignment assignment = hw.getAssignments().get(studentID);
-        assignment.findWeakness(hw.getCriterionList(), homeworkID, studentID, calculateStrategies.get(rankingStrategy));
+        RankingStrategy s = null;
+        if (rankingStrategy.equals("MeanRankingStrategy")) {
+            s = new MeanRankingStrategy();
+        }else if (rankingStrategy.equals("MedianRankingStrategy")) {
+            s = new MedianRankingStrategy();
+        }
+        assignment.findWeakness(hw.getCriterionList(), homeworkID, studentID, s);
     }
 
     public void addHomework(String ID, ArrayList<ArrayList<String>> inputFileList){
