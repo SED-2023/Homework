@@ -1,7 +1,7 @@
 #!/bin/bash
 main_class="Main"
-sample_input="Sample0.in"
-sample_output="Sample0.out"
+sample_input="Sample.in"
+sample_output="Sample.out"
 
 javac -cp "lib/*" -d target ./src/*.java
 cd target
