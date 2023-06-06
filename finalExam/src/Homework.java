@@ -22,18 +22,26 @@ public class Homework {
     }
 
     public void averageCriterion() {
-        for (Map.Entry<String, Assignment> entry : assignments.entrySet()) {
+
+        for (Criterion criterion : rubric.getCriterion()) {
+            double sum = 0;
+            double count = 0;
+            for (Map.Entry<String, Assignment> entry : assignments.entrySet()) {
 //            String author = entry.getKey();
-            Assignment assignment = entry.getValue();
-            for (Criterion criterion : rubric.getCriterion()) {
-                double sum = 0;
-                double count = assignment.getReviews().size();
+
+                Assignment assignment = entry.getValue();
+                count += assignment.getReviews().size();
+
                 for (Map.Entry<String, Review> reviewEntry : assignment.getReviews().entrySet()) {
                     Review review = reviewEntry.getValue();
                     sum += review.getContent().get(criterion).getScore();
                 }
-                System.out.printf("Assignment: %s, Criterion: %s, AvgScore: %f\n", id, criterion.getName(), Math.round(sum / count));
+                // calcuate Math.round() and round to first decimal
+
+
             }
+            System.out.printf("Assignment: %s, Criterion: %s, AvgScore: %.1f\n", id, criterion.getName(), sum / count);
+
         }
     }
 
