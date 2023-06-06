@@ -10,13 +10,19 @@ public class Main {
 
         try {
 
+
+
+
             InputParser input = new InputParser();
             BufferedReader fileReader = input.parse(args);
+
             // add init books
             String line = fileReader.readLine();
+
             while (line != null) {
                 String[] tokens = line.split(" ");
                 String command = tokens[0];
+//                System.out.println(command);
                 switch (command) {
                     case "student":
                         ArrayList<String> students = new ArrayList<>();
@@ -41,9 +47,11 @@ public class Main {
                         String path = System.getProperty("user.dir");
                         Path projRootPath = Paths.get(path);
                         String rubricFilePath = projRootPath + File.separator + rubricFile;
+
                         InputParser rubricInput = new InputParser();
                         BufferedReader rubricReader = rubricInput.parse(new String[]{rubricFilePath});
                         String rubricReader_line = rubricReader.readLine();
+//                        System.out.println(rubricReader_line);
                         while (rubricReader_line != null){
                             ArrayList<String> cache = new ArrayList<>();
                             String[] rubricReader_token = rubricReader_line.split("\t");
@@ -101,7 +109,7 @@ public class Main {
             fileReader.close();
 
         } catch (IOException ex) {
-            System.out.println("Input Error");
+            System.out.println("Error");
         }
     }
 }
